@@ -13,3 +13,6 @@ Talk to the Den, click on "Invite Others", then advance the time of your Switch 
 
 # Limitations
 Basically this only works to predict IVs of current dens. When you throw in a new Wishing Piece, the seed is newly generated using a Cryptographical Secure RNG, which means the output cannot be predicted. Further, only the current den content, and the following 2 frames are pre-determined (/stored in your savegame). Everything after this is completly random and cannot be predicted, which means that if you find  Frame that gives you 6 times 31 IVs for 4 fixed IVs (5 Star Raids and some 4 Star Raids), it is not guaranteed that you will have a 4 or 5 Star Raid.
+
+# Compiling
+To compile this project, ``PKHeX.Core.dll`` and ``PKHeX.Drawing.dll`` are required as references.
