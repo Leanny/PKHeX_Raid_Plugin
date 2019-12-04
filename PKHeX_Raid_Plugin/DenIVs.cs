@@ -17,8 +17,8 @@ namespace PKHeX_Raid_Plugin
             InitializeComponent();
             for(int i=0; i<150; i++)
             {
-                string[] content = {i.ToString(), "", "", "", ""};
-                for(int k=1; k<5; k++)
+                string[] content = {i.ToString(), "", "", "", "", ""};
+                for(int k=1; k<6; k++)
                 {
                     int[] ivs = getIVs(seed, k);
                     content[k] = string.Format("{0}/{1}/{2}/{3}/{4}/{5}", ivs[0], ivs[1], ivs[2], ivs[3], ivs[4], ivs[5]);
