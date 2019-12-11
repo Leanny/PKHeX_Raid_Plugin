@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.natureLbl = new System.Windows.Forms.Label();
+            this.abilityLbl = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.shinyframes = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.EventBox = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.StarLbl = new System.Windows.Forms.Label();
@@ -58,6 +64,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.natureLbl);
+            this.groupBox1.Controls.Add(this.abilityLbl);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.shinyframes);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.EventBox);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.StarLbl);
@@ -70,10 +82,61 @@
             this.groupBox1.Controls.Add(this.denBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(275, 409);
+            this.groupBox1.Size = new System.Drawing.Size(275, 508);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Den List";
+            // 
+            // natureLbl
+            // 
+            this.natureLbl.AutoSize = true;
+            this.natureLbl.Location = new System.Drawing.Point(146, 228);
+            this.natureLbl.Name = "natureLbl";
+            this.natureLbl.Size = new System.Drawing.Size(0, 17);
+            this.natureLbl.TabIndex = 17;
+            // 
+            // abilityLbl
+            // 
+            this.abilityLbl.AutoSize = true;
+            this.abilityLbl.Location = new System.Drawing.Point(146, 256);
+            this.abilityLbl.Name = "abilityLbl";
+            this.abilityLbl.Size = new System.Drawing.Size(0, 17);
+            this.abilityLbl.TabIndex = 16;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 256);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 17);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Ability";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 228);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 17);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Nature";
+            // 
+            // shinyframes
+            // 
+            this.shinyframes.AutoSize = true;
+            this.shinyframes.Location = new System.Drawing.Point(146, 203);
+            this.shinyframes.Name = "shinyframes";
+            this.shinyframes.Size = new System.Drawing.Size(0, 17);
+            this.shinyframes.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 203);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Shiny in frames:";
             // 
             // EventBox
             // 
@@ -89,7 +152,7 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(10, 364);
+            this.button1.Location = new System.Drawing.Point(10, 453);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(245, 33);
             this.button1.TabIndex = 8;
@@ -151,7 +214,7 @@
             this.groupBox2.Controls.Add(this.TB_ATK_IV1);
             this.groupBox2.Controls.Add(this.TB_SPA_IV1);
             this.groupBox2.Controls.Add(this.TB_HP_IV1);
-            this.groupBox2.Location = new System.Drawing.Point(10, 208);
+            this.groupBox2.Location = new System.Drawing.Point(10, 289);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -405,12 +468,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 432);
+            this.ClientSize = new System.Drawing.Size(299, 532);
             this.Controls.Add(this.groupBox1);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(317, 479);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(317, 479);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Raid List";
@@ -448,5 +507,11 @@
         private System.Windows.Forms.Label StarLbl;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox EventBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label shinyframes;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label natureLbl;
+        private System.Windows.Forms.Label abilityLbl;
     }
 }

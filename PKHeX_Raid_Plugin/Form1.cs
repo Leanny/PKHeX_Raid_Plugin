@@ -175,26 +175,70 @@ namespace PKHeX_Raid_Plugin
                 }
                 Nest res = denDetails.Where(nest => nest.TableID == hash).FirstOrDefault();
                 Entry pkmn = getPkmn(res.entries, stars, roll);
-                Image sprite = PKHeX.Drawing.SpriteUtil.GetSprite(pkmn.Species, pkmn.AltForm, 0, 0, false, false);
-                if(pkmn.IsGigantamax)
-                {
-                    var gm = Properties.Resources.dyna;
-                    sprite = ImageUtil.LayerImage(sprite, gm, (sprite.Width - gm.Width) / 2, 0);
-                }
-                PB_PK1.BackgroundImage = sprite;
-
                 // calculate IVs
-                int[] ivs = getIVs(raid.Seed, pkmn.FlawlessIVs);
+                bool shiny;
+                int[] ivs = { -1, -1, -1, -1, -1, -1 };
+                XOROSHIRO rng = getData(raid.Seed, pkmn.FlawlessIVs, ivs, out shiny);
+                // ability
+                uint ability = 0;
+                if (pkmn.Ability == 3)
+                {
+                    ability = (uint) rng.nextInt(2);
+                }
+                else if (pkmn.Ability == 4)
+                {
+                    ability = (uint) rng.nextInt(3);
+                }
+
+                var s = GameInfo.Strings;
+                int[] abilities = PersonalTable.SWSH.GetAbilities(pkmn.Species, pkmn.AltForm);
+                abilityLbl.Text = s.Ability[abilities[ability]];
+                
+                // gender 
+                int gender = 0; // 0 = male, 1 = female, 2 = genderless
+                int gt = PersonalTable.SWSH[pkmn.Species].Gender;
+                switch (gt)
+                {
+                    case 255: 
+                        gender = 2; // Genderless
+                        break;
+                    case 254: 
+                        gender = 1; // Female-Only
+                        break;
+                    case 0: 
+                        gender = 0; // Male-Only
+                        break;
+                    default:
+                        gender = (int) rng.nextInt(253) < gt?1:0;
+                        break;
+                }
+
+                // nature 
+                uint nature = (uint)rng.nextInt(25); 
+                natureLbl.Text = s.natures[nature];
                 TextBox[] ivtextw = { TB_HP_IV1, TB_ATK_IV1, TB_DEF_IV1, TB_SPA_IV1, TB_SPD_IV1, TB_SPE_IV1 };
                 for(int i=0; i < 6; i++)
                 {
                     ivtextw[i].Text = ivs[i].ToString();
                 }
+
+                Image sprite = PKHeX.Drawing.SpriteUtil.GetSprite(pkmn.Species, pkmn.AltForm, gender, 0, false, shiny);
+                if (pkmn.IsGigantamax)
+                {
+                    var gm = Properties.Resources.dyna;
+                    sprite = ImageUtil.LayerImage(sprite, gm, (sprite.Width - gm.Width) / 2, 0);
+                }
+                PB_PK1.BackgroundImage = sprite;
+                shinyframes.Text = shiny_in(seed).ToString();
+
                 button1.Enabled = true;
             } else
             {
                 denSeed.Text = "";
                 StarLbl.Text = "";
+                natureLbl.Text = "";
+                shinyframes.Text = "";
+                abilityLbl.Text = "";
                 PB_PK1.BackgroundImage = null;
                 TextBox[] ivtextw = { TB_HP_IV1, TB_ATK_IV1, TB_DEF_IV1, TB_SPA_IV1, TB_SPD_IV1, TB_SPE_IV1 };
                 for (int i = 0; i < 6; i++)
@@ -205,13 +249,37 @@ namespace PKHeX_Raid_Plugin
             }
         }
 
-        private int[] getIVs(ulong seed, int FlawlessIVs)
+        private uint get_SV(uint num)
+        {
+            uint high = num >> 16;
+            uint low = num & 0xFFFF;
+            return (high ^ low) >> 4;
+        }
+
+        private int shiny_in(ulong seed)
+        {
+            int i = -1;
+            ulong new_seed = seed;
+            bool shiny = false;
+            do
+            {
+                i++;
+                XOROSHIRO rng = new XOROSHIRO(new_seed);
+                new_seed = rng.next();
+                uint SIDTID = (uint)rng.nextInt(0xFFFFFFFF);
+                uint PID = (uint)rng.nextInt(0xFFFFFFFF);
+                shiny = (get_SV(SIDTID) ^ get_SV(PID)) == 0x0;
+            } while (!shiny);
+            return i;
+        }
+
+        private XOROSHIRO getData(ulong seed, int FlawlessIVs, int[] ivs, out bool shiny)
         {
             XOROSHIRO rng = new XOROSHIRO(seed);
-            rng.nextInt();
-            rng.nextInt();
-            rng.nextInt();
-            int[] ivs = { -1, -1, -1, -1, -1, -1 };
+            rng.nextInt(0xFFFFFFFF);
+            uint SIDTID = (uint)rng.nextInt(0xFFFFFFFF);
+            uint PID = (uint)rng.nextInt(0xFFFFFFFF);
+            shiny = (get_SV(SIDTID) ^ get_SV(PID)) == 0x10;
             for (int i = 0; i < FlawlessIVs; i++)
             {
                 int idx;
@@ -225,7 +293,7 @@ namespace PKHeX_Raid_Plugin
             {
                 if (ivs[i] == -1) ivs[i] = (int) rng.nextInt(32);
             }
-            return ivs;
+            return rng;
         }
 
         private Entry getPkmn(Entry[] entries, int stars, int roll)
