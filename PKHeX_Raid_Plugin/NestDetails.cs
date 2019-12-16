@@ -2707,7 +2707,7 @@ namespace PKHeX_Raid_Plugin
         }
     }
 
-    class Entry
+    public class Entry
     {
         public readonly int Species;
         public readonly int[] Probabilities;
