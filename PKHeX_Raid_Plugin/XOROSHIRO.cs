@@ -9,6 +9,8 @@ namespace PKHeX_Raid_Plugin
     public class XOROSHIRO
     {
 
+        public static readonly ulong XOROSHIRO_CONST = 0x82A2B175229D6A5B;
+
         static ulong[] s = { 0, 0 };
 
         static ulong rotl(ulong x, int k) {
@@ -18,7 +20,7 @@ namespace PKHeX_Raid_Plugin
         public XOROSHIRO(ulong seed)
         {
             s[0] = seed;
-            s[1] = 0x82A2B175229D6A5B;
+            s[1] = XOROSHIRO_CONST;
         }
 
         public ulong next()
