@@ -25,24 +25,20 @@ namespace PKHeX_Raid_Plugin
             ctrl.Click += (s, e) => Open(SaveFileEditor.SAV);
             tools.DropDownItems.Add(ctrl);
         }
-
-        bool loaded = false;
         SAV8SWSH savegame;
         RaidSpawnList8 raids;
         private void Open(SaveFile sav)
-        {
-            if (!loaded) return;
+        { 
             var game = (GameVersion) sav.Game;
             if (game != GameVersion.SW && game != GameVersion.SH) return;
             savegame = (SAV8SWSH)sav;
             raids = savegame.Blocks.Raid;
-            Form1 f = new Form1(raids, game);
+            Form1 f = new Form1(raids, game, savegame.Badges, savegame.TID, savegame.SID);
             f.Show();
         }
 
         public void NotifySaveLoaded()
         {
-            loaded = true;
         }
 
         public bool TryLoadFile(string filePath)
