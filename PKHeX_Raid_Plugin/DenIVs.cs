@@ -34,8 +34,8 @@ namespace PKHeX_Raid_Plugin
     public partial class DenIVs : Form
     {
         private DenManager dm;
-        static readonly int[] min_stars = { 0, 0, 0, 0, 1, 1, 2, 2, 2 };
-        static readonly int[] max_stars = { 0, 1, 1, 2, 2, 2, 3, 3, 4 };
+        static readonly int[] min_stars = { 0, 0, 0, 0, 1, 1, 2, 2, 2, 0 };
+        static readonly int[] max_stars = { 0, 1, 1, 2, 2, 2, 3, 3, 4, 4 };
         public DenIVs(int idx, DenManager dm)
         {
             InitializeComponent();
@@ -175,6 +175,10 @@ namespace PKHeX_Raid_Plugin
             abilityBox.Items.Add("Any");
             foreach (int ability in abilities)
             {
+                if(pkmn.Ability == 3 && abilityBox.Items.Count == 3)
+                {
+                    break;
+                }
                 ComboboxItem ab = new ComboboxItem();
                 ab.Text = string.Format(s.Ability[ability]);
                 ab.Value = ability;
