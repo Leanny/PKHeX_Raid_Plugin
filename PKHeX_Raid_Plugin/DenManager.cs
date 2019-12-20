@@ -41,7 +41,7 @@ namespace PKHeX_Raid_Plugin
             new ulong[]{0x17459356dc635afd, 0xba8746671015cd43, 12, 209, 976}, //39 65
             new ulong[]{0x17428356dc6109f6, 0xba805967100fcede, 12, 136, 906}, //1 48
             new ulong[]{0x17458b56dc634d65, 0x450421d99cf882c1, 12, 252, 905}, //31 90
-            new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2, 11, 851}, //26 59
+            new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2, 30, 927}, //26 59
             new ulong[]{0x17491656dc666f6d, 0xba83db671012e19b, 2, 12, 861}, //26 58
             new ulong[]{0x17490856dc6657a3, 0x17491556dc666dba, 2, 12, 851}, //28 79
             new ulong[]{0x17428856dc611275, 0x45041fd99cf87f5b, 2, 20, 913}, //4 92
