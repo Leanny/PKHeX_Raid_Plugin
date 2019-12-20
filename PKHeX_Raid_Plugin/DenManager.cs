@@ -42,7 +42,7 @@ namespace PKHeX_Raid_Plugin
             new ulong[]{0x17428356dc6109f6, 0xba805967100fcede, 12, 136, 906}, //1 48
             new ulong[]{0x17458b56dc634d65, 0x450421d99cf882c1, 12, 252, 905}, //31 90
             new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2, 11, 851}, //26 59
-            new ulong[]{0x17491656dc666f6d, 0x17491556dc666dba, 2, 12, 861}, //26 58
+            new ulong[]{0x17491656dc666f6d, 0xba83db671012e19b, 2, 12, 861}, //26 58
             new ulong[]{0x17490856dc6657a3, 0x17491556dc666dba, 2, 12, 851}, //28 79
             new ulong[]{0x17428856dc611275, 0x45041fd99cf87f5b, 2, 20, 913}, //4 92
             new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2, 40, 878}, //26 59
@@ -52,8 +52,8 @@ namespace PKHeX_Raid_Plugin
             new ulong[]{0x17459356dc635afd, 0xba8746671015cd43, 4, 158, 705}, //39 65
             new ulong[]{0x17458b56dc634d65, 0xba83d8671012dc82, 4, 220, 759}, //31 61
             new ulong[]{0x17458b56dc634d65, 0xba83d8671012dc82, 4, 248, 852}, //31 61
-            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 16, 129,818}, //9 75
-            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 16, 131,735}, //9 75
+            new ulong[]{0x17428b56dc61178e, 0xba8a4e67101810b2, 16, 129,818}, //9 75
+            new ulong[]{0x17428b56dc61178e, 0xba8a4e67101810b2, 16, 131,735}, //9 75
             new ulong[]{0x17501a56dc6c94e7, 0xba805d67100fd5aa, 16, 105,907}, //44 42
             new ulong[]{0x17428556dc610d5c, 0xba805d67100fd5aa, 16, 50,909}, //7 44
             new ulong[]{0x17428b56dc61178e, 0x450420d99cf8810e, 16, 98, 750}, //9 91
@@ -78,7 +78,7 @@ namespace PKHeX_Raid_Plugin
             new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 11, 443,792}, //10 48
             new ulong[]{0x173f0256dc5df8ec, 0xba805367100fc4ac, 10, 412, 533}, //14 50
             new ulong[]{0x17458a56dc634bb2, 0xba83d9671012de35, 10, 345, 537}, //30 60
-            new ulong[]{0x17491456dc666c07, 0x17491356dc666a54, 10, 365, 559}, //24 56
+            new ulong[]{0x17491456dc666c07, 0xba83dd671012e501, 10, 365, 559}, //24 56
             new ulong[]{0x17501c56dc6c984d, 0xba8746671015cd43, 10, 408, 570}, //40 65
             new ulong[]{0x17458656dc6344e6, 0x45009dd99cf56c9e, 1, 193, 295}, //34 82
             new ulong[]{0x173f0156dc5df739, 0x450424d99cf887da, 1, 274, 321}, //13 87
@@ -99,16 +99,16 @@ namespace PKHeX_Raid_Plugin
             new ulong[]{0x173f0056dc5df586, 0x450098d99cf5641f, 14, 303, 242}, //12 85
             new ulong[]{0x17491256dc6668a1, 0xba83de671012e6b4, 14, 324, 209}, //22 55
             new ulong[]{0x173f0256dc5df8ec, 0xba805367100fc4ac, 14, 326, 219}, //14 50
-            new ulong[]{0x173f0656dc5dffb8, 0x173f0756dc5e016b, 14, 330, 215}, //18 54
+            new ulong[]{0x173f0656dc5dffb8, 0xba83df671012e867, 14, 330, 215}, //18 54
             new ulong[]{0x17458756dc634699, 0x17458456dc634180, 14, 282, 195}, //35 63
             new ulong[]{0x173f0556dc5dfe05, 0x45041ed99cf87da8, 3, 265, 139}, //17 93
             new ulong[]{0x173f0556dc5dfe05, 0xba83e1671012ebcd, 3, 307, 93}, //17 52
             new ulong[]{0x173f0356dc5dfa9f, 0x45041ed99cf87da8, 3, 331, 84}, //15 93
-            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 3, 219, 99}, //9 75
+            new ulong[]{0x17428b56dc61178e, 0xba8a4e67101810b2, 3, 219, 99}, //9 75
             new ulong[]{0x173eff56dc5df3d3, 0xba805a67100fd091, 3, 243, 120}, //11 49
             new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 3, 262, 174}, //10 48
             new ulong[]{0x17490f56dc666388, 0xba83de671012e6b4, 3, 283, 98}, //21 55
-            new ulong[]{0x173f0656dc5dffb8, 0x173f0756dc5e016b, 3, 304, 112}, //20 54
+            new ulong[]{0x173f0656dc5dffb8, 0xba83df671012e867, 3, 304, 112}, //20 54
             new ulong[]{0x17490856dc6657a3, 0xba805c67100fd3f7, 6, 306, 145}, //28 43
             new ulong[]{0x17458456dc634180, 0x450423d99cf88627, 3, 214, 168}, //36 88
             new ulong[]{0x17501a56dc6c94e7, 0xba874c671015d775, 6, 334, 145}, //42 67
@@ -127,10 +127,11 @@ namespace PKHeX_Raid_Plugin
             new ulong[]{0x173f0656dc5dffb8, 0xba8750671015de41, 5, 193, 173}, //18 71
             new ulong[]{0x17458856dc63484c, 0x450422d99cf88474, 5, 202, 95}, //32 89
             new ulong[]{0x17491456dc666c07, 0x4500a1d99cf5736a, 5, 185, 135}, //24 78
-            new ulong[]{0x17491356dc666a54, 0x17491356dc666a54, 9, 170, 35}, //25 56
-            new ulong[]{0x173f0656dc5dffb8, 0xba83e0671012ea1a, 9, 128, 58}, //18 77
+            new ulong[]{0x17491356dc666a54, 0xba83dd671012e501, 9, 170, 35}, //25 56
+            new ulong[]{0x173f0656dc5dffb8, 0x4500a0d99cf571b7, 9, 128, 58}, //18 77
             new ulong[]{0x17428c56dc611941, 0xba805d67100fd5aa, 9, 161, 80}, //8 44
             new ulong[]{0x17458656dc6344e6, 0xba8a4f6710181265, 9, 143, 39}, //34 74
+
 
         };
 
