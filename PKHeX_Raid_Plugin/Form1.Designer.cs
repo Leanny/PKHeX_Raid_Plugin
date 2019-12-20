@@ -62,7 +62,6 @@ namespace PKHeX_Raid_Plugin
             this.EventBox = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.StarLbl = new System.Windows.Forms.Label();
-            this.PB_PK1 = new System.Windows.Forms.PictureBox();
             this.rareBox = new System.Windows.Forms.CheckBox();
             this.activeBox = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -81,9 +80,14 @@ namespace PKHeX_Raid_Plugin
             this.denSeed = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.denBox = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DenMap = new System.Windows.Forms.PictureBox();
+            this.PB_PK1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_PK1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DenMap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_PK1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -199,17 +203,6 @@ namespace PKHeX_Raid_Plugin
             this.StarLbl.Name = "StarLbl";
             this.StarLbl.Size = new System.Drawing.Size(0, 17);
             this.StarLbl.TabIndex = 7;
-            // 
-            // PB_PK1
-            // 
-            this.PB_PK1.BackColor = System.Drawing.Color.Transparent;
-            this.PB_PK1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PB_PK1.Location = new System.Drawing.Point(150, 135);
-            this.PB_PK1.Margin = new System.Windows.Forms.Padding(4);
-            this.PB_PK1.Name = "PB_PK1";
-            this.PB_PK1.Size = new System.Drawing.Size(91, 69);
-            this.PB_PK1.TabIndex = 6;
-            this.PB_PK1.TabStop = false;
             // 
             // rareBox
             // 
@@ -497,20 +490,54 @@ namespace PKHeX_Raid_Plugin
             this.denBox.TabIndex = 0;
             this.denBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.DenMap);
+            this.groupBox3.Location = new System.Drawing.Point(293, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(235, 533);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Den Map";
+            // 
+            // DenMap
+            // 
+            this.DenMap.BackgroundImage = global::PKHeX_Raid_Plugin.Properties.Resources.map;
+            this.DenMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.DenMap.Location = new System.Drawing.Point(6, 21);
+            this.DenMap.Name = "DenMap";
+            this.DenMap.Size = new System.Drawing.Size(223, 506);
+            this.DenMap.TabIndex = 0;
+            this.DenMap.TabStop = false;
+            // 
+            // PB_PK1
+            // 
+            this.PB_PK1.BackColor = System.Drawing.Color.Transparent;
+            this.PB_PK1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PB_PK1.Location = new System.Drawing.Point(150, 135);
+            this.PB_PK1.Margin = new System.Windows.Forms.Padding(4);
+            this.PB_PK1.Name = "PB_PK1";
+            this.PB_PK1.Size = new System.Drawing.Size(91, 69);
+            this.PB_PK1.TabIndex = 6;
+            this.PB_PK1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 553);
+            this.ClientSize = new System.Drawing.Size(529, 553);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Raid List";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_PK1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DenMap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_PK1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,5 +574,7 @@ namespace PKHeX_Raid_Plugin
         private System.Windows.Forms.Label natureLbl;
         private System.Windows.Forms.Label abilityLbl;
         private System.Windows.Forms.Label locationLabel;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.PictureBox DenMap;
     }
 }

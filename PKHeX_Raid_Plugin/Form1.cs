@@ -79,6 +79,17 @@ namespace PKHeX_Raid_Plugin
             PB_PK1.BackgroundImage = sprite;
             shinyframes.Text = shiny_in(den.seed).ToString();
             locationLabel.Text = den.location;
+
+            if(den.x > 0 && den.y > 0)
+            {
+                Pen redPen = new Pen(Color.Red, 10);
+                var bmp = Properties.Resources.map;
+                using (var graphics = Graphics.FromImage(bmp))
+                {
+                    graphics.DrawArc(redPen, den.x-5, den.y-5, 15, 15, 0, 360);
+                }
+                DenMap.BackgroundImage = bmp;
+            }
         }
 
         private int shiny_in(ulong seed)
