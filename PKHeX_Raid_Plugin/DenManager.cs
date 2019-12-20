@@ -32,105 +32,106 @@ namespace PKHeX_Raid_Plugin
     {
         private ulong[][] DenHashes =
         {
-            new ulong[]{0x173f0456dc5dfc52, 0xba83e1671012ebcd, 12}, //16 52
-            new ulong[]{0x17458556dc634333, 0xba8745671015cb90, 12}, //37 64
-            new ulong[]{0x17458b56dc634d65, 0x450421d99cf882c1, 12}, //31 90
-            new ulong[]{0x17428156dc610690, 0xba805467100fc65f, 12}, //3 51
-            new ulong[]{0x17428856dc611275, 0xba805767100fcb78, 12}, //4 46
-            new ulong[]{0x17458956dc6349ff, 0xba8747671015cef6, 12}, //33 62
-            new ulong[]{0x17459356dc635afd, 0xba8746671015cd43, 12}, //39 65
-            new ulong[]{0x17428356dc6109f6, 0xba805967100fcede, 12}, //1 48
-            new ulong[]{0x17458b56dc634d65, 0x450421d99cf882c1, 12}, //31 90
-            new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2}, //26 59
-            new ulong[]{0x17491656dc666f6d, 0x17491556dc666dba, 2}, //26 58
-            new ulong[]{0x17490856dc6657a3, 0x17491556dc666dba, 2}, //28 79
-            new ulong[]{0x17428856dc611275, 0x45041fd99cf87f5b, 2}, //4 92
-            new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2}, //26 59
-            new ulong[]{0x17428256dc610843, 0xba805367100fc4ac, 15}, //2 50
-            new ulong[]{0x17428656dc610f0f, 0xba805867100fcd2b, 15}, //6 47
-            new ulong[]{0x17428556dc610d5c, 0xba805d67100fd5aa, 4}, //7 44
-            new ulong[]{0x17459356dc635afd, 0xba8746671015cd43, 4}, //39 65
-            new ulong[]{0x17458b56dc634d65, 0xba83d8671012dc82, 4}, //31 61
-            new ulong[]{0x17458b56dc634d65, 0xba83d8671012dc82, 4}, //31 61
-            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 16}, //9 75
-            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 16}, //9 75
-            new ulong[]{0x17501a56dc6c94e7, 0xba805d67100fd5aa, 16}, //42 44
-            new ulong[]{0x17428556dc610d5c, 0xba805d67100fd5aa, 16}, //7 44
-            new ulong[]{0x17428b56dc61178e, 0x450420d99cf8810e, 16}, //9 91
-            new ulong[]{0x17458756dc634699, 0x17458456dc634180, 16}, //35 63
-            new ulong[]{0x17459256dc63594a, 0xba8745671015cb90, 0}, //38 64
-            new ulong[]{0x17428c56dc611941, 0x450420d99cf8810e, 13}, //8 91
-            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 13}, //41 76
-            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 13}, //41 76
-            new ulong[]{0x17428756dc6110c2, 0xba805767100fcb78, 13}, //5 46
-            new ulong[]{0x17428356dc6109f6, 0xba805c67100fd3f7, 13}, //1 43
-            new ulong[]{0x173f0356dc5dfa9f, 0xba805467100fc65f, 7}, //15 51
-            new ulong[]{0x173f0056dc5df586, 0xba805e67100fd75d, 7}, //12 45
-            new ulong[]{0x173eff56dc5df3d3, 0xba805a67100fd091, 7}, //11 49
-            new ulong[]{0x173f0356dc5dfa9f, 0x45009ed99cf56e51, 7}, //15 83
-            new ulong[]{0x173eff56dc5df3d3, 0x450097d99cf5626c, 7}, //11 84
-            new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 11}, //10 48
-            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 11}, //41 76
-            new ulong[]{0x17490756dc6655f0, 0xba83d9671012de35, 11}, //29 60
-            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 11}, //41 76
-            new ulong[]{0x17490756dc6655f0, 0xba83d9671012de35, 11}, //29 60
-            new ulong[]{0x17490756dc6655f0, 0x450425d99cf8898d, 4}, //29 86
-            new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 11}, //10 48
-            new ulong[]{0x173f0256dc5df8ec, 0xba805367100fc4ac, 10}, //14 50
-            new ulong[]{0x17458a56dc634bb2, 0xba83d9671012de35, 10}, //30 60
-            new ulong[]{0x17491456dc666c07, 0x17491356dc666a54, 10}, //24 56
-            new ulong[]{0x17501c56dc6c984d, 0xba8746671015cd43, 10}, //40 65
-            new ulong[]{0x17458656dc6344e6, 0x45009dd99cf56c9e, 1}, //34 82
-            new ulong[]{0x173f0156dc5df739, 0x450424d99cf887da, 1}, //13 87
-            new ulong[]{0x17428c56dc611941, 0xba805d67100fd5aa, 1}, //8 44
-            new ulong[]{0x173f0456dc5dfc52, 0xba83e1671012ebcd, 1}, //16 52
-            new ulong[]{0x17501c56dc6c984d, 0xba8746671015cd43, 1}, //40 65
-            new ulong[]{0x17428856dc611275, 0x45041fd99cf87f5b, 1}, //4 92
-            new ulong[]{0x17428756dc6110c2, 0xba805767100fcb78, 1}, //5 46
-            new ulong[]{0x17458456dc634180, 0x17458456dc634180, 1}, //36 63
-            new ulong[]{0x17491556dc666dba, 0xba83da671012dfe8, 1}, //27 59
-            new ulong[]{0x17501c56dc6c984d, 0xba874b671015d5c2, 14}, //40 66
-            new ulong[]{0x17428356dc6109f6, 0x45009cd99cf56aeb, 14}, //1 81
-            new ulong[]{0x17428156dc610690, 0xba805467100fc65f, 14}, //3 51
-            new ulong[]{0x173f0756dc5e016b, 0x45009bd99cf56938, 14}, //19 80
-            new ulong[]{0x17428656dc610f0f, 0xba805c67100fd3f7, 14}, //6 43
-            new ulong[]{0x17491556dc666dba, 0xba83da671012dfe8, 14}, //27 59
-            new ulong[]{0x17428256dc610843, 0xba805367100fc4ac, 14}, //2 50
-            new ulong[]{0x173f0056dc5df586, 0x450098d99cf5641f, 14}, //12 85
-            new ulong[]{0x17491256dc6668a1, 0xba83de671012e6b4, 14}, //22 55
-            new ulong[]{0x173f0256dc5df8ec, 0xba805367100fc4ac, 14}, //14 50
-            new ulong[]{0x173f0656dc5dffb8, 0x173f0756dc5e016b, 14}, //18 54
-            new ulong[]{0x17458756dc634699, 0x17458456dc634180, 14}, //35 63
-            new ulong[]{0x173f0556dc5dfe05, 0x45041ed99cf87da8, 3}, //17 93
-            new ulong[]{0x173f0556dc5dfe05, 0xba83e1671012ebcd, 3}, //17 52
-            new ulong[]{0x173f0356dc5dfa9f, 0x45041ed99cf87da8, 3}, //15 93
-            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 3}, //9 75
-            new ulong[]{0x173eff56dc5df3d3, 0xba805a67100fd091, 3}, //11 49
-            new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 3}, //10 48
-            new ulong[]{0x17490f56dc666388, 0xba83de671012e6b4, 3}, //21 55
-            new ulong[]{0x173f0656dc5dffb8, 0x173f0756dc5e016b, 3}, //20 54
-            new ulong[]{0x17490856dc6657a3, 0xba805c67100fd3f7, 6}, //28 43
-            new ulong[]{0x17458456dc634180, 0x450423d99cf88627, 3}, //36 88
-            new ulong[]{0x17501a56dc6c94e7, 0xba874c671015d775, 6}, //42 67
-            new ulong[]{0x17458456dc634180, 0xba874a671015d40f, 6}, //36 69
-            new ulong[]{0x17491556dc666dba, 0xba874f671015dc8e, 6}, //27 70
-            new ulong[]{0x17491356dc666a54, 0xba8a4d6710180eff, 6}, //25 72
-            new ulong[]{0x173f0056dc5df586, 0xba805e67100fd75d, 8}, //12 45
-            new ulong[]{0x17458856dc63484c, 0xba83d8671012dc82, 8}, //32 61
-            new ulong[]{0x17458a56dc634bb2, 0xba83dc671012e34e, 8}, //30 57
-            new ulong[]{0x173f0756dc5e016b, 0xba83e0671012ea1a, 8}, //19 53
-            new ulong[]{0x17491156dc6666ee, 0xba8a4c6710180d4c, 8}, //23 73
-            new ulong[]{0x17458956dc6349ff, 0xba8747671015cef6, 8}, //33 62
-            new ulong[]{0x173f0256dc5df8ec, 0xba8749671015d25c, 8}, //14 68
-            new ulong[]{0x17458a56dc634bb2, 0xba83d9671012de35, 5}, //30 60
-            new ulong[]{0x17491156dc6666ee, 0xba83de671012e6b4, 5}, //23 55
-            new ulong[]{0x173f0656dc5dffb8, 0xba8750671015de41, 5}, //18 71
-            new ulong[]{0x17458856dc63484c, 0x450422d99cf88474, 5}, //32 89
-            new ulong[]{0x17491456dc666c07, 0x4500a1d99cf5736a, 5}, //24 78
-            new ulong[]{0x17491356dc666a54, 0x17491356dc666a54, 9}, //25 56
-            new ulong[]{0x173f0656dc5dffb8, 0xba83e0671012ea1a, 9}, //18 77
-            new ulong[]{0x17428c56dc611941, 0xba805d67100fd5aa, 9}, //8 44
-            new ulong[]{0x17458656dc6344e6, 0xba8a4f6710181265, 9}  //34 74
+            new ulong[]{0x173f0456dc5dfc52, 0xba83e1671012ebcd, 12, 185, 977}, //16 52
+            new ulong[]{0x17458556dc634333, 0xba8745671015cb90, 12, 125, 1005}, //37 64
+            new ulong[]{0x17458b56dc634d65, 0x450421d99cf882c1, 12, 114, 936}, //31 90
+            new ulong[]{0x17428156dc610690, 0xba805467100fc65f, 12, 311, 998}, //3 51
+            new ulong[]{0x17428856dc611275, 0xba805767100fcb78, 12, 233, 948}, //4 46
+            new ulong[]{0x17458956dc6349ff, 0xba8747671015cef6, 12, 337, 996}, //33 62
+            new ulong[]{0x17459356dc635afd, 0xba8746671015cd43, 12, 209, 976}, //39 65
+            new ulong[]{0x17428356dc6109f6, 0xba805967100fcede, 12, 136, 906}, //1 48
+            new ulong[]{0x17458b56dc634d65, 0x450421d99cf882c1, 12, 252, 905}, //31 90
+            new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2, 11, 851}, //26 59
+            new ulong[]{0x17491656dc666f6d, 0x17491556dc666dba, 2, 12, 861}, //26 58
+            new ulong[]{0x17490856dc6657a3, 0x17491556dc666dba, 2, 12, 851}, //28 79
+            new ulong[]{0x17428856dc611275, 0x45041fd99cf87f5b, 2, 20, 913}, //4 92
+            new ulong[]{0x17491656dc666f6d, 0xba83da671012dfe8, 2, 40, 878}, //26 59
+            new ulong[]{0x17428256dc610843, 0xba805367100fc4ac, 15, 52, 776}, //2 50
+            new ulong[]{0x17428656dc610f0f, 0xba805867100fcd2b, 15, 68, 652}, //6 47
+            new ulong[]{0x17428556dc610d5c, 0xba805d67100fd5aa, 4, 217, 913}, //7 44
+            new ulong[]{0x17459356dc635afd, 0xba8746671015cd43, 4, 158, 705}, //39 65
+            new ulong[]{0x17458b56dc634d65, 0xba83d8671012dc82, 4, 220, 759}, //31 61
+            new ulong[]{0x17458b56dc634d65, 0xba83d8671012dc82, 4, 248, 852}, //31 61
+            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 16, 129,818}, //9 75
+            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 16, 131,735}, //9 75
+            new ulong[]{0x17501a56dc6c94e7, 0xba805d67100fd5aa, 16, 105,907}, //44 42
+            new ulong[]{0x17428556dc610d5c, 0xba805d67100fd5aa, 16, 50,909}, //7 44
+            new ulong[]{0x17428b56dc61178e, 0x450420d99cf8810e, 16, 98, 750}, //9 91
+            new ulong[]{0x17458756dc634699, 0x17458456dc634180, 16, 107,652}, //35 63
+            new ulong[]{0x17459256dc63594a, 0xba8745671015cb90, 0, 186, 816}, //38 64
+            new ulong[]{0x17428c56dc611941, 0x450420d99cf8810e, 13, 310, 824}, //8 91
+            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 13, 359,980}, //41 76
+            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 13, 393,962}, //41 76
+            new ulong[]{0x17428756dc6110c2, 0xba805767100fcb78, 13, 328,761}, //5 46
+            new ulong[]{0x17428356dc6109f6, 0xba805c67100fd3f7, 13, 352, 765}, //1 43
+            new ulong[]{0x173f0356dc5dfa9f, 0xba805467100fc65f, 7, 443, 895}, //15 51
+            new ulong[]{0x173f0056dc5df586, 0xba805e67100fd75d, 7, 388,817}, //12 45
+            new ulong[]{0x173eff56dc5df3d3, 0xba805a67100fd091, 7, 443,830}, //11 49
+            new ulong[]{0x173f0356dc5dfa9f, 0x45009ed99cf56e51, 7, 410, 952}, //15 83
+            new ulong[]{0x173eff56dc5df3d3, 0x450097d99cf5626c, 7, 447, 815}, //11 84
+            new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 11, 393, 781}, //10 48
+            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 11, 314,755}, //41 76
+            new ulong[]{0x17490756dc6655f0, 0xba83d9671012de35, 11, 440,658}, //29 60
+            new ulong[]{0x17501b56dc6c969a, 0xba8a496710180833, 11, 281,717}, //41 76
+            new ulong[]{0x17490756dc6655f0, 0xba83d9671012de35, 11, 440,703}, //29 60
+            new ulong[]{0x17490756dc6655f0, 0x450425d99cf8898d, 4, 310, 654}, //29 86
+            new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 11, 443,792}, //10 48
+            new ulong[]{0x173f0256dc5df8ec, 0xba805367100fc4ac, 10, 412, 533}, //14 50
+            new ulong[]{0x17458a56dc634bb2, 0xba83d9671012de35, 10, 345, 537}, //30 60
+            new ulong[]{0x17491456dc666c07, 0x17491356dc666a54, 10, 365, 559}, //24 56
+            new ulong[]{0x17501c56dc6c984d, 0xba8746671015cd43, 10, 408, 570}, //40 65
+            new ulong[]{0x17458656dc6344e6, 0x45009dd99cf56c9e, 1, 193, 295}, //34 82
+            new ulong[]{0x173f0156dc5df739, 0x450424d99cf887da, 1, 274, 321}, //13 87
+            new ulong[]{0x17428c56dc611941, 0xba805d67100fd5aa, 1, 328, 330}, //8 44
+            new ulong[]{0x173f0456dc5dfc52, 0xba83e1671012ebcd, 1, 370, 452}, //16 52
+            new ulong[]{0x17501c56dc6c984d, 0xba8746671015cd43, 1, 224, 282}, //40 65
+            new ulong[]{0x17428856dc611275, 0x45041fd99cf87f5b, 1, 342, 312}, //4 92
+            new ulong[]{0x17428756dc6110c2, 0xba805767100fcb78, 1, 340, 269}, //5 46
+            new ulong[]{0x17458456dc634180, 0x17458456dc634180, 1, 305, 323}, //36 63
+            new ulong[]{0x17491556dc666dba, 0xba83da671012dfe8, 1, 334, 368}, //27 59
+            new ulong[]{0x17501c56dc6c984d, 0xba874b671015d5c2, 14, 343, 222}, //40 66
+            new ulong[]{0x17428356dc6109f6, 0x45009cd99cf56aeb, 14, 348, 195}, //1 81
+            new ulong[]{0x17428156dc610690, 0xba805467100fc65f, 14, 200, 244}, //3 51
+            new ulong[]{0x173f0756dc5e016b, 0x45009bd99cf56938, 14, 305, 183}, //19 80
+            new ulong[]{0x17428656dc610f0f, 0xba805c67100fd3f7, 14, 348, 180}, //6 43
+            new ulong[]{0x17491556dc666dba, 0xba83da671012dfe8, 14, 260, 199}, //27 59
+            new ulong[]{0x17428256dc610843, 0xba805367100fc4ac, 14, 211, 205}, //2 50
+            new ulong[]{0x173f0056dc5df586, 0x450098d99cf5641f, 14, 303, 242}, //12 85
+            new ulong[]{0x17491256dc6668a1, 0xba83de671012e6b4, 14, 324, 209}, //22 55
+            new ulong[]{0x173f0256dc5df8ec, 0xba805367100fc4ac, 14, 326, 219}, //14 50
+            new ulong[]{0x173f0656dc5dffb8, 0x173f0756dc5e016b, 14, 330, 215}, //18 54
+            new ulong[]{0x17458756dc634699, 0x17458456dc634180, 14, 282, 195}, //35 63
+            new ulong[]{0x173f0556dc5dfe05, 0x45041ed99cf87da8, 3, 265, 139}, //17 93
+            new ulong[]{0x173f0556dc5dfe05, 0xba83e1671012ebcd, 3, 307, 93}, //17 52
+            new ulong[]{0x173f0356dc5dfa9f, 0x45041ed99cf87da8, 3, 331, 84}, //15 93
+            new ulong[]{0x17428b56dc61178e, 0x17428556dc610d5c, 3, 219, 99}, //9 75
+            new ulong[]{0x173eff56dc5df3d3, 0xba805a67100fd091, 3, 243, 120}, //11 49
+            new ulong[]{0x173efe56dc5df220, 0xba805967100fcede, 3, 262, 174}, //10 48
+            new ulong[]{0x17490f56dc666388, 0xba83de671012e6b4, 3, 283, 98}, //21 55
+            new ulong[]{0x173f0656dc5dffb8, 0x173f0756dc5e016b, 3, 304, 112}, //20 54
+            new ulong[]{0x17490856dc6657a3, 0xba805c67100fd3f7, 6, 306, 145}, //28 43
+            new ulong[]{0x17458456dc634180, 0x450423d99cf88627, 3, 214, 168}, //36 88
+            new ulong[]{0x17501a56dc6c94e7, 0xba874c671015d775, 6, 334, 145}, //42 67
+            new ulong[]{0x17458456dc634180, 0xba874a671015d40f, 6, 347, 103}, //36 69
+            new ulong[]{0x17491556dc666dba, 0xba874f671015dc8e, 6, 363, 88}, //27 70
+            new ulong[]{0x17491356dc666a54, 0xba8a4d6710180eff, 6, 338, 122}, //25 72
+            new ulong[]{0x173f0056dc5df586, 0xba805e67100fd75d, 8, 339, 35}, //12 45
+            new ulong[]{0x17458856dc63484c, 0xba83d8671012dc82, 8, 310, 65}, //32 61
+            new ulong[]{0x17458a56dc634bb2, 0xba83dc671012e34e, 8, 202, 34}, //30 57
+            new ulong[]{0x173f0756dc5e016b, 0xba83e0671012ea1a, 8, 237, 67}, //19 53
+            new ulong[]{0x17491156dc6666ee, 0xba8a4c6710180d4c, 8, 183, 47}, //23 73
+            new ulong[]{0x17458956dc6349ff, 0xba8747671015cef6, 8, 221, 50}, //33 62
+            new ulong[]{0x173f0256dc5df8ec, 0xba8749671015d25c, 8, 354, 60}, //14 68
+            new ulong[]{0x17458a56dc634bb2, 0xba83d9671012de35, 5, 181, 185}, //30 60
+            new ulong[]{0x17491156dc6666ee, 0xba83de671012e6b4, 5, 199, 145}, //23 55
+            new ulong[]{0x173f0656dc5dffb8, 0xba8750671015de41, 5, 193, 173}, //18 71
+            new ulong[]{0x17458856dc63484c, 0x450422d99cf88474, 5, 202, 95}, //32 89
+            new ulong[]{0x17491456dc666c07, 0x4500a1d99cf5736a, 5, 185, 135}, //24 78
+            new ulong[]{0x17491356dc666a54, 0x17491356dc666a54, 9, 170, 35}, //25 56
+            new ulong[]{0x173f0656dc5dffb8, 0xba83e0671012ea1a, 9, 128, 58}, //18 77
+            new ulong[]{0x17428c56dc611941, 0xba805d67100fd5aa, 9, 161, 80}, //8 44
+            new ulong[]{0x17458656dc6344e6, 0xba8a4f6710181265, 9, 143, 39}, //34 74
+
         };
 
         private const ulong DenEventHash = 1721953670860364124;
@@ -159,6 +160,10 @@ namespace PKHeX_Raid_Plugin
             this.raids = raids;
             this.game = game;
             this.badges = NumberOfSetBits(badges);
+            if (this.badges == 0)
+            {
+                this.badges = 9; // enable all dens for basically no savegame loaded
+            }
             this.tid = tid;
             this.sid = sid;
 
@@ -169,7 +174,7 @@ namespace PKHeX_Raid_Plugin
                 int idx = i;
                 if (idx >= 15) idx++;
                 var currentRaid = allRaids[idx];
-                Den den = new Den(i, currentRaid.Seed, currentRaid.Stars, currentRaid.RandRoll, currentRaid.Flags, currentRaid.DenType, (int) DenHashes[i][2]);
+                Den den = new Den(i, currentRaid.Seed, currentRaid.Stars, currentRaid.RandRoll, currentRaid.Flags, currentRaid.DenType, (int) DenHashes[i][2], (int)DenHashes[i][3], (int)DenHashes[i][4]);
                 this.denList[i] = den;
             }
         }
@@ -201,18 +206,16 @@ namespace PKHeX_Raid_Plugin
 
         public IEnumerable<Entry> GetAllEntriesWithStarcount(Den den, int stars)
         {
-            Nest[] denDetails;
-            ulong hash;
             if (den.event_den)
             {
-                denDetails = this.game == GameVersion.SW ? nestDetails.SwordNestsEvent : nestDetails.ShieldNestsEvent;
+                Nest[] denDetails = this.game == GameVersion.SW ? nestDetails.SwordNestsEvent : nestDetails.ShieldNestsEvent;
                 Nest res = denDetails.Where(nest => nest.TableID == DenEventHash).FirstOrDefault();
                 return res.entries.Where(nest => nest.Probabilities[stars] > 0);
             }
             else
             {
                 ulong[] hashes = DenHashes[den.idx];
-                denDetails = this.game == GameVersion.SW ? nestDetails.SwordNests : nestDetails.ShieldNests;
+                Nest[] denDetails = this.game == GameVersion.SW ? nestDetails.SwordNests : nestDetails.ShieldNests;
                 Nest res = denDetails.Where(nest => nest.TableID == hashes[0]).FirstOrDefault();
                 Nest res2 = denDetails.Where(nest => nest.TableID == hashes[1]).FirstOrDefault();
                 return res.entries.Where(nest => nest.Probabilities[stars] > 0).Union(res2.entries.Where(nest => nest.Probabilities[stars] > 0));
@@ -357,9 +360,11 @@ namespace PKHeX_Raid_Plugin
         public readonly int idx;
         public readonly int stars;
         public readonly int roll;
+        public readonly int x;
+        public readonly int y;
         public readonly string location;
 
-        public Den(int idx, ulong seed, int stars, int roll, int flags, int type, int location)
+        public Den(int idx, ulong seed, int stars, int roll, int flags, int type, int location, int x, int y)
         {
             this.seed = seed;
             this.flags = flags;
@@ -371,6 +376,8 @@ namespace PKHeX_Raid_Plugin
             this.roll = roll;
             this.idx = idx;
             this.location = LocationNames[location];
+            this.x = x;
+            this.y = y;
         }
 
 
