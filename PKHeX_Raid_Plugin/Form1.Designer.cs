@@ -528,6 +528,8 @@ namespace PKHeX_Raid_Plugin
             this.ClientSize = new System.Drawing.Size(529, 553);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(547, 600);
+            this.MinimumSize = new System.Drawing.Size(547, 600);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Raid List";
