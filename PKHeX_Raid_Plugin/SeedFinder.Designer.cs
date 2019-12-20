@@ -326,6 +326,7 @@ namespace PKHeX_Raid_Plugin
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(240, 455);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(240, 455);
             this.Name = "SeedFinder";
             this.ShowIcon = false;
