@@ -264,17 +264,22 @@ namespace PKHeX_Raid_Plugin
             uint pid = uint.Parse(PIDBox.Text, System.Globalization.NumberStyles.HexNumber);
             int[] ivs = { (int)minHP.Value, (int)minAtk.Value, (int)minDef.Value, (int)minSpa.Value, (int)minSpd.Value, (int)MinSpe.Value, };
             List<UInt64> potential_seeds = new List<UInt64>();
-            foreach(UInt64 seed in find_potential_seeds(ec, pid, false))
+            try { 
+                foreach(UInt64 seed in find_potential_seeds(ec, pid, false))
+                {
+                    potential_seeds.Add(seed);
+                }
+                foreach (UInt64 seed in find_potential_seeds(ec, pid ^ 0x10000000, false))
+                {
+                    potential_seeds.Add(seed);
+                }
+                foreach (UInt64 seed in find_potential_seeds(ec, pid, true))
+                {
+                    potential_seeds.Add(seed);
+                }
+            } catch(Exception ex)
             {
-                potential_seeds.Add(seed);
-            }
-            foreach (UInt64 seed in find_potential_seeds(ec, pid ^ 0x10000000, false))
-            {
-                potential_seeds.Add(seed);
-            }
-            foreach (UInt64 seed in find_potential_seeds(ec, pid, true))
-            {
-                potential_seeds.Add(seed);
+                MessageBox.Show("This method requires Z3. Please add Z3 to your path.", "Cannot calculate seed");
             }
             get_valid_seed(potential_seeds, ivs);
         }
