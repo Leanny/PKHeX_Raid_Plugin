@@ -32,6 +32,7 @@ namespace PKHeX_Raid_Plugin
     public class RaidPlugin : IPlugin
     {
         public string Name => "Display Raids";
+        public string Name_Finder => "Raid Seed Finder";
 
         public int Priority => 1;
 
@@ -48,6 +49,9 @@ namespace PKHeX_Raid_Plugin
             var ctrl = new ToolStripMenuItem(Name) { };
             ctrl.Click += (s, e) => Open(SaveFileEditor.SAV);
             tools.DropDownItems.Add(ctrl);
+            ctrl = new ToolStripMenuItem(Name_Finder) { };
+            ctrl.Click += (s, e) => LoadSeedFinder(SaveFileEditor.SAV);
+            tools.DropDownItems.Add(ctrl);
         }
         SAV8SWSH savegame;
         RaidSpawnList8 raids;
@@ -59,6 +63,15 @@ namespace PKHeX_Raid_Plugin
             raids = savegame.Blocks.Raid;
             Form1 f = new Form1(raids, game, savegame.Badges, savegame.TID, savegame.SID);
             f.Show();
+        }
+
+        private void LoadSeedFinder(SaveFile sav)
+        {
+            var game = (GameVersion)sav.Game;
+            if (game != GameVersion.SW && game != GameVersion.SH) return;
+            savegame = (SAV8SWSH)sav;
+            SeedFinder sf = new SeedFinder((uint)savegame.TID, (uint)savegame.SID);
+            sf.Show();
         }
 
         public void NotifySaveLoaded()
