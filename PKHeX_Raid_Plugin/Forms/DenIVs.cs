@@ -245,12 +245,12 @@ namespace PKHeX_Raid_Plugin
             var row = new DataGridViewRow();
             row.CreateCells(raidContent);
             row.Cells[0].Value = current_frame.ToString();
-            row.Cells[1].Value = res.IVs[0].ToString();
-            row.Cells[2].Value = res.IVs[1].ToString();
-            row.Cells[3].Value = res.IVs[2].ToString();
-            row.Cells[4].Value = res.IVs[3].ToString();
-            row.Cells[5].Value = res.IVs[4].ToString();
-            row.Cells[6].Value = res.IVs[5].ToString();
+            row.Cells[1].Value = $"{res.IVs[0]:00}";
+            row.Cells[2].Value = $"{res.IVs[1]:00}";
+            row.Cells[3].Value = $"{res.IVs[2]:00}";
+            row.Cells[4].Value = $"{res.IVs[3]:00}";
+            row.Cells[5].Value = $"{res.IVs[4]:00}";
+            row.Cells[6].Value = $"{res.IVs[5]:00}";
             row.Cells[7].Value = s.Natures[res.Nature];
             row.Cells[8].Value = s.Ability[res.Ability];
             row.Cells[9].Value = genders[res.Gender];
