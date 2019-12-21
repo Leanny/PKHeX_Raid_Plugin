@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Microsoft.Z3;
 
 namespace PKHeX_Raid_Plugin
@@ -22,7 +21,7 @@ namespace PKHeX_Raid_Plugin
             using var ctx = new Context(new Dictionary<string, string> { { "model", "true" } });
             var exp = CreateModel(ctx, ec, pid, shiny, out var s0);
 
-            Model m;
+            Model? m;
             while ((m = Check(ctx, exp)) != null)
             {
                 foreach (var kvp in m.Consts)
@@ -36,30 +35,22 @@ namespace PKHeX_Raid_Plugin
 
         private static BoolExpr CreateModel(Context ctx, uint ec, uint pid, bool shiny, out BitVecExpr s0)
         {
-            s0 = ctx.MkBVConst("s0", 64);
-            BitVecExpr s1 = ctx.MkBV(0x82A2B175229D6A5B, 64);
-            BitVecExpr and_val = ctx.MkBV(0xFFFFFFFF, 64);
-            BitVecExpr and_val16 = ctx.MkBV(0xFFFF, 64);
-            BitVecExpr real_ec = ctx.MkBV(ec, 64);
-            BitVecExpr real_pid = ctx.MkBV(pid, 64);
-            BitVecExpr bit16 = ctx.MkBV(1 << 16, 64);
-            BitVecExpr comp_with = ctx.MkBV(0xF, 64);
-            var res = AdvanceSymbolic(ctx, s0, s1);
-            var ec_check = res.Item1;
+            s0            = ctx.MkBVConst("s0", 64);
+            BitVecExpr s1 = ctx.MkBV(XOROSHIRO.XOROSHIRO_CONST, 64);
 
-            BoolExpr exp = ctx.MkEq(ec_check, real_ec);
-            s0 = res.Item2;
-            s1 = res.Item3;
+            var and_val   = ctx.MkBV(0xFFFFFFFF, 64);
+            var and_val16 = ctx.MkBV(0xFFFF, 64);
+            var bit16     = ctx.MkBV(1 << 16, 64);
+            var comp_with = ctx.MkBV(0xF, 64);
 
-            res = AdvanceSymbolic(ctx, s0, s1);
-            var tidsid = res.Item1;
-            s0 = res.Item2;
-            s1 = res.Item3;
+            var real_ec   = ctx.MkBV(ec, 64);
+            var real_pid  = ctx.MkBV(pid, 64);
 
-            res = AdvanceSymbolic(ctx, s0, s1);
-            var pid_check = res.Item1;
-            s0 = res.Item2;
-            // s1 = res.Item3;
+            var ec_check  = AdvanceSymbolic(ctx, ref s0, ref s1);
+            var tidsid    = AdvanceSymbolic(ctx, ref s0, ref s1);
+            var pid_check = AdvanceSymbolic(ctx, ref s0, ref s1);
+
+            var exp = ctx.MkEq(ec_check, real_ec);
 
             if (shiny)
             {
@@ -75,25 +66,26 @@ namespace PKHeX_Raid_Plugin
             }
         }
 
-        private static Tuple<BitVecExpr, BitVecExpr, BitVecExpr> AdvanceSymbolic(Context ctx, BitVecExpr s0, BitVecExpr s1)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static BitVecExpr AdvanceSymbolic(Context ctx, ref BitVecExpr s0, ref BitVecExpr s1)
         {
-            BitVecExpr and_val = ctx.MkBV(0xFFFFFFFF, 64);
+            var and_val = ctx.MkBV(0xFFFFFFFF, 64);
             var res = ctx.MkBVAND(ctx.MkBVAdd(s0, s1), and_val);
             s1 = ctx.MkBVXOR(s0, s1);
             var tmp = ctx.MkBVRotateLeft(24, s0);
             var tmp2 = ctx.MkBV(1 << 16, 64);
             s0 = ctx.MkBVXOR(tmp, ctx.MkBVXOR(s1, ctx.MkBVMul(s1, tmp2)));
             s1 = ctx.MkBVRotateLeft(37, s1);
-            return new Tuple<BitVecExpr, BitVecExpr, BitVecExpr>(res, s0, s1);
+            return res;
         }
 
-        private static Model Check(Context ctx, BoolExpr cond)
+        private static Model? Check(Context ctx, BoolExpr cond)
         {
             Solver solver = ctx.MkSolver();
             solver.Assert(cond);
             Status q = solver.Check();
             if (q != Status.SATISFIABLE)
-                throw new Z3Exception("Z3 solver not able to solve");
+                return null;
             return solver.Model;
         }
     }
