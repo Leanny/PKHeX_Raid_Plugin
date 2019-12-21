@@ -82,7 +82,7 @@
             // MinSpe
             // 
             this.MinSpe.Location = new System.Drawing.Point(65, 162);
-            this.MinSpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinSpe.Margin = new System.Windows.Forms.Padding(2);
             this.MinSpe.Maximum = new decimal(new int[] {
             31,
             0,
@@ -96,7 +96,7 @@
             // minSpd
             // 
             this.minSpd.Location = new System.Drawing.Point(65, 141);
-            this.minSpd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minSpd.Margin = new System.Windows.Forms.Padding(2);
             this.minSpd.Maximum = new decimal(new int[] {
             31,
             0,
@@ -110,7 +110,7 @@
             // minSpa
             // 
             this.minSpa.Location = new System.Drawing.Point(65, 121);
-            this.minSpa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minSpa.Margin = new System.Windows.Forms.Padding(2);
             this.minSpa.Maximum = new decimal(new int[] {
             31,
             0,
@@ -124,7 +124,7 @@
             // minDef
             // 
             this.minDef.Location = new System.Drawing.Point(65, 101);
-            this.minDef.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minDef.Margin = new System.Windows.Forms.Padding(2);
             this.minDef.Maximum = new decimal(new int[] {
             31,
             0,
@@ -138,7 +138,7 @@
             // minAtk
             // 
             this.minAtk.Location = new System.Drawing.Point(65, 80);
-            this.minAtk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minAtk.Margin = new System.Windows.Forms.Padding(2);
             this.minAtk.Maximum = new decimal(new int[] {
             31,
             0,
@@ -152,7 +152,7 @@
             // minHP
             // 
             this.minHP.Location = new System.Drawing.Point(65, 60);
-            this.minHP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minHP.Margin = new System.Windows.Forms.Padding(2);
             this.minHP.Maximum = new decimal(new int[] {
             31,
             0,
@@ -244,9 +244,9 @@
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(9, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(150, 249);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
@@ -255,7 +255,7 @@
             // seedSlow
             // 
             this.seedSlow.Location = new System.Drawing.Point(13, 216);
-            this.seedSlow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seedSlow.Margin = new System.Windows.Forms.Padding(2);
             this.seedSlow.Name = "seedSlow";
             this.seedSlow.Size = new System.Drawing.Size(125, 23);
             this.seedSlow.TabIndex = 30;
@@ -266,7 +266,7 @@
             // seedFast
             // 
             this.seedFast.Location = new System.Drawing.Point(13, 190);
-            this.seedFast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seedFast.Margin = new System.Windows.Forms.Padding(2);
             this.seedFast.Name = "seedFast";
             this.seedFast.Size = new System.Drawing.Size(125, 23);
             this.seedFast.TabIndex = 29;
@@ -276,8 +276,9 @@
             // 
             // PIDBox
             // 
+            this.PIDBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PIDBox.Location = new System.Drawing.Point(65, 40);
-            this.PIDBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PIDBox.Margin = new System.Windows.Forms.Padding(2);
             this.PIDBox.MaxLength = 8;
             this.PIDBox.Name = "PIDBox";
             this.PIDBox.Size = new System.Drawing.Size(74, 20);
@@ -287,8 +288,9 @@
             // 
             // ECBox
             // 
+            this.ECBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ECBox.Location = new System.Drawing.Point(65, 20);
-            this.ECBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ECBox.Margin = new System.Windows.Forms.Padding(2);
             this.ECBox.MaxLength = 8;
             this.ECBox.Name = "ECBox";
             this.ECBox.Size = new System.Drawing.Size(74, 20);
@@ -300,9 +302,9 @@
             // 
             this.groupBox2.Controls.Add(this.SeedResult);
             this.groupBox2.Location = new System.Drawing.Point(9, 263);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(150, 62);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
@@ -310,9 +312,11 @@
             // 
             // SeedResult
             // 
+            this.SeedResult.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SeedResult.Location = new System.Drawing.Point(13, 27);
-            this.SeedResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SeedResult.Margin = new System.Windows.Forms.Padding(2);
             this.SeedResult.Name = "SeedResult";
+            this.SeedResult.ReadOnly = true;
             this.SeedResult.Size = new System.Drawing.Size(126, 20);
             this.SeedResult.TabIndex = 0;
             // 
@@ -324,7 +328,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(184, 377);
             this.MinimizeBox = false;

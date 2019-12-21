@@ -130,7 +130,7 @@
             this.SeedCell});
             this.raidContent.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.raidContent.Location = new System.Drawing.Point(0, 231);
-            this.raidContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.raidContent.Margin = new System.Windows.Forms.Padding(2);
             this.raidContent.Name = "raidContent";
             this.raidContent.ReadOnly = true;
             this.raidContent.RowHeadersWidth = 51;
@@ -252,9 +252,9 @@
             this.DetailsBox.Controls.Add(this.groupBox2);
             this.DetailsBox.Controls.Add(this.groupBox1);
             this.DetailsBox.Location = new System.Drawing.Point(9, 10);
-            this.DetailsBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DetailsBox.Margin = new System.Windows.Forms.Padding(2);
             this.DetailsBox.Name = "DetailsBox";
-            this.DetailsBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DetailsBox.Padding = new System.Windows.Forms.Padding(2);
             this.DetailsBox.Size = new System.Drawing.Size(927, 217);
             this.DetailsBox.TabIndex = 1;
             this.DetailsBox.TabStop = false;
@@ -300,9 +300,9 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(296, 17);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(613, 188);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -311,7 +311,7 @@
             // searchButton
             // 
             this.searchButton.Location = new System.Drawing.Point(436, 146);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(91, 20);
             this.searchButton.TabIndex = 35;
@@ -322,7 +322,7 @@
             // resetFilter
             // 
             this.resetFilter.Location = new System.Drawing.Point(316, 146);
-            this.resetFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resetFilter.Margin = new System.Windows.Forms.Padding(2);
             this.resetFilter.Name = "resetFilter";
             this.resetFilter.Size = new System.Drawing.Size(91, 20);
             this.resetFilter.TabIndex = 34;
@@ -333,7 +333,7 @@
             // applyFilter
             // 
             this.applyFilter.Location = new System.Drawing.Point(196, 146);
-            this.applyFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.applyFilter.Margin = new System.Windows.Forms.Padding(2);
             this.applyFilter.Name = "applyFilter";
             this.applyFilter.Size = new System.Drawing.Size(91, 20);
             this.applyFilter.TabIndex = 33;
@@ -351,7 +351,7 @@
             "Star",
             "Square"});
             this.shinyBox.Location = new System.Drawing.Point(436, 114);
-            this.shinyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.shinyBox.Margin = new System.Windows.Forms.Padding(2);
             this.shinyBox.Name = "shinyBox";
             this.shinyBox.Size = new System.Drawing.Size(92, 21);
             this.shinyBox.TabIndex = 32;
@@ -371,7 +371,7 @@
             // 
             this.genderBox.FormattingEnabled = true;
             this.genderBox.Location = new System.Drawing.Point(436, 89);
-            this.genderBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genderBox.Margin = new System.Windows.Forms.Padding(2);
             this.genderBox.Name = "genderBox";
             this.genderBox.Size = new System.Drawing.Size(92, 21);
             this.genderBox.TabIndex = 30;
@@ -381,7 +381,7 @@
             // 
             this.abilityBox.FormattingEnabled = true;
             this.abilityBox.Location = new System.Drawing.Point(436, 65);
-            this.abilityBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.abilityBox.Margin = new System.Windows.Forms.Padding(2);
             this.abilityBox.Name = "abilityBox";
             this.abilityBox.Size = new System.Drawing.Size(92, 21);
             this.abilityBox.TabIndex = 29;
@@ -418,7 +418,7 @@
             "Careful",
             "Quirky"});
             this.natureBox.Location = new System.Drawing.Point(436, 41);
-            this.natureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.natureBox.Margin = new System.Windows.Forms.Padding(2);
             this.natureBox.Name = "natureBox";
             this.natureBox.Size = new System.Drawing.Size(92, 21);
             this.natureBox.TabIndex = 28;
@@ -517,7 +517,7 @@
             // maxSpe
             // 
             this.maxSpe.Location = new System.Drawing.Point(114, 142);
-            this.maxSpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxSpe.Margin = new System.Windows.Forms.Padding(2);
             this.maxSpe.Maximum = new decimal(new int[] {
             31,
             0,
@@ -535,7 +535,7 @@
             // maxSpd
             // 
             this.maxSpd.Location = new System.Drawing.Point(114, 122);
-            this.maxSpd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxSpd.Margin = new System.Windows.Forms.Padding(2);
             this.maxSpd.Maximum = new decimal(new int[] {
             31,
             0,
@@ -553,7 +553,7 @@
             // maxSpa
             // 
             this.maxSpa.Location = new System.Drawing.Point(114, 102);
-            this.maxSpa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxSpa.Margin = new System.Windows.Forms.Padding(2);
             this.maxSpa.Maximum = new decimal(new int[] {
             31,
             0,
@@ -571,7 +571,7 @@
             // maxDef
             // 
             this.maxDef.Location = new System.Drawing.Point(114, 81);
-            this.maxDef.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxDef.Margin = new System.Windows.Forms.Padding(2);
             this.maxDef.Maximum = new decimal(new int[] {
             31,
             0,
@@ -589,7 +589,7 @@
             // maxAtk
             // 
             this.maxAtk.Location = new System.Drawing.Point(114, 61);
-            this.maxAtk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxAtk.Margin = new System.Windows.Forms.Padding(2);
             this.maxAtk.Maximum = new decimal(new int[] {
             31,
             0,
@@ -607,7 +607,7 @@
             // maxHP
             // 
             this.maxHP.Location = new System.Drawing.Point(114, 41);
-            this.maxHP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxHP.Margin = new System.Windows.Forms.Padding(2);
             this.maxHP.Maximum = new decimal(new int[] {
             31,
             0,
@@ -625,7 +625,7 @@
             // MinSpe
             // 
             this.MinSpe.Location = new System.Drawing.Point(64, 142);
-            this.MinSpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinSpe.Margin = new System.Windows.Forms.Padding(2);
             this.MinSpe.Maximum = new decimal(new int[] {
             31,
             0,
@@ -638,7 +638,7 @@
             // minSpd
             // 
             this.minSpd.Location = new System.Drawing.Point(64, 122);
-            this.minSpd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minSpd.Margin = new System.Windows.Forms.Padding(2);
             this.minSpd.Maximum = new decimal(new int[] {
             31,
             0,
@@ -651,7 +651,7 @@
             // minSpa
             // 
             this.minSpa.Location = new System.Drawing.Point(64, 102);
-            this.minSpa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minSpa.Margin = new System.Windows.Forms.Padding(2);
             this.minSpa.Maximum = new decimal(new int[] {
             31,
             0,
@@ -664,7 +664,7 @@
             // minDef
             // 
             this.minDef.Location = new System.Drawing.Point(64, 81);
-            this.minDef.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minDef.Margin = new System.Windows.Forms.Padding(2);
             this.minDef.Maximum = new decimal(new int[] {
             31,
             0,
@@ -677,7 +677,7 @@
             // minAtk
             // 
             this.minAtk.Location = new System.Drawing.Point(64, 61);
-            this.minAtk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minAtk.Margin = new System.Windows.Forms.Padding(2);
             this.minAtk.Maximum = new decimal(new int[] {
             31,
             0,
@@ -690,7 +690,7 @@
             // minHP
             // 
             this.minHP.Location = new System.Drawing.Point(64, 41);
-            this.minHP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minHP.Margin = new System.Windows.Forms.Padding(2);
             this.minHP.Maximum = new decimal(new int[] {
             31,
             0,
@@ -794,9 +794,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(4, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(280, 188);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -815,7 +815,7 @@
             // endFrame
             // 
             this.endFrame.Location = new System.Drawing.Point(198, 114);
-            this.endFrame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.endFrame.Margin = new System.Windows.Forms.Padding(2);
             this.endFrame.Name = "endFrame";
             this.endFrame.Size = new System.Drawing.Size(61, 20);
             this.endFrame.TabIndex = 10;
@@ -825,7 +825,7 @@
             // startFrame
             // 
             this.startFrame.Location = new System.Drawing.Point(118, 114);
-            this.startFrame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startFrame.Margin = new System.Windows.Forms.Padding(2);
             this.startFrame.Name = "startFrame";
             this.startFrame.Size = new System.Drawing.Size(61, 20);
             this.startFrame.TabIndex = 9;
@@ -837,7 +837,7 @@
             this.speciesList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.speciesList.FormattingEnabled = true;
             this.speciesList.Location = new System.Drawing.Point(118, 85);
-            this.speciesList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.speciesList.Margin = new System.Windows.Forms.Padding(2);
             this.speciesList.Name = "speciesList";
             this.speciesList.Size = new System.Drawing.Size(141, 21);
             this.speciesList.TabIndex = 8;
@@ -948,7 +948,7 @@
             "Den 98",
             "Den 99"});
             this.denBox.Location = new System.Drawing.Point(118, 57);
-            this.denBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.denBox.Margin = new System.Windows.Forms.Padding(2);
             this.denBox.Name = "denBox";
             this.denBox.Size = new System.Drawing.Size(141, 21);
             this.denBox.TabIndex = 7;
@@ -956,8 +956,9 @@
             // 
             // seedBox
             // 
+            this.seedBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seedBox.Location = new System.Drawing.Point(118, 28);
-            this.seedBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seedBox.Margin = new System.Windows.Forms.Padding(2);
             this.seedBox.MaxLength = 16;
             this.seedBox.Name = "seedBox";
             this.seedBox.Size = new System.Drawing.Size(141, 20);
@@ -967,7 +968,7 @@
             // generateData
             // 
             this.generateData.Location = new System.Drawing.Point(14, 147);
-            this.generateData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.generateData.Margin = new System.Windows.Forms.Padding(2);
             this.generateData.Name = "generateData";
             this.generateData.Size = new System.Drawing.Size(244, 24);
             this.generateData.TabIndex = 5;
@@ -1022,7 +1023,7 @@
             this.ClientSize = new System.Drawing.Size(946, 709);
             this.Controls.Add(this.DetailsBox);
             this.Controls.Add(this.raidContent);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DenIVs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Den Search";
