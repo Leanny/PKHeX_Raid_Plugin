@@ -32,6 +32,12 @@ namespace PKHeX_Raid_Plugin
             return result;
         }
 
+        public void Reset(ulong seed)
+        {
+            s[0] = seed;
+            s[1] = XOROSHIRO_CONST;
+        }
+
         public ulong NextInt(ulong MOD = 0xFFFFFFFF)
         {
             ulong p2mod = NextP2(MOD) - 1;
