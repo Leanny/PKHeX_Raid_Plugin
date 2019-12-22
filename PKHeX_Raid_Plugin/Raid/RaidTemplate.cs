@@ -107,7 +107,7 @@ namespace PKHeX_Raid_Plugin
 
             if (psv == tsv)
                 return new_pid; // already shiny
-            return (new_pid & 0xFFFF) | (tid ^ sid ^ new_pid ^ (shinytype - 1)) << 16;
+            return (new_pid & 0xFFFF) | (tid ^ sid ^ new_pid ^ (2 - shinytype )) << 16;
         }
     }
 }
