@@ -19,9 +19,10 @@
 
         public static int GetNextShinyFrame(ulong seed)
         {
+            XOROSHIRO rng = new XOROSHIRO(seed);
             for (int i = 0; ; i++)
             {
-                XOROSHIRO rng = new XOROSHIRO(seed);
+                rng.Reset(seed);
                 seed = rng.Next();
                 uint SIDTID = (uint)rng.NextInt(0xFFFFFFFF);
                 uint PID = (uint)rng.NextInt(0xFFFFFFFF);
