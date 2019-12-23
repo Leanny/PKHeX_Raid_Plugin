@@ -1,12 +1,15 @@
 # PKHeX_Raid_Plugin
-Plugin for PKHeX to display all raids and a few more info. 
+Plugin for PKHeX to display all raids, as well as calculate a den seed based on EC, PID and IVs. 
 
 # How To Use
 ## Installation
 Download ``PKHeX_Raid_Plugin.dll`` and put it in the ``plugins/`` directory of PKHeX. If the directory does not exist, create a new one.
 
 ### Note
-In order to use the efficient method for Seed Calculation, Z3 is required (https://github.com/Z3Prover/z3/releases). Download the latest release for your OS, put ``Microsoft.Z3.dll`` in ``plugins/`` as well. Further, put the ``bin/`` directory into your path.
+In order to use the efficient method for Seed Calculation, Z3 is required (https://github.com/Z3Prover/z3/releases). Download the latest release for your OS, place ``Microsoft.Z3.dll`` and ``libz3.dll`` in the same folder as ``PKHeX.exe``.
+
+### Common Problems
+Please make sure that all DLLs used are unblocked (Properties -> Unblock) and that you use the latest PKHeX version.
 
 ## Useage
 Open PKHeX, load a savegame, and go to Tool -> Display Raids. You will see the content of every currently active den, including the IVs. Clicking on ``Raid Calculator`` will show you the details for this den when you "reload" it as well as other interesting information.
