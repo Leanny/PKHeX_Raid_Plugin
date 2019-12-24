@@ -22,13 +22,17 @@
             XOROSHIRO rng = new XOROSHIRO(seed);
             for (int i = 0; ; i++)
             {
-                rng.Reset(seed);
-                seed = rng.Next();
+                uint _ = (uint)rng.NextInt(0xFFFFFFFF); // EC
                 uint SIDTID = (uint)rng.NextInt(0xFFFFFFFF);
                 uint PID = (uint)rng.NextInt(0xFFFFFFFF);
                 var type = GetShinyType(PID, SIDTID);
                 if (type != 0)
                     return i;
+
+                // Get the next seed, and reset for the next iteration
+                rng.Reset(seed);
+                var next = rng.Next();
+                rng.Reset(next);
             }
         }
     }
