@@ -4,7 +4,8 @@ namespace PKHeX_Raid_Plugin
 {
     public static class BruteForceSearch
     {
-        static XOROSHIRO rng = new XOROSHIRO(0);
+        private static readonly XOROSHIRO rng = new XOROSHIRO(0);
+
         public static bool IsMatch(ulong seed, int[] ivs, int fixed_ivs)
         {
             rng.Reset(seed);
@@ -42,19 +43,19 @@ namespace PKHeX_Raid_Plugin
             List<ulong> seeds = new List<ulong>();
             var fixed_val = GetSeedStart(ec);
             uint tsv = (tid ^ sid) >> 4;
-            for(ulong i = 0; i < 0x100000000; i++)
+            ulong seed = fixed_val;
+            do
             {
-                rng.Reset((i << 32) | fixed_val);
+                rng.Reset(seed);
                 rng.NextInt(0xFFFFFFFF); // EC
                 uint tidsid = (uint)rng.NextInt(0xFFFFFFFF);
                 uint new_pid = (uint)rng.NextInt(0xFFFFFFFF);
 
                 new_pid = RaidTemplate.GetFinalPID(tid, sid, new_pid, tidsid, tsv);
                 if (new_pid == pid)
-                {
-                    seeds.Add((i << 32) | fixed_val);
-                }
-            }
+                    seeds.Add(seed);
+                seed += 0x1_0000_0000;
+            } while (seed != fixed_val);
             return seeds;
         }
 
