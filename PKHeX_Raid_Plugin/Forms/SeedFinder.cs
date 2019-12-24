@@ -48,8 +48,8 @@ namespace PKHeX_Raid_Plugin
                 uint ec = uint.Parse(ECBox.Text, System.Globalization.NumberStyles.HexNumber);
                 uint pid = uint.Parse(PIDBox.Text, System.Globalization.NumberStyles.HexNumber);
                 int[] ivs = { (int)minHP.Value, (int)minAtk.Value, (int)minDef.Value, (int)minSpa.Value, (int)minSpd.Value, (int)MinSpe.Value, };
-                List<ulong> potential_seeds = BruteForceSearch.FindSeeds(ec, pid, TID, SID);
-                SeedResult.Text = FindFirstSeed(potential_seeds, ivs);
+                var seeds = BruteForceSearch.FindSeeds(ec, pid, TID, SID);
+                SeedResult.Text = FindFirstSeed(seeds, ivs);
             }
         }
 
