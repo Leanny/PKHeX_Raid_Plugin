@@ -40,6 +40,7 @@
             new NestHashDetail(0x17491656dc666f6d, 0xba83da671012dfe8, 02, 040, 878), //26 59
             new NestHashDetail(0x17428256dc610843, 0xba805367100fc4ac, 15, 052, 776), //02 50
             new NestHashDetail(0x17428656dc610f0f, 0xba805867100fcd2b, 15, 068, 652), //06 47
+            new NestHashDetail(0x0000000000000000, 0x0000000000000000, 15, 050, 700), //Special
             new NestHashDetail(0x17428556dc610d5c, 0xba805d67100fd5aa, 04, 217, 913), //07 44
             new NestHashDetail(0x17459356dc635afd, 0xba8746671015cd43, 04, 158, 705), //39 65
             new NestHashDetail(0x17458b56dc634d65, 0xba83d8671012dc82, 04, 220, 759), //31 61

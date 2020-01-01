@@ -2685,5 +2685,14 @@
                 new RaidTemplate(143, new int[]{0, 0, 0, 0, 10}, 5, 4, 4, 0, 4, 0, true)
             })
         };
+
+        public readonly RaidTemplateTable[] CrytalNestsEvent =
+        {
+            new RaidTemplateTable(0, 1, new[]{
+                new RaidTemplate(782, new int[]{31, 31, 31, -1, -1, -1}, 0, false),
+                new RaidTemplate(246, new int[]{31, 31, 31, -1, -1, -1}, 0, false),
+                //new RaidTemplate(012, new int[]{31, 31, -1, -1, -1, 31}, 2, true),
+            })
+        };
     }
 }

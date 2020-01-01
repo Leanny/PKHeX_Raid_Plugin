@@ -35,8 +35,6 @@ namespace PKHeX_Raid_Plugin
             for (int i = 0; i < dl.Length; i++)
             {
                 int idx = i;
-                if (idx >= 15)
-                    idx++;
                 var currentRaid = allRaids[idx];
                 var detail = NestLocations.Nests[i];
                 dl[i] = new RaidParameters(i, currentRaid, detail.Location, detail.MapX, detail.MapY);
@@ -48,6 +46,10 @@ namespace PKHeX_Raid_Plugin
 
         public RaidPKM GenerateFromIndex(RaidParameters raidParameters)
         {
+            if (raidParameters.IsCrystal)
+            {
+                return _raidTables.CrytalNestsEvent.ConvertToPKM(raidParameters, 0, TID, SID);
+            }
             if (raidParameters.IsEvent)
             {
                 var denDetails = Game == GameVersion.SW ? _raidTables.SwordNestsEvent : _raidTables.ShieldNestsEvent;
@@ -64,6 +66,12 @@ namespace PKHeX_Raid_Plugin
 
         public IEnumerable<RaidTemplate> GetAllTemplatesWithStarCount(RaidParameters raidParameters, int stars)
         {
+            if (raidParameters.IsCrystal)
+            {
+                var tables = _raidTables.CrytalNestsEvent;
+                var nest = Array.Find(tables, table => table.TableID == 0);
+                return nest.Entries.AsEnumerable();
+            }
             if (raidParameters.IsEvent)
             {
                 var tables = Game == GameVersion.SW ? _raidTables.SwordNestsEvent : _raidTables.ShieldNestsEvent;
