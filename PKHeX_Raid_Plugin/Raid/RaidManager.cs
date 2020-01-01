@@ -30,7 +30,7 @@ namespace PKHeX_Raid_Plugin
 
         private static RaidParameters[] InitializeDenList(RaidSpawnList8 raids)
         {
-            var dl = new RaidParameters[99];
+            var dl = new RaidParameters[100];
             var allRaids = raids.GetAllRaids();
             for (int i = 0; i < dl.Length; i++)
             {
