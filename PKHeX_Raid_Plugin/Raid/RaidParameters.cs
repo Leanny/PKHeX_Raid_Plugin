@@ -30,6 +30,7 @@ namespace PKHeX_Raid_Plugin
         public readonly bool IsActive;
         public readonly bool IsEvent;
         public readonly bool IsRare;
+        public readonly bool IsCrystal;
         public readonly ulong Seed;
         public readonly int Index;
         public readonly int Stars;
@@ -47,6 +48,7 @@ namespace PKHeX_Raid_Plugin
             Flags = flags;
             Type = type;
             IsActive = Type > 0;
+            IsCrystal = index == 16;
             IsRare = Type > 0 && (Type & 1) == 0;
             IsEvent = ((Flags >> 1) & 1) == 1;
             Stars = stars;
