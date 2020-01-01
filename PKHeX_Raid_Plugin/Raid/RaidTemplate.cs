@@ -14,11 +14,12 @@ namespace PKHeX_Raid_Plugin
         public readonly int Ability;
         public readonly int Gender;
         public readonly int[] FixedIV;
+        public readonly int ShinyType;
 
         public static readonly int[] ToxtricityAmplifiedNatures = { 0x03, 0x04, 0x02, 0x08, 0x09, 0x13, 0x16, 0x0B, 0x0D, 0x0E, 0x18 };
         public static readonly int[] ToxtricityLowKeyNatures = { 0x01, 0x05, 0x07, 0x0A, 0x0C, 0x0F, 0x10, 0x11, 0x12, 0x14, 0x15, 0x17 };
 
-        public RaidTemplate(int species, int[] probabilities, int flawlessIVs, int minRank, int maxRank, int altForm, int ability, int gender, bool giga)
+        public RaidTemplate(int species, int[] probabilities, int flawlessIVs, int minRank, int maxRank, int altForm, int ability, int gender, bool giga, int shinytype = 0)
         {
             Species = species;
             Probabilities = probabilities;
@@ -29,6 +30,7 @@ namespace PKHeX_Raid_Plugin
             IsGigantamax = giga;
             Ability = ability;
             Gender = gender;
+            ShinyType = shinytype;
             FixedIV = new int[] { -1, -1, -1, -1, -1, -1 };
         }
 
@@ -40,7 +42,7 @@ namespace PKHeX_Raid_Plugin
             FixedIV = ivs;
             IsGigantamax = giga;
             Ability = 3;
-
+            ShinyType = 0;
             FlawlessIVs = -1;
             Probabilities = new int[] { 0, 0, 0, 0, 0 };
 
@@ -56,8 +58,12 @@ namespace PKHeX_Raid_Plugin
             uint PID = (uint)rng.NextInt(0xFFFFFFFF);
 
             var shinytype = RandUtil.GetShinyType(PID, SIDTID);
+            if (ShinyType == 2 && shinytype == 0)
+            {
+                shinytype = 2;
+            }
             uint tsv = RandUtil.GetShinyValue((sid << 16) | tid);
-            PID = GetFinalPID(tid, sid, PID, SIDTID, tsv);
+            PID = GetFinalPID(tid, sid, PID, SIDTID, tsv, ShinyType);
 
             int[] ivs = { -1, -1, -1, -1, -1, -1 };
             for (int i = 0; i < 6; i++)
@@ -114,9 +120,13 @@ namespace PKHeX_Raid_Plugin
             return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, gender, nature, shinytype, IsGigantamax);
         }
 
-        public static uint GetFinalPID(uint tid, uint sid, uint new_pid, uint tidsid, uint tsv)
+        public static uint GetFinalPID(uint tid, uint sid, uint new_pid, uint tidsid, uint tsv, int fixedShiny)
         {
             var shinytype = RandUtil.GetShinyType(new_pid, tidsid);
+            if (fixedShiny == 2 && shinytype == 0)
+            {
+                shinytype = 2;
+            }
             uint psv = RandUtil.GetShinyValue(new_pid);
             if (shinytype == 0)
             {
