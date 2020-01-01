@@ -31,8 +31,8 @@
 
                 // Get the next seed, and reset for the next iteration
                 rng.Reset(seed);
-                var next = rng.Next();
-                rng.Reset(next);
+                seed = rng.Next();
+                rng.Reset(seed);
             }
         }
     }
