@@ -13,6 +13,7 @@ namespace PKHeX_Raid_Plugin
         public readonly bool IsGigantamax;
         public readonly int Ability;
         public readonly int Gender;
+        public readonly int[] FixedIV;
 
         public static readonly int[] ToxtricityAmplifiedNatures = { 0x03, 0x04, 0x02, 0x08, 0x09, 0x13, 0x16, 0x0B, 0x0D, 0x0E, 0x18 };
         public static readonly int[] ToxtricityLowKeyNatures = { 0x01, 0x05, 0x07, 0x0A, 0x0C, 0x0F, 0x10, 0x11, 0x12, 0x14, 0x15, 0x17 };
@@ -28,6 +29,21 @@ namespace PKHeX_Raid_Plugin
             IsGigantamax = giga;
             Ability = ability;
             Gender = gender;
+            FixedIV = new int[] { -1, -1, -1, -1, -1, -1 };
+        }
+
+        public RaidTemplate(int species, int[] ivs, int rank, bool giga)
+        {
+            Species = species;
+            MinRank = rank;
+            MaxRank = rank;
+            FixedIV = ivs;
+            IsGigantamax = giga;
+            Ability = 3;
+
+            FlawlessIVs = -1;
+            Probabilities = new int[] { 0, 0, 0, 0, 0 };
+
         }
 
         public bool CanObtainWith(int stars) => Probabilities[stars] > 0;
@@ -44,6 +60,10 @@ namespace PKHeX_Raid_Plugin
             PID = GetFinalPID(tid, sid, PID, SIDTID, tsv);
 
             int[] ivs = { -1, -1, -1, -1, -1, -1 };
+            for (int i = 0; i < 6; i++)
+            {
+                 ivs[i] = FixedIV[i];
+            }
             for (int i = 0; i < FlawlessIVs; i++)
             {
                 int idx;
