@@ -8,6 +8,9 @@ Download ``PKHeX_Raid_Plugin.dll`` and put it in the ``plugins/`` directory of P
 ### Note
 In order to use the efficient method for Seed Calculation, Z3 is required (https://github.com/Z3Prover/z3/releases). Download the latest release for your OS, place ``Microsoft.Z3.dll`` and ``libz3.dll`` in the same folder as ``PKHeX.exe``.
 
+### About Crystal Tower 
+The Crystal Tower Den (ID 17) is a special den that can only be activated with an item. So far it has not been figured out how to identify the species inside the den, which is why the Plugin defaults to Larvitar. Also, it is not known how to advance the frame of this den except for catching the Pokémon and then using new crystal.
+
 ### Common Problems
 Please make sure that all DLLs used are unblocked (Properties -> Unblock) and that you use the latest PKHeX version.
 
