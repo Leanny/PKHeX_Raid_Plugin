@@ -28,6 +28,7 @@ namespace PKHeX_Raid_Plugin
             var param = raids[idx];
             seedBox.Text = $"{param.Seed:X16}";
             denBox.SelectedIndex = idx;
+            natureBox.SelectedIndex = shinyBox.SelectedIndex = 0;
             CenterToParent();
         }
 
@@ -50,8 +51,9 @@ namespace PKHeX_Raid_Plugin
                     ComboboxItem item = new ComboboxItem($"{entry.MinRank + 1}\u2605 {s.Species[entry.Species]}", entry);
                     speciesList.Items.Add(item);
                 }
-
-            } else { 
+            }
+            else
+            {
                 for (int stars = min_stars[Raids.BadgeCount]; stars <= max_stars[Raids.BadgeCount]; stars++)
                 {
                     var entries = Raids.GetAllTemplatesWithStarCount(raidParameters, stars);
@@ -174,17 +176,21 @@ namespace PKHeX_Raid_Plugin
             genderBox.SelectedIndex = 0;
         }
 
+        private static readonly string[] AbilitySuffix = { " (1)", " (2)", " (H)" };
+
         private void PopulateAbilityList(int[] abilities, int a)
         {
             abilityBox.Items.Clear();
             abilityBox.Items.Add("Any");
             var s = GameInfo.Strings;
-            foreach (int ability in abilities)
+            for (var i = 0; i < abilities.Length; i++)
             {
+                int ability = abilities[i];
                 if (a == 3 && abilityBox.Items.Count == 3)
                     break;
 
-                var ab = new ComboboxItem(s.Ability[ability], ability);
+                var name = s.Ability[ability] + AbilitySuffix[i];
+                var ab = new ComboboxItem(name, ability);
                 abilityBox.Items.Add(ab);
             }
         }
