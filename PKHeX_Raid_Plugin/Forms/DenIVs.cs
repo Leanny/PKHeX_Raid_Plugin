@@ -42,13 +42,24 @@ namespace PKHeX_Raid_Plugin
             seedBox.Text = raidParameters.Seed.ToString("X");
             speciesList.Items.Clear();
             var s = GameInfo.Strings;
-            for (int stars = min_stars[Raids.BadgeCount]; stars <= max_stars[Raids.BadgeCount]; stars++)
+            if (raidParameters.IsCrystal)
             {
-                var entries = Raids.GetAllTemplatesWithStarCount(raidParameters, stars);
+                var entries = Raids.GetAllTemplatesWithStarCount(raidParameters, 0);
                 foreach (var entry in entries)
                 {
-                    ComboboxItem item = new ComboboxItem($"{stars + 1}\u2605 {s.Species[entry.Species]}", entry);
+                    ComboboxItem item = new ComboboxItem($"{entry.MinRank + 1}\u2605 {s.Species[entry.Species]}", entry);
                     speciesList.Items.Add(item);
+                }
+
+            } else { 
+                for (int stars = min_stars[Raids.BadgeCount]; stars <= max_stars[Raids.BadgeCount]; stars++)
+                {
+                    var entries = Raids.GetAllTemplatesWithStarCount(raidParameters, stars);
+                    foreach (var entry in entries)
+                    {
+                        ComboboxItem item = new ComboboxItem($"{stars + 1}\u2605 {s.Species[entry.Species]}", entry);
+                        speciesList.Items.Add(item);
+                    }
                 }
             }
             speciesList.SelectedIndex = 0;

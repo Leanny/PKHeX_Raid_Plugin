@@ -38,7 +38,7 @@ namespace PKHeX_Raid_Plugin
             return true;
         }
 
-        public static IEnumerable<ulong> FindSeeds(uint ec, uint pid, uint tid, uint sid)
+        public static IEnumerable<ulong> FindSeeds(uint ec, uint pid, uint tid, uint sid, int fixedShiny = 0)
         {
             var fixed_val = GetSeedStart(ec);
             uint tsv = (tid ^ sid) >> 4;
@@ -49,7 +49,7 @@ namespace PKHeX_Raid_Plugin
                 rng.NextInt(0xFFFFFFFF); // EC
                 uint tidsid = (uint)rng.NextInt(0xFFFFFFFF);
                 uint new_pid = (uint)rng.NextInt(0xFFFFFFFF);
-                new_pid = RaidTemplate.GetFinalPID(tid, sid, new_pid, tidsid, tsv);
+                new_pid = RaidTemplate.GetFinalPID(tid, sid, new_pid, tidsid, tsv, fixedShiny);
                 if (new_pid == pid)
                     yield return seed;
                 seed += 0x1_0000_0000;

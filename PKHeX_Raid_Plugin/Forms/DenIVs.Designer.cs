@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.raidContent = new System.Windows.Forms.DataGridView();
+            this.FrameCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HPCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AtkCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpaCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpdCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpeCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NatureCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AbilityCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GenderCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShinyCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeedCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailsBox = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.searchButton = new System.Windows.Forms.Button();
@@ -80,18 +92,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.FrameCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HPCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AtkCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpaCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpdCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpeCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NatureCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AbilityCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GenderCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShinyCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SeedCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.raidContent)).BeginInit();
             this.DetailsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -137,6 +137,115 @@
             this.raidContent.RowTemplate.Height = 24;
             this.raidContent.Size = new System.Drawing.Size(1261, 588);
             this.raidContent.TabIndex = 0;
+            // 
+            // FrameCell
+            // 
+            this.FrameCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FrameCell.HeaderText = "Frame Advances";
+            this.FrameCell.MinimumWidth = 6;
+            this.FrameCell.Name = "FrameCell";
+            this.FrameCell.ReadOnly = true;
+            this.FrameCell.Width = 77;
+            // 
+            // HPCell
+            // 
+            this.HPCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.HPCell.HeaderText = "HP";
+            this.HPCell.MinimumWidth = 6;
+            this.HPCell.Name = "HPCell";
+            this.HPCell.ReadOnly = true;
+            this.HPCell.Width = 56;
+            // 
+            // AtkCell
+            // 
+            this.AtkCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.AtkCell.HeaderText = "ATK";
+            this.AtkCell.MinimumWidth = 6;
+            this.AtkCell.Name = "AtkCell";
+            this.AtkCell.ReadOnly = true;
+            this.AtkCell.Width = 64;
+            // 
+            // DefCell
+            // 
+            this.DefCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DefCell.HeaderText = "DEF";
+            this.DefCell.MinimumWidth = 6;
+            this.DefCell.Name = "DefCell";
+            this.DefCell.ReadOnly = true;
+            this.DefCell.Width = 64;
+            // 
+            // SpaCell
+            // 
+            this.SpaCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SpaCell.HeaderText = "SPA";
+            this.SpaCell.MinimumWidth = 6;
+            this.SpaCell.Name = "SpaCell";
+            this.SpaCell.ReadOnly = true;
+            this.SpaCell.Width = 64;
+            // 
+            // SpdCell
+            // 
+            this.SpdCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SpdCell.HeaderText = "SPD";
+            this.SpdCell.MinimumWidth = 6;
+            this.SpdCell.Name = "SpdCell";
+            this.SpdCell.ReadOnly = true;
+            this.SpdCell.Width = 65;
+            // 
+            // SpeCell
+            // 
+            this.SpeCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SpeCell.HeaderText = "SPE";
+            this.SpeCell.MinimumWidth = 6;
+            this.SpeCell.Name = "SpeCell";
+            this.SpeCell.ReadOnly = true;
+            this.SpeCell.Width = 64;
+            // 
+            // NatureCell
+            // 
+            this.NatureCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NatureCell.HeaderText = "Nature";
+            this.NatureCell.MinimumWidth = 6;
+            this.NatureCell.Name = "NatureCell";
+            this.NatureCell.ReadOnly = true;
+            this.NatureCell.Width = 80;
+            // 
+            // AbilityCell
+            // 
+            this.AbilityCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.AbilityCell.HeaderText = "Ability";
+            this.AbilityCell.MinimumWidth = 6;
+            this.AbilityCell.Name = "AbilityCell";
+            this.AbilityCell.ReadOnly = true;
+            this.AbilityCell.Width = 74;
+            // 
+            // GenderCell
+            // 
+            this.GenderCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GenderCell.HeaderText = "Gender";
+            this.GenderCell.MinimumWidth = 6;
+            this.GenderCell.Name = "GenderCell";
+            this.GenderCell.ReadOnly = true;
+            this.GenderCell.Width = 85;
+            // 
+            // ShinyCell
+            // 
+            this.ShinyCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ShinyCell.HeaderText = "Shiny";
+            this.ShinyCell.MinimumWidth = 6;
+            this.ShinyCell.Name = "ShinyCell";
+            this.ShinyCell.ReadOnly = true;
+            this.ShinyCell.Width = 72;
+            // 
+            // SeedCell
+            // 
+            this.SeedCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SeedCell.HeaderText = "Seed";
+            this.SeedCell.MaxInputLength = 16;
+            this.SeedCell.MinimumWidth = 6;
+            this.SeedCell.Name = "SeedCell";
+            this.SeedCell.ReadOnly = true;
+            this.SeedCell.Width = 140;
             // 
             // DetailsBox
             // 
@@ -720,105 +829,106 @@
             this.denBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.denBox.FormattingEnabled = true;
             this.denBox.Items.AddRange(new object[] {
-            "Den 1",
-            "Den 2",
-            "Den 3",
-            "Den 4",
-            "Den 5",
-            "Den 6",
-            "Den 7",
-            "Den 8",
-            "Den 9",
-            "Den 10",
-            "Den 11",
-            "Den 12",
-            "Den 13",
-            "Den 14",
-            "Den 15",
-            "Den 16",
-            "Den 17",
-            "Den 18",
-            "Den 19",
-            "Den 20",
-            "Den 21",
-            "Den 22",
-            "Den 23",
-            "Den 24",
-            "Den 25",
-            "Den 26",
-            "Den 27",
-            "Den 28",
-            "Den 29",
-            "Den 30",
-            "Den 31",
-            "Den 32",
-            "Den 33",
-            "Den 34",
-            "Den 35",
-            "Den 36",
-            "Den 37",
-            "Den 38",
-            "Den 39",
-            "Den 40",
-            "Den 41",
-            "Den 42",
-            "Den 43",
-            "Den 44",
-            "Den 45",
-            "Den 46",
-            "Den 47",
-            "Den 48",
-            "Den 49",
-            "Den 50",
-            "Den 51",
-            "Den 52",
-            "Den 53",
-            "Den 54",
-            "Den 55",
-            "Den 56",
-            "Den 57",
-            "Den 58",
-            "Den 59",
-            "Den 60",
-            "Den 61",
-            "Den 62",
-            "Den 63",
-            "Den 64",
-            "Den 65",
-            "Den 66",
-            "Den 67",
-            "Den 68",
-            "Den 69",
-            "Den 70",
-            "Den 71",
-            "Den 72",
-            "Den 73",
-            "Den 74",
-            "Den 75",
-            "Den 76",
-            "Den 77",
-            "Den 78",
-            "Den 79",
-            "Den 80",
-            "Den 81",
-            "Den 82",
-            "Den 83",
-            "Den 84",
-            "Den 85",
-            "Den 86",
-            "Den 87",
-            "Den 88",
-            "Den 89",
-            "Den 90",
-            "Den 91",
-            "Den 92",
-            "Den 93",
-            "Den 94",
-            "Den 95",
-            "Den 96",
-            "Den 97",
-            "Den 98",
-            "Den 99"});
+            "1: Rolling Fields 1",
+            "2: Rolling Fields 2",
+            "3: Rolling Fields 3",
+            "4: Rolling Fields 4",
+            "5: Rolling Fields 5",
+            "6: Rolling Fields 6",
+            "7: Rolling Fields 7",
+            "8: Rolling Fields 8",
+            "9: Rolling Fields 9",
+            "10: Dappled Grove 1",
+            "11: Dappled Grove 2",
+            "12: Dappled Grove 3",
+            "13: Dappled Grove 4",
+            "14: Dappled Grove 5",
+            "15: Watchtower Ruins 1",
+            "16: Watchtower Ruins 2",
+            "17: Watchtower Lair",
+            "18: East Lake Axewell 1",
+            "19: East Lake Axewell 2",
+            "20: East Lake Axewell 3",
+            "21: East Lake Axewell 4",
+            "22: West Lake Axewell 1",
+            "23: West Lake Axewell 2",
+            "24: West Lake Axewell 3",
+            "25: West Lake Axewell 4",
+            "26: West Lake Axewell 5",
+            "27: West Lake Axewell 6",
+            "28: Axew\'s Eye 1",
+            "29: South Lake Miloch 1",
+            "30: South Lake Miloch 2",
+            "31: South Lake Miloch 3",
+            "32: South Lake Miloch 4",
+            "33: South Lake Miloch 5",
+            "34: Giant\'s Seat 1",
+            "35: Giant\'s Seat 2",
+            "36: Giant\'s Seat 3",
+            "37: Giant\'s Seat 4",
+            "38: Giant\'s Seat 5",
+            "39: North Lake Miloch 1",
+            "40: North Lake Miloch 2",
+            "41: North Lake Miloch 3",
+            "42: North Lake Miloch 4",
+            "43: North Lake Miloch 5",
+            "44: East Lake Axewell 5",
+            "45: North Lake Miloch 6",
+            "46: Motostoke Riverbank 1",
+            "47: Motostoke Riverbank 2",
+            "48: Motostoke Riverbank 3",
+            "49: Motostoke Riverbank 4",
+            "50: Bridge Field 1",
+            "51: Bridge Field 2",
+            "52: Bridge Field 3",
+            "53: Bridge Field 4",
+            "54: Bridge Field 5",
+            "55: Bridge Field 6",
+            "56: Bridge Field 7",
+            "57: Bridge Field 8",
+            "58: Bridge Field 9",
+            "59: Stony Wilderness 1",
+            "60: Stony Wilderness 2",
+            "61: Stony Wilderness 3",
+            "62: Stony Wilderness 4",
+            "63: Stony Wilderness 5",
+            "64: Stony Wilderness 6",
+            "65: Stony Wilderness 7",
+            "66: Stony Wilderness 8",
+            "67: Stony Wilderness 9",
+            "68: Stony Wilderness 10",
+            "69: Stony Wilderness 11",
+            "70: Stony Wilderness 12",
+            "71: Dusty Bowl 1",
+            "72: Dusty Bowl 2",
+            "73: Dusty Bowl 3",
+            "74: Dusty Bowl 4",
+            "75: Dusty Bowl 5",
+            "76: Dusty Bowl 6",
+            "77: Dusty Bowl 7",
+            "78: Dusty Bowl 8",
+            "79: Giant\'s Mirror 1",
+            "80: Dusty Bowl 9",
+            "81: Giant\'s Mirror 2",
+            "82: Giant\'s Mirror 3",
+            "83: Giant\'s Mirror 4",
+            "84: Giant\'s Mirror 5",
+            "85: Hammerlocke Hills 1",
+            "86: Hammerlocke Hills 2",
+            "87: Hammerlocke Hills 3",
+            "88: Hammerlocke Hills 4",
+            "89: Hammerlocke Hills 5",
+            "90: Hammerlocke Hills 6",
+            "91: Hammerlocke Hills 7",
+            "92: Giant\'s Cap 1",
+            "93: Giant\'s Cap 2",
+            "94: Giant\'s Cap 3",
+            "95: Giant\'s Cap 4",
+            "96: Giant\'s Cap 5",
+            "97: Lake of Outrage 1",
+            "98: Lake of Outrage 2",
+            "99: Lake of Outrage 3",
+            "100: Lake of Outrage 4"});
             this.denBox.Location = new System.Drawing.Point(157, 70);
             this.denBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.denBox.Name = "denBox";
@@ -883,115 +993,6 @@
             this.label1.Size = new System.Drawing.Size(41, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Seed";
-            // 
-            // FrameCell
-            // 
-            this.FrameCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FrameCell.HeaderText = "Frame Advances";
-            this.FrameCell.MinimumWidth = 6;
-            this.FrameCell.Name = "FrameCell";
-            this.FrameCell.ReadOnly = true;
-            this.FrameCell.Width = 77;
-            // 
-            // HPCell
-            // 
-            this.HPCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.HPCell.HeaderText = "HP";
-            this.HPCell.MinimumWidth = 6;
-            this.HPCell.Name = "HPCell";
-            this.HPCell.ReadOnly = true;
-            this.HPCell.Width = 56;
-            // 
-            // AtkCell
-            // 
-            this.AtkCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.AtkCell.HeaderText = "ATK";
-            this.AtkCell.MinimumWidth = 6;
-            this.AtkCell.Name = "AtkCell";
-            this.AtkCell.ReadOnly = true;
-            this.AtkCell.Width = 64;
-            // 
-            // DefCell
-            // 
-            this.DefCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DefCell.HeaderText = "DEF";
-            this.DefCell.MinimumWidth = 6;
-            this.DefCell.Name = "DefCell";
-            this.DefCell.ReadOnly = true;
-            this.DefCell.Width = 64;
-            // 
-            // SpaCell
-            // 
-            this.SpaCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SpaCell.HeaderText = "SPA";
-            this.SpaCell.MinimumWidth = 6;
-            this.SpaCell.Name = "SpaCell";
-            this.SpaCell.ReadOnly = true;
-            this.SpaCell.Width = 64;
-            // 
-            // SpdCell
-            // 
-            this.SpdCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SpdCell.HeaderText = "SPD";
-            this.SpdCell.MinimumWidth = 6;
-            this.SpdCell.Name = "SpdCell";
-            this.SpdCell.ReadOnly = true;
-            this.SpdCell.Width = 65;
-            // 
-            // SpeCell
-            // 
-            this.SpeCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SpeCell.HeaderText = "SPE";
-            this.SpeCell.MinimumWidth = 6;
-            this.SpeCell.Name = "SpeCell";
-            this.SpeCell.ReadOnly = true;
-            this.SpeCell.Width = 64;
-            // 
-            // NatureCell
-            // 
-            this.NatureCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.NatureCell.HeaderText = "Nature";
-            this.NatureCell.MinimumWidth = 6;
-            this.NatureCell.Name = "NatureCell";
-            this.NatureCell.ReadOnly = true;
-            this.NatureCell.Width = 80;
-            // 
-            // AbilityCell
-            // 
-            this.AbilityCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.AbilityCell.HeaderText = "Ability";
-            this.AbilityCell.MinimumWidth = 6;
-            this.AbilityCell.Name = "AbilityCell";
-            this.AbilityCell.ReadOnly = true;
-            this.AbilityCell.Width = 74;
-            // 
-            // GenderCell
-            // 
-            this.GenderCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.GenderCell.HeaderText = "Gender";
-            this.GenderCell.MinimumWidth = 6;
-            this.GenderCell.Name = "GenderCell";
-            this.GenderCell.ReadOnly = true;
-            this.GenderCell.Width = 85;
-            // 
-            // ShinyCell
-            // 
-            this.ShinyCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ShinyCell.HeaderText = "Shiny";
-            this.ShinyCell.MinimumWidth = 6;
-            this.ShinyCell.Name = "ShinyCell";
-            this.ShinyCell.ReadOnly = true;
-            this.ShinyCell.Width = 72;
-            // 
-            // SeedCell
-            // 
-            this.SeedCell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SeedCell.HeaderText = "Seed";
-            this.SeedCell.MaxInputLength = 16;
-            this.SeedCell.MinimumWidth = 6;
-            this.SeedCell.Name = "SeedCell";
-            this.SeedCell.ReadOnly = true;
-            this.SeedCell.Width = 140;
             // 
             // DenIVs
             // 
