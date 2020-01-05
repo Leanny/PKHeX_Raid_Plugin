@@ -31,7 +31,7 @@ namespace PKHeX_Raid_Plugin
             Ability = ability;
             Gender = gender;
             ShinyType = shinytype;
-            FixedIV = new int[] { -1, -1, -1, -1, -1, -1 };
+            FixedIV = new[] { -1, -1, -1, -1, -1, -1 };
         }
 
         public RaidTemplate(int species, int[] ivs, int rank, bool giga)
@@ -44,8 +44,7 @@ namespace PKHeX_Raid_Plugin
             Ability = 3;
             ShinyType = 0;
             FlawlessIVs = -1;
-            Probabilities = new int[] { 0, 0, 0, 0, 0 };
-
+            Probabilities = new[] { 0, 0, 0, 0, 0 };
         }
 
         public bool CanObtainWith(int stars) => Probabilities[stars] > 0;

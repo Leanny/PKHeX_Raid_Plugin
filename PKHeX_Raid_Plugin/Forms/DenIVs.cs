@@ -51,8 +51,9 @@ namespace PKHeX_Raid_Plugin
                     ComboboxItem item = new ComboboxItem($"{entry.MinRank + 1}\u2605 {s.Species[entry.Species]}", entry);
                     speciesList.Items.Add(item);
                 }
-
-            } else { 
+            }
+            else
+            {
                 for (int stars = min_stars[Raids.BadgeCount]; stars <= max_stars[Raids.BadgeCount]; stars++)
                 {
                     var entries = Raids.GetAllTemplatesWithStarCount(raidParameters, stars);
