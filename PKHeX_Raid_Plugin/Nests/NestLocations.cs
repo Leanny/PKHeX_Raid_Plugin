@@ -34,7 +34,7 @@
             new NestHashDetail(0x17428356dc6109f6, 0xba805967100fcede, 12, 136, 906), //01 48
             new NestHashDetail(0x17458b56dc634d65, 0x450421d99cf882c1, 12, 252, 905), //31 90
             new NestHashDetail(0x17491656dc666f6d, 0xba83da671012dfe8, 02, 030, 927), //26 59
-            new NestHashDetail(0x17490856dc6657a3, 0x17491556dc666dba, 02, 012, 851), //28 79
+            new NestHashDetail(0x17490856dc6657a3, 0x4500a2d99cf5751d, 02, 012, 851), //28 79
             new NestHashDetail(0x17491656dc666f6d, 0xba83db671012e19b, 02, 012, 861), //26 58
             new NestHashDetail(0x17428856dc611275, 0x45041fd99cf87f5b, 02, 020, 913), //04 92
             new NestHashDetail(0x17491656dc666f6d, 0xba83da671012dfe8, 02, 040, 878), //26 59
