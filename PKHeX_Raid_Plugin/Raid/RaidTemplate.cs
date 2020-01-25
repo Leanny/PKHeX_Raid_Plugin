@@ -16,7 +16,7 @@ namespace PKHeX_Raid_Plugin
         public readonly int[] FixedIV;
         public readonly int ShinyType;
 
-        public static readonly int[] ToxtricityAmplifiedNatures = { 0x03, 0x04, 0x02, 0x08, 0x09, 0x13, 0x16, 0x0B, 0x0D, 0x0E, 0x18 };
+        public static readonly int[] ToxtricityAmplifiedNatures = { 0x03, 0x04, 0x02, 0x08, 0x09, 0x13, 0x16, 0x0B, 0x0D, 0x0E, 0x00, 0x06, 0x18 };
         public static readonly int[] ToxtricityLowKeyNatures = { 0x01, 0x05, 0x07, 0x0A, 0x0C, 0x0F, 0x10, 0x11, 0x12, 0x14, 0x15, 0x17 };
 
         public RaidTemplate(int species, int[] probabilities, int flawlessIVs, int minRank, int maxRank, int altForm, int ability, int gender, bool giga, int shinytype = 0)
