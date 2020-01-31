@@ -71,12 +71,32 @@ namespace PKHeX_Raid_Plugin.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] flatc {
+            get {
+                object obj = ResourceManager.GetObject("flatc", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap map {
             get {
                 object obj = ResourceManager.GetObject("map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] NestHoleDistributionEncounter8Archive {
+            get {
+                object obj = ResourceManager.GetObject("NestHoleDistributionEncounter8Archive", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

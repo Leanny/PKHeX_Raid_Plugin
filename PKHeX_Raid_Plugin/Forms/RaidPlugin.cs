@@ -55,8 +55,7 @@ namespace PKHeX_Raid_Plugin
             if (game != GameVersion.SW && game != GameVersion.SH)
                 return;
             var savegame = (SAV8SWSH)sav;
-            raids = savegame.Blocks.Raid;
-            var f = new RaidList(raids, game, savegame.Badges, savegame.TID, savegame.SID);
+            var f = new RaidList(savegame.Blocks, game, savegame.Badges, savegame.TID, savegame.SID);
             f.Show();
         }
 
