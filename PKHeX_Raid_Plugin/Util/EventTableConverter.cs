@@ -21,7 +21,7 @@ namespace PKHeX_Raid_Plugin
         {
             var archive = blocks.GetBlock(NORMAL_ENCOUNTER).Data;
             if (archive.Length < 0x20 || archive.Length != 4 + BitConverter.ToInt32(archive, 0x10) || BitConverter.ToInt32(archive, 0x8) != 0x20)
-                throw new ArgumentException();
+                return; // no event loaded
             var encount_data = new byte[archive.Length - 0x24];
             Array.Copy(archive, 0x20, encount_data, 0, encount_data.Length);
 
@@ -43,14 +43,14 @@ namespace PKHeX_Raid_Plugin
             }
         }
 
-        public static void LoadFromJson(string file, RaidTables rt)
+        public static void LoadFromJson(string filecontent, RaidTables rt)
         {
-            var dist_encounts = DeserializeFrom<NestHoleDistributionEncounter8Archive>(file);
+            var dist_encounts = JsonConvert.DeserializeObject<NestHoleDistributionEncounter8Archive>(filecontent);
             var sword_table = dist_encounts.Tables.Where(z => z.GameVersion == 1).ToList();
             var shield_table = dist_encounts.Tables.Where(z => z.GameVersion == 2).ToList();
-            var swordTable = new RaidTemplateTable(1721953670860364124, 1, new RaidTemplate[sword_table.Count]);
-            var shieldTable = new RaidTemplateTable(1721953670860364124, 2, new RaidTemplate[sword_table.Count]);
-            for (int i = 0; i < sword_table.Count; i++)
+            var swordTable = new RaidTemplateTable(1721953670860364124, 1, new RaidTemplate[sword_table[0].Entries.Length]);
+            var shieldTable = new RaidTemplateTable(1721953670860364124, 2, new RaidTemplate[sword_table[0].Entries.Length]);
+            for (int i = 0; i < sword_table[0].Entries.Length; i++)
             {
                 var entry1 = sword_table[0].Entries[i];
                 swordTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.IsGigantamax, entry1.ShinyForced);
