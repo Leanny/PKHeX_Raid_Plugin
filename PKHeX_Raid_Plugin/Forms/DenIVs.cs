@@ -155,7 +155,7 @@ namespace PKHeX_Raid_Plugin
             if (natureBox.SelectedIndex != 0 && natureBox.Text != (string)row.Cells[7].Value)
                 return false;
 
-            if (abilityBox.SelectedIndex != 0 && abilityBox.Text != (string)row.Cells[8].Value)
+            if(abilityBox.SelectedIndex != 0 && !abilityBox.Text.StartsWith((string)row.Cells[8].Value))
                 return false;
 
             if (genderBox.SelectedIndex != 0 && genderBox.Text != (string)row.Cells[9].Value)
