@@ -28,7 +28,7 @@ namespace PKHeX_Raid_Plugin
         public uint Field_07 { get; set; }
         public uint Field_08 { get; set; }
         public uint Field_09 { get; set; }
-        public uint ShinyForced { get; set; }
+        public uint Field_0A { get; set; }
         public byte Ability { get; set; }
         public bool IsGigantamax { get; set; }
         public ulong DropTableID { get; set; }
@@ -36,7 +36,7 @@ namespace PKHeX_Raid_Plugin
         public int[] Probabilities { get; set; }
         public byte Gender { get; set; }
         public byte FlawlessIVs { get; set; }
-        public byte Field_12 { get; set; }
+        public byte ShinyForced { get; set; }
         public byte Field_13 { get; set; } // 3/4
         public byte Field_14 { get; set; } // 3/4/5 -- +1 for second entries
         public byte Nature { get; set; }

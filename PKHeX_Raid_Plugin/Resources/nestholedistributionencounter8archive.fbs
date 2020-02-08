@@ -23,7 +23,7 @@ table NestHoleDistributionEncounter8 {
     Field_07:uint;
     Field_08:uint;
     Field_09:uint;
-    ShinyForced:uint;
+    Field_0A:uint;
     Ability:byte;
     IsGigantamax:bool;
     DropTableID:ulong;
@@ -31,7 +31,7 @@ table NestHoleDistributionEncounter8 {
     Probabilities:[uint];
     Gender:byte;
     FlawlessIVs:byte;
-    Field_12:byte;
+    ShinyForced:byte;
     Field_13:byte;
     Field_14:byte;
     Nature:byte;
