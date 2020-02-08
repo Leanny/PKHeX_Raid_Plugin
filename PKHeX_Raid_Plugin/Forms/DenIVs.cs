@@ -78,7 +78,7 @@ namespace PKHeX_Raid_Plugin
             raidContent.Rows.Clear();
             var rows = new List<DataGridViewRow>();
             ((ISupportInitialize)raidContent).BeginInit();
-            for (uint current_frame = start_frame; current_frame <= end_frame; current_frame++, current_seed += XOROSHIRO.XOROSHIRO_CONST)
+            for (uint current_frame = start_frame; current_frame <= start_frame + end_frame; current_frame++, current_seed += XOROSHIRO.XOROSHIRO_CONST)
             {
                 RaidPKM res = pkmn.ConvertToPKM(current_seed, Raids.TID, Raids.SID);
                 var row = CreateRaidRow(current_frame, res, s, current_seed);
