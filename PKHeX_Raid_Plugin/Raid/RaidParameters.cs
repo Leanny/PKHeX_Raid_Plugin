@@ -26,11 +26,13 @@ namespace PKHeX_Raid_Plugin
         };
 
         public readonly int Flags;
-        public readonly int Type;
+        public readonly RaidType Type;
         public readonly bool IsActive;
         public readonly bool IsEvent;
         public readonly bool IsRare;
         public readonly bool IsCrystal;
+        public readonly bool IsWishingPiece;
+        public readonly bool WattsHarvested;
         public readonly ulong Seed;
         public readonly int Index;
         public readonly int Stars;
@@ -42,15 +44,17 @@ namespace PKHeX_Raid_Plugin
         public RaidParameters(int index, RaidSpawnDetail detail, int location, int x, int y)
             : this(index, detail.Seed, detail.Stars, detail.RandRoll, detail.Flags, detail.DenType, location, x, y) { }
 
-        public RaidParameters(int index, ulong seed, int stars, int randRoll, int flags, int type, int location, int x, int y)
+        public RaidParameters(int index, ulong seed, int stars, int randRoll, int flags, RaidType type, int location, int x, int y)
         {
             Seed = seed;
             Flags = flags;
             Type = type;
-            IsActive = Type > 0;
+            IsActive = type > 0;
             IsCrystal = index == 16;
-            IsRare = Type > 0 && (Type & 1) == 0;
-            IsEvent = ((Flags >> 1) & 1) == 1;
+            IsRare = Type == RaidType.Rare || Type == RaidType.RareWish;
+            IsEvent = IsActive && (Flags & 2) == 2;
+            IsWishingPiece = Type == RaidType.CommonWish || Type == RaidType.RareWish;
+            WattsHarvested = IsActive && (Flags & 1) == 1;
             Stars = stars;
             RandRoll = randRoll;
             Index = index;
