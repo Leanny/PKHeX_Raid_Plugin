@@ -109,7 +109,7 @@
             // L_Shiny
             // 
             this.L_Shiny.AutoSize = true;
-            this.L_Shiny.Location = new System.Drawing.Point(141, 343);
+            this.L_Shiny.Location = new System.Drawing.Point(121, 343);
             this.L_Shiny.Name = "L_Shiny";
             this.L_Shiny.Size = new System.Drawing.Size(46, 17);
             this.L_Shiny.TabIndex = 24;
@@ -175,7 +175,7 @@
             // L_Ability
             // 
             this.L_Ability.AutoSize = true;
-            this.L_Ability.Location = new System.Drawing.Point(141, 316);
+            this.L_Ability.Location = new System.Drawing.Point(121, 316);
             this.L_Ability.Name = "L_Ability";
             this.L_Ability.Size = new System.Drawing.Size(49, 17);
             this.L_Ability.TabIndex = 13;
@@ -212,7 +212,7 @@
             // L_Nature
             // 
             this.L_Nature.AutoSize = true;
-            this.L_Nature.Location = new System.Drawing.Point(141, 290);
+            this.L_Nature.Location = new System.Drawing.Point(121, 290);
             this.L_Nature.Name = "L_Nature";
             this.L_Nature.Size = new System.Drawing.Size(55, 17);
             this.L_Nature.TabIndex = 12;
