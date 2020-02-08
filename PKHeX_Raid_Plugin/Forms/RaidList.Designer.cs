@@ -57,6 +57,8 @@
             this.CB_Den = new System.Windows.Forms.ComboBox();
             this.GB_Right = new System.Windows.Forms.GroupBox();
             this.DenMap = new System.Windows.Forms.PictureBox();
+            this.CHK_Wishing = new System.Windows.Forms.CheckBox();
+            this.CHK_Watts = new System.Windows.Forms.CheckBox();
             this.GB_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_PK1)).BeginInit();
             this.GB_Right.SuspendLayout();
@@ -67,6 +69,8 @@
             // 
             this.GB_Left.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.GB_Left.Controls.Add(this.CHK_Watts);
+            this.GB_Left.Controls.Add(this.CHK_Wishing);
             this.GB_Left.Controls.Add(this.L_Shiny);
             this.GB_Left.Controls.Add(this.label1);
             this.GB_Left.Controls.Add(this.L_Spe);
@@ -180,7 +184,7 @@
             // TB_SPE_IV1
             // 
             this.TB_SPE_IV1.Location = new System.Drawing.Point(75, 416);
-            this.TB_SPE_IV1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_SPE_IV1.Margin = new System.Windows.Forms.Padding(4);
             this.TB_SPE_IV1.Name = "TB_SPE_IV1";
             this.TB_SPE_IV1.ReadOnly = true;
             this.TB_SPE_IV1.Size = new System.Drawing.Size(25, 22);
@@ -199,7 +203,7 @@
             // TB_SPD_IV1
             // 
             this.TB_SPD_IV1.Location = new System.Drawing.Point(75, 390);
-            this.TB_SPD_IV1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_SPD_IV1.Margin = new System.Windows.Forms.Padding(4);
             this.TB_SPD_IV1.Name = "TB_SPD_IV1";
             this.TB_SPD_IV1.ReadOnly = true;
             this.TB_SPD_IV1.Size = new System.Drawing.Size(25, 22);
@@ -217,7 +221,7 @@
             // TB_SPA_IV1
             // 
             this.TB_SPA_IV1.Location = new System.Drawing.Point(75, 364);
-            this.TB_SPA_IV1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_SPA_IV1.Margin = new System.Windows.Forms.Padding(4);
             this.TB_SPA_IV1.Name = "TB_SPA_IV1";
             this.TB_SPA_IV1.ReadOnly = true;
             this.TB_SPA_IV1.Size = new System.Drawing.Size(25, 22);
@@ -257,7 +261,7 @@
             this.CHK_Event.AutoCheck = false;
             this.CHK_Event.AutoSize = true;
             this.CHK_Event.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_Event.Location = new System.Drawing.Point(16, 214);
+            this.CHK_Event.Location = new System.Drawing.Point(16, 210);
             this.CHK_Event.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CHK_Event.Name = "CHK_Event";
             this.CHK_Event.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -280,7 +284,7 @@
             // TB_DEF_IV1
             // 
             this.TB_DEF_IV1.Location = new System.Drawing.Point(75, 338);
-            this.TB_DEF_IV1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_DEF_IV1.Margin = new System.Windows.Forms.Padding(4);
             this.TB_DEF_IV1.Name = "TB_DEF_IV1";
             this.TB_DEF_IV1.ReadOnly = true;
             this.TB_DEF_IV1.Size = new System.Drawing.Size(25, 22);
@@ -292,7 +296,7 @@
             this.PB_PK1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PB_PK1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_PK1.Location = new System.Drawing.Point(165, 165);
-            this.PB_PK1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PB_PK1.Margin = new System.Windows.Forms.Padding(4);
             this.PB_PK1.Name = "PB_PK1";
             this.PB_PK1.Size = new System.Drawing.Size(93, 71);
             this.PB_PK1.TabIndex = 6;
@@ -303,7 +307,7 @@
             this.CHK_Rare.AutoCheck = false;
             this.CHK_Rare.AutoSize = true;
             this.CHK_Rare.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_Rare.Location = new System.Drawing.Point(16, 191);
+            this.CHK_Rare.Location = new System.Drawing.Point(16, 185);
             this.CHK_Rare.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CHK_Rare.Name = "CHK_Rare";
             this.CHK_Rare.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -315,7 +319,7 @@
             // TB_ATK_IV1
             // 
             this.TB_ATK_IV1.Location = new System.Drawing.Point(75, 313);
-            this.TB_ATK_IV1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_ATK_IV1.Margin = new System.Windows.Forms.Padding(4);
             this.TB_ATK_IV1.Name = "TB_ATK_IV1";
             this.TB_ATK_IV1.ReadOnly = true;
             this.TB_ATK_IV1.Size = new System.Drawing.Size(25, 22);
@@ -326,7 +330,7 @@
             this.CHK_Active.AutoCheck = false;
             this.CHK_Active.AutoSize = true;
             this.CHK_Active.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CHK_Active.Location = new System.Drawing.Point(16, 166);
+            this.CHK_Active.Location = new System.Drawing.Point(16, 160);
             this.CHK_Active.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CHK_Active.Name = "CHK_Active";
             this.CHK_Active.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -338,7 +342,7 @@
             // TB_HP_IV1
             // 
             this.TB_HP_IV1.Location = new System.Drawing.Point(75, 287);
-            this.TB_HP_IV1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_HP_IV1.Margin = new System.Windows.Forms.Padding(4);
             this.TB_HP_IV1.Name = "TB_HP_IV1";
             this.TB_HP_IV1.ReadOnly = true;
             this.TB_HP_IV1.Size = new System.Drawing.Size(25, 22);
@@ -491,6 +495,34 @@
             this.DenMap.TabIndex = 0;
             this.DenMap.TabStop = false;
             // 
+            // CHK_Wishing
+            // 
+            this.CHK_Wishing.AutoCheck = false;
+            this.CHK_Wishing.AutoSize = true;
+            this.CHK_Wishing.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_Wishing.Location = new System.Drawing.Point(16, 235);
+            this.CHK_Wishing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CHK_Wishing.Name = "CHK_Wishing";
+            this.CHK_Wishing.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CHK_Wishing.Size = new System.Drawing.Size(119, 21);
+            this.CHK_Wishing.TabIndex = 25;
+            this.CHK_Wishing.Text = "Wishing Piece";
+            this.CHK_Wishing.UseVisualStyleBackColor = true;
+            // 
+            // CHK_Watts
+            // 
+            this.CHK_Watts.AutoCheck = false;
+            this.CHK_Watts.AutoSize = true;
+            this.CHK_Watts.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CHK_Watts.Location = new System.Drawing.Point(16, 260);
+            this.CHK_Watts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CHK_Watts.Name = "CHK_Watts";
+            this.CHK_Watts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CHK_Watts.Size = new System.Drawing.Size(135, 21);
+            this.CHK_Watts.TabIndex = 26;
+            this.CHK_Watts.Text = "Watts Harvested";
+            this.CHK_Watts.UseVisualStyleBackColor = true;
+            // 
             // RaidList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -544,5 +576,7 @@
         private System.Windows.Forms.Label L_Stars;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label L_Shiny;
+        private System.Windows.Forms.CheckBox CHK_Wishing;
+        private System.Windows.Forms.CheckBox CHK_Watts;
     }
 }

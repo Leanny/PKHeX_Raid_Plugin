@@ -31,6 +31,8 @@ namespace PKHeX_Raid_Plugin
             CHK_Active.Checked = raidParameters.IsActive;
             CHK_Rare.Checked = raidParameters.IsRare;
             CHK_Event.Checked = raidParameters.IsEvent;
+            CHK_Wishing.Checked = raidParameters.IsWishingPiece;
+            CHK_Watts.Checked = raidParameters.WattsHarvested;
             L_DenSeed.Text = $"{raidParameters.Seed:X16}";
             L_Stars.Text = RaidUtil.GetStarString(raidParameters);
 
