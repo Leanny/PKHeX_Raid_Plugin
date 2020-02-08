@@ -54,7 +54,7 @@ namespace PKHeX_Raid_Plugin
             IsRare = Type == RaidType.Rare || Type == RaidType.RareWish;
             IsEvent = IsActive && (Flags & 2) == 2;
             IsWishingPiece = Type == RaidType.CommonWish || Type == RaidType.RareWish;
-            WattsHarvested = IsActive && (Flags & 1) == 1;
+            WattsHarvested = (Flags & 1) == 1;
             Stars = stars;
             RandRoll = randRoll;
             Index = index;
