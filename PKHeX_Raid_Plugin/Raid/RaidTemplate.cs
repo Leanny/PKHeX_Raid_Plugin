@@ -70,6 +70,10 @@ namespace PKHeX_Raid_Plugin
             {
                 shinytype = 2;
             }
+            if (ShinyType == 1)
+            {
+                shinytype = 3;
+            }
             uint tsv = RandUtil.GetShinyValue((sid << 16) | tid);
             PID = GetFinalPID(tid, sid, PID, SIDTID, tsv, ShinyType);
 
@@ -143,6 +147,10 @@ namespace PKHeX_Raid_Plugin
             if (fixedShiny == 2 && shinytype == 0)
             {
                 shinytype = 2;
+            }
+            if (fixedShiny == 1)
+            {
+                shinytype = 0;
             }
             uint psv = RandUtil.GetShinyValue(new_pid);
             if (shinytype == 0)
