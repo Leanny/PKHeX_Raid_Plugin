@@ -45,7 +45,6 @@ namespace PKHeX_Raid_Plugin
             NotifySaveLoaded();
         }
 
-        private RaidSpawnList8? raids;
         private ISaveFileProvider? _saveFileEditor;
 
         private void Open()
