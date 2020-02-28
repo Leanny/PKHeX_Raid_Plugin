@@ -27,7 +27,7 @@ namespace PKHeX_Raid_Plugin
 
         public static int GetIndex(this IReadOnlyList<RaidTemplate> entries, int stars, int roll)
         {
-            int probability = 1;
+            uint probability = 1;
             for (int idx = 0; idx < entries.Count; idx++)
             {
                 probability += entries[idx].Probabilities[stars];

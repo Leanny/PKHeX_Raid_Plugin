@@ -38,7 +38,7 @@ namespace PKHeX_Raid_Plugin
             return true;
         }
 
-        public static IEnumerable<ulong> FindSeeds(uint ec, uint pid, uint tid, uint sid, uint fixedShiny = 0)
+        public static IEnumerable<ulong> FindSeeds(uint ec, uint pid, uint tid, uint sid, sbyte fixedShiny = 0)
         {
             var fixed_val = GetSeedStart(ec);
             uint tsv = (tid ^ sid) >> 4;

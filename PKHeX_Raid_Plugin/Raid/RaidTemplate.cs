@@ -1,11 +1,12 @@
 ﻿using PKHeX.Core;
+using System;
 
 namespace PKHeX_Raid_Plugin
 {
     public class RaidTemplate
     {
         public readonly int Species;
-        public readonly int[] Probabilities;
+        public readonly uint[] Probabilities;
         public readonly int FlawlessIVs;
         public readonly int MinRank;
         public readonly int MaxRank;
@@ -15,25 +16,25 @@ namespace PKHeX_Raid_Plugin
         public readonly int Nature;
         public readonly int Gender;
         public readonly int[] FixedIV;
-        public readonly uint ShinyType;
+        public readonly sbyte ShinyType;
 
         public static readonly int[] ToxtricityAmplifiedNatures = { 0x03, 0x04, 0x02, 0x08, 0x09, 0x13, 0x16, 0x0B, 0x0D, 0x0E, 0x00, 0x06, 0x18 };
         public static readonly int[] ToxtricityLowKeyNatures = { 0x01, 0x05, 0x07, 0x0A, 0x0C, 0x0F, 0x10, 0x11, 0x12, 0x14, 0x15, 0x17 };
 
-        public RaidTemplate(int species, int[] probabilities, int flawlessIVs, int minRank, int maxRank, int altForm, int ability, int gender, bool giga, uint shinytype = 0) : 
-            this(species, probabilities, flawlessIVs, minRank, maxRank, altForm, ability, gender, 25, giga, shinytype)
+        public RaidTemplate(uint species, uint[] probabilities, int flawlessIVs, uint altForm, int ability, int gender, bool giga, sbyte shinytype = 0) : 
+            this(species, probabilities, flawlessIVs, altForm, ability, gender, 25, giga, shinytype)
         {
             
         }
 
-        public RaidTemplate(int species, int[] probabilities, int flawlessIVs, int minRank, int maxRank, int altForm, int ability, int gender, int nature, bool giga, uint shinytype = 0)
+        public RaidTemplate(uint species, uint[] probabilities, int flawlessIVs, uint altForm, int ability, int gender, int nature, bool giga, sbyte shinytype = 0)
         {
-            Species = species;
+            Species = (int) species;
             Probabilities = probabilities;
             FlawlessIVs = flawlessIVs;
-            MinRank = minRank;
-            MaxRank = maxRank;
-            AltForm = altForm;
+            MinRank = Array.FindIndex(Probabilities, z => z != 0);;
+            MaxRank = Array.FindLastIndex(Probabilities, z => z != 0);;
+            AltForm = (int) altForm;
             IsGigantamax = giga;
             Ability = ability;
             Gender = gender;
@@ -42,9 +43,9 @@ namespace PKHeX_Raid_Plugin
             FixedIV = new[] { -1, -1, -1, -1, -1, -1 };
         }
 
-        public RaidTemplate(int species, int[] ivs, int rank, bool giga)
+        public RaidTemplate(uint species, int[] ivs, int rank, bool giga)
         {
-            Species = species;
+            Species = (int) species;
             MinRank = rank;
             MaxRank = rank;
             FixedIV = ivs;
@@ -52,7 +53,7 @@ namespace PKHeX_Raid_Plugin
             Ability = 3;
             ShinyType = 0;
             FlawlessIVs = -1;
-            Probabilities = new[] { 0, 0, 0, 0, 0 };
+            Probabilities = new[] { 0u, 0u, 0u, 0u, 0u };
         }
 
         public bool CanObtainWith(int stars) => Probabilities[stars] > 0;
@@ -136,7 +137,7 @@ namespace PKHeX_Raid_Plugin
             return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, gender, nature, shinytype, IsGigantamax);
         }
 
-        public static uint GetFinalPID(uint tid, uint sid, uint new_pid, uint tidsid, uint tsv, uint fixedShiny)
+        public static uint GetFinalPID(uint tid, uint sid, uint new_pid, uint tidsid, uint tsv, sbyte fixedShiny)
         {
             var shinytype = RandUtil.GetShinyType(new_pid, tidsid);
             if (fixedShiny == 2 && shinytype == 0)
