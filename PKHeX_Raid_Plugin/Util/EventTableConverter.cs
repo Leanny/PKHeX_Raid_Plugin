@@ -1,9 +1,6 @@
 ﻿using PKHeX.Core;
 using PKHeX_Raid_Plugin.Properties;
 using System;
-using System.Diagnostics;
-using System.IO;
-using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Linq;
 
@@ -12,10 +9,7 @@ namespace PKHeX_Raid_Plugin
     public static class EventTableConverter
     {
         // https://projectpokemon.org/home/forums/topic/56121-swsh-blocks-and-save-research/
-        const uint DROP_REWARDS = 0x680EEB85;
-        const uint DAI_ENCOUNTER = 0xAD3920F5;
         const uint NORMAL_ENCOUNTER = 0xAD9DFA6A;
-        const uint BONUS_REWARDS = 0xEFCAE04E;
 
         public static void GetCurrentEventTable(SaveBlockAccessor8SWSH blocks, RaidTables rt)
         {
