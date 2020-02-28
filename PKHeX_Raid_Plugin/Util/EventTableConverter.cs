@@ -33,9 +33,9 @@ namespace PKHeX_Raid_Plugin
             for (int i=0; i < sword_table[0].Entries.Length; i++)
             {
                 var entry1 = sword_table[0].Entries[i];
-                swordTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.IsGigantamax, entry1.ShinyForced);
+                swordTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.Nature, entry1.IsGigantamax, entry1.ShinyForced);
                 entry1 = shield_table[0].Entries[i];
-                shieldTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.IsGigantamax, entry1.ShinyForced);
+                shieldTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.Nature, entry1.IsGigantamax, entry1.ShinyForced);
             }
             if(sword_table[0].Entries.Length > 0) { 
                 rt.SwordNestsEvent[0] = swordTable;
@@ -53,9 +53,9 @@ namespace PKHeX_Raid_Plugin
             for (int i = 0; i < sword_table[0].Entries.Length; i++)
             {
                 var entry1 = sword_table[0].Entries[i];
-                swordTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.IsGigantamax, entry1.ShinyForced);
+                swordTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.Nature, entry1.IsGigantamax, entry1.ShinyForced);
                 entry1 = shield_table[0].Entries[i];
-                shieldTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.IsGigantamax, entry1.ShinyForced);
+                shieldTable.Entries[i] = new RaidTemplate(entry1.Species, entry1.Probabilities, entry1.FlawlessIVs, entry1.MinRank, entry1.MaxRank, entry1.AltForm, entry1.Ability, entry1.Gender, entry1.Nature, entry1.IsGigantamax, entry1.ShinyForced);
             }
 
             rt.SwordNestsEvent[0] = swordTable;
