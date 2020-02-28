@@ -42,10 +42,11 @@ namespace PKHeX_Raid_Plugin
             L_Nature.Text = $"Nature: {s.natures[pkm.Nature]}";
             L_ShinyInFrames.Text = $"Next Shiny Frame: {RandUtil.GetNextShinyFrame(raidParameters.Seed)}";
             L_Shiny.Visible = pkm.ShinyType != 0;
-            L_Shiny.Text = pkm.ShinyType == 1 ? "Shiny: Star" : pkm.ShinyType == 2? "Shiny: Square!!!" : "Shiny locked";
+            L_Shiny.Text = pkm.ShinyType == 1 ? "Shiny: Star" : pkm.ShinyType == 2? (pkm.ForcedShinyType == 2 ? "Shiny: Forced Square" : "Shiny: Square!!!") : "Shiny locked";
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++) { 
                 IVs[i].Text = $"{pkm.IVs[i]:00}";
+            }
 
             PB_PK1.BackgroundImage = RaidUtil.GetRaidResultSprite(pkm, CHK_Active.Checked);
             L_Location.Text = raidParameters.Location;

@@ -138,7 +138,7 @@ namespace PKHeX_Raid_Plugin
                 nature = Nature;
             }
 
-            return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, gender, nature, shinytype, IsGigantamax);
+            return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, gender, nature, shinytype, IsGigantamax, ShinyType);
         }
 
         public static uint GetFinalPID(uint tid, uint sid, uint new_pid, uint tidsid, uint tsv, sbyte fixedShiny)

@@ -12,8 +12,9 @@
         public readonly int Ability;
         public readonly uint ShinyType;
         public readonly bool IsGigantamax;
+        public readonly sbyte ForcedShinyType;
 
-        public RaidPKM(int species, int altForm, uint ec, uint pid, int[] ivs, int ability, int gender, int nature, uint shinyType, bool isGigantamax)
+        public RaidPKM(int species, int altForm, uint ec, uint pid, int[] ivs, int ability, int gender, int nature, uint shinyType, bool isGigantamax, sbyte forcedShinyType = 0)
         {
             Species = species;
             AltForm = altForm;
@@ -25,6 +26,7 @@
             Nature = nature;
             ShinyType = shinyType;
             IsGigantamax = isGigantamax;
+            ForcedShinyType = forcedShinyType;
         }
     }
 }
