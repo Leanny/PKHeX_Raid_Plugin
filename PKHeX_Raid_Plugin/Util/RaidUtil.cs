@@ -17,7 +17,7 @@ namespace PKHeX_Raid_Plugin
 
         public static Image GetRaidResultSprite(RaidPKM raidPkm, bool active)
         {
-            var sprite = SpriteUtil.GetSprite(raidPkm.Species, raidPkm.AltForm, raidPkm.Gender, 0, false, raidPkm.ShinyType > 0);
+            var sprite = SpriteUtil.GetSprite(raidPkm.Species, raidPkm.AltForm, raidPkm.Gender, 0, false, raidPkm.ShinyType > 0, 8, isAltShiny: raidPkm.ShinyType == 2);
 
             if (raidPkm.IsGigantamax)
             {
@@ -25,8 +25,16 @@ namespace PKHeX_Raid_Plugin
                 sprite = ImageUtil.LayerImage(sprite, gm, (sprite.Width - gm.Width) / 2, 0);
             }
 
-            if (!active)
+            if (raidPkm.ShinyType == 3)
+            {
+                // No Shiny
+                var icon = Resources.no_shiny;
+                sprite = ImageUtil.LayerImage(sprite, icon, 0, 0, 0.7);
+            }
+
+            if (!active) { 
                 sprite = ImageUtil.ToGrayscale(sprite);
+            }
 
             return sprite;
         }
