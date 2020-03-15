@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# CS8629: Ein Werttyp, der NULL zulässt, kann NULL sein.
+dotnet_diagnostic.CS8629.severity = none
+
+# CS8618: Das Non-Nullable-Feld ist nicht initialisiert. Deklarieren Sie das Feld ggf. als "Nullable".
+dotnet_diagnostic.CS8618.severity = none
