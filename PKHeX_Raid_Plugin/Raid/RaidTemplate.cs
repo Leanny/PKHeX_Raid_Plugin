@@ -82,12 +82,14 @@ namespace PKHeX_Raid_Plugin
             {
                  ivs[i] = FixedIV[i];
             }
+            int deviation = -FlawlessIVs;
             for (int i = 0; i < FlawlessIVs; i++)
             {
                 int idx;
                 do
                 {
                     idx = (int)rng.NextInt(6);
+                    deviation++;
                 } while (ivs[idx] != -1);
                 ivs[idx] = 31;
             }
@@ -138,7 +140,7 @@ namespace PKHeX_Raid_Plugin
                 nature = Nature;
             }
 
-            return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, gender, nature, shinytype, IsGigantamax, ShinyType);
+            return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, gender, nature, deviation, shinytype, IsGigantamax, ShinyType);
         }
 
         public static uint GetFinalPID(uint tid, uint sid, uint new_pid, uint tidsid, uint tsv, sbyte fixedShiny)
