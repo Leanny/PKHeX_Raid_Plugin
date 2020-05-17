@@ -88,8 +88,11 @@ namespace PKHeX_Raid_Plugin
                 int idx;
                 do
                 {
-                    idx = (int)rng.NextInt(6);
-                    deviation++;
+                    do
+                    {
+                        idx = (int) rng.Next() & 7;
+                        deviation++;
+                    } while (idx >= 6);
                 } while (ivs[idx] != -1);
                 ivs[idx] = 31;
             }
