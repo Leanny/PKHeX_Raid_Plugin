@@ -28,6 +28,9 @@ namespace PKHeX_Raid_Plugin
             var param = raids[idx];
             seedBox.Text = $"{param.Seed:X16}";
             denBox.SelectedIndex = idx;
+            natureBox.Items.Clear();
+            natureBox.Items.Add("Any");
+            natureBox.Items.AddRange(GameInfo.Strings.natures);
             natureBox.SelectedIndex = shinyBox.SelectedIndex = 0;
             CenterToParent();
         }
