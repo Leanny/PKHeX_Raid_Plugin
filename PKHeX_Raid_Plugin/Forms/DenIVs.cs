@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using PKHeX.Core;
@@ -20,6 +22,8 @@ namespace PKHeX_Raid_Plugin
 
         private static readonly string[] genders = { "Male", "Female", "Genderless" };
         private static readonly string[] shinytype = { "No", "Star", "Square" };
+
+        private CancellationTokenSource cts;
 
         public DenIVs(int idx, RaidManager raids)
         {
@@ -233,8 +237,14 @@ namespace PKHeX_Raid_Plugin
             raidContent.Rows.AddRange(rows);
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private async void SearchButton_Click(object sender, EventArgs e)
         {
+            if (searchButton.Text == "Stop")
+            {
+                cts.Cancel();
+                searchButton.Text = "Search";
+                return;
+            }
             var result = WinFormsUtil.Prompt(MessageBoxButtons.YesNo, "This might take a long time. Are you sure you want to start the search?");
             if (result != DialogResult.Yes)
                 return;
@@ -242,6 +252,23 @@ namespace PKHeX_Raid_Plugin
             ulong start_seed = ulong.Parse(seedBox.Text, System.Globalization.NumberStyles.HexNumber);
             uint start_frame = uint.Parse(startFrame.Text);
             // uint end_frame = uint.Parse(endFrame.Text);
+            raidContent.Rows.Clear();
+            searchButton.Text = "Stop";
+            cts = new CancellationTokenSource();
+            try
+            {
+                var row = await SearchTask(start_seed, start_frame, cts.Token);
+                //((ISupportInitialize)raidContent).BeginInit();
+                raidContent.Rows.Add(row);
+                searchButton.Text = "Search";
+                //((ISupportInitialize)raidContent).EndInit();
+            }
+            catch (OperationCanceledException)
+            {
+                WinFormsUtil.Alert("Stop Search!");
+                return;
+            }
+            /*
             ulong current_seed = Advance(start_seed, start_frame);
             var template = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
             var s = GameInfo.Strings;
@@ -258,6 +285,24 @@ namespace PKHeX_Raid_Plugin
                 break;
             }
             ((ISupportInitialize)raidContent).EndInit();
+            */
+        }
+
+        private async Task<DataGridViewRow> SearchTask(ulong start_seed, uint start_frame, CancellationToken cancelToken)
+        {
+            ulong current_seed = Advance(start_seed, start_frame);
+            var template = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
+            var s = GameInfo.Strings;
+            return await Task.Run(() => {
+                for (uint current_frame = start_frame; ; current_frame++, current_seed += XOROSHIRO.XOROSHIRO_CONST)
+                {
+                    cancelToken.ThrowIfCancellationRequested();
+                    var pkm = template.ConvertToPKM(current_seed, Raids.TID, Raids.SID);
+                    if (!IsRowVisible(pkm))
+                        continue;
+                    return CreateRaidRow(current_frame, pkm, s, current_seed);
+                }
+            }, cancelToken);
         }
 
         private DataGridViewRow CreateRaidRow(uint current_frame, RaidPKM res, GameStrings s, ulong current_seed)
