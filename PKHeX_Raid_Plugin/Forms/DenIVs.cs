@@ -77,8 +77,16 @@ namespace PKHeX_Raid_Plugin
         private void GenerateData_Click(object sender, EventArgs e)
         {
             ulong start_seed = ulong.Parse(seedBox.Text, System.Globalization.NumberStyles.HexNumber);
-            uint start_frame = uint.Parse(startFrame.Text);
-            uint end_frame = uint.Parse(endFrame.Text);
+            if(!uint.TryParse(startFrame.Text, out uint start_frame))
+            {
+                start_frame = uint.MaxValue;
+            }
+            startFrame.Text = start_frame.ToString();
+            if (!uint.TryParse(endFrame.Text, out uint end_frame))
+            {
+                end_frame = uint.MaxValue;
+            }
+            endFrame.Text = end_frame.ToString();
             ulong current_seed = Advance(start_seed, start_frame);
             var s = GameInfo.Strings;
             RaidTemplate pkmn = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
@@ -250,7 +258,11 @@ namespace PKHeX_Raid_Plugin
                 return;
 
             ulong start_seed = ulong.Parse(seedBox.Text, System.Globalization.NumberStyles.HexNumber);
-            uint start_frame = uint.Parse(startFrame.Text);
+            if(!uint.TryParse(startFrame.Text, out uint start_frame))
+            {
+                start_frame = uint.MaxValue;
+            }
+            startFrame.Text = start_frame.ToString();
             // uint end_frame = uint.Parse(endFrame.Text);
             raidContent.Rows.Clear();
             searchButton.Text = "Stop";
