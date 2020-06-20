@@ -22,7 +22,24 @@ namespace PKHeX_Raid_Plugin
             "South Lake Miloch",
             "Stony Wilderness",
             "Watchtower Ruins",
-            "West Lake Axewell"
+            "West Lake Axewell",
+            //
+            "Fields of Honor",
+            "Soothing Wetlands",
+            "Forest of Focus",
+            "Challenge Beach",
+            "Brawlers’ Cave",
+            "Challenge Road",
+            "Courageous Cavern",
+            "Loop Lagoon",
+            "Training Lowlands",
+            //"Warm-Up Tunnel",
+            "Potbottom Desert",
+            "Workout Sea",
+            "Stepping-Stone Sea",
+            "Insular Sea",
+            "Honeycalm Sea",
+            "Honeycalm Island",
         };
 
         public readonly int Flags;
