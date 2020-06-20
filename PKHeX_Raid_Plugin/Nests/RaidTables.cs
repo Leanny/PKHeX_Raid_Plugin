@@ -4416,6 +4416,19 @@
                 new RaidTemplate(868, new uint[]{0, 0, 0, 0, 40}, 5, 0, 4, 0, true),
                 new RaidTemplate(841, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
                 new RaidTemplate(839, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
+            }),
+            new RaidTemplateTable(968916678281972007, 1, new[]{
+                new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 40, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 0, 40}, 5, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
             })
         };
 
@@ -4433,6 +4446,19 @@
                 new RaidTemplate(868, new uint[]{0, 0, 0, 0, 40}, 5, 0, 4, 0, true),
                 new RaidTemplate(842, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
                 new RaidTemplate(131, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
+            }),
+            new RaidTemplateTable(968916678281972007, 1, new[]{
+                new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 40, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 0, 40}, 5, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
             })
         };
 

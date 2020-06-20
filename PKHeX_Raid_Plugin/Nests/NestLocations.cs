@@ -1,4 +1,6 @@
-﻿namespace PKHeX_Raid_Plugin
+﻿using System;
+
+namespace PKHeX_Raid_Plugin
 {
     public class NestHashDetail
     {
@@ -21,6 +23,7 @@
     public static class NestLocations
     {
         public const ulong EventHash = 1721953670860364124;
+        public const ulong EventHash_Rigel1 = 968916678281972007;
 
         public static readonly NestHashDetail[] Nests =
         {
@@ -215,5 +218,11 @@
             new NestHashDetail(0xea4c3915ea6f95a0, 0x3ea9df3b7b2b5990, 31, 386, 195),
             new NestHashDetail(0xea4c3915ea6f95a0, 0x3ea9df3b7b2b5990, 31, 414, 148),
         };
+
+        internal static ulong getEventHash(RaidParameters raidParameters)
+        {
+            if (raidParameters.Index >= 100) return EventHash_Rigel1;
+            return EventHash;
+        }
     }
 }

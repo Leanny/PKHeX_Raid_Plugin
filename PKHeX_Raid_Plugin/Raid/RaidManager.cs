@@ -68,7 +68,7 @@ namespace PKHeX_Raid_Plugin
             if (raidParameters.IsEvent)
             {
                 var denDetails = Game == GameVersion.SW ? _raidTables.SwordNestsEvent : _raidTables.ShieldNestsEvent;
-                return denDetails.ConvertToPKM(raidParameters, NestLocations.EventHash, TID, SID);
+                return denDetails.ConvertToPKM(raidParameters, NestLocations.getEventHash(raidParameters), TID, SID);
             }
             else
             {
