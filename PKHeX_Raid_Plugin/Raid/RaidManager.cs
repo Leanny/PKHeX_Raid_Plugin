@@ -19,7 +19,7 @@ namespace PKHeX_Raid_Plugin
         public RaidManager(SaveBlockAccessor8SWSH blocks, GameVersion game, int badges, uint tid, uint sid)
         {
             EventTableConverter.GetCurrentEventTable(blocks, _raidTables);
-            DenList = InitializeDenList(blocks.Raid);
+            DenList = InitializeDenList(blocks.Raid, blocks.RaidArmor);
 
             Game = game;
             BadgeCount = Util.NumberOfSetBits(badges);
@@ -29,17 +29,21 @@ namespace PKHeX_Raid_Plugin
             SID = sid;
         }
 
-        private static RaidParameters[] InitializeDenList(RaidSpawnList8 raids)
+        private static RaidParameters[] InitializeDenList(RaidSpawnList8 raids, RaidSpawnList8 raidsArmor)
         {
-            var dl = new RaidParameters[100];
+            var dl = new RaidParameters[raids.CountUsed + raidsArmor.CountUsed];
             var allRaids = raids.GetAllRaids();
-            for (int i = 0; i < dl.Length; i++)
+            for (int i = 0; i < raids.CountUsed; i++)
             {
                 int idx = i;
                 var currentRaid = allRaids[idx];
                 var detail = NestLocations.Nests[i];
                 dl[i] = new RaidParameters(i, currentRaid, detail.Location, detail.MapX, detail.MapY);
             }
+            
+            // TODO
+            var allArmorRaids = raidsArmor.GetAllRaids();
+            
             return dl;
         }
 
