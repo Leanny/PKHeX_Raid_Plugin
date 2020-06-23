@@ -32,8 +32,8 @@ namespace PKHeX_Raid_Plugin
                 shield_table = dist_encounts.Tables(0).Value;
             }
 
-            var swordTable = new RaidTemplateTable(968916678281972007, 1, new RaidTemplate[sword_table.EntriesLength]);
-            var shieldTable = new RaidTemplateTable(968916678281972007, 2, new RaidTemplate[sword_table.EntriesLength]);
+            var swordTable = new RaidTemplateTable(1721953670860364124, 1, new RaidTemplate[sword_table.EntriesLength]);
+            var shieldTable = new RaidTemplateTable(1721953670860364124, 2, new RaidTemplate[sword_table.EntriesLength]);
             for (int i=0; i < sword_table.EntriesLength; i++)
             {
                 var entry1 = sword_table.Entries(i).Value;
@@ -66,8 +66,8 @@ namespace PKHeX_Raid_Plugin
                 shield_table = dist_encounts.Tables(0).Value;
             }
 
-            var swordTable_rigel1 = new RaidTemplateTable(1721953670860364124, 1, new RaidTemplate[sword_table.EntriesLength]);
-            var shieldTable_rigel1 = new RaidTemplateTable(1721953670860364124, 2, new RaidTemplate[sword_table.EntriesLength]);
+            var swordTable_rigel1 = new RaidTemplateTable(968916678281972007, 1, new RaidTemplate[sword_table.EntriesLength]);
+            var shieldTable_rigel1 = new RaidTemplateTable(968916678281972007, 2, new RaidTemplate[sword_table.EntriesLength]);
             for (int i = 0; i < sword_table.EntriesLength; i++)
             {
                 var entry1 = sword_table.Entries(i).Value;
