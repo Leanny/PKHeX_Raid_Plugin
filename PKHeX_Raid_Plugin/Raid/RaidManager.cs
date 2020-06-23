@@ -32,12 +32,10 @@ namespace PKHeX_Raid_Plugin
         private static RaidParameters[] InitializeDenList(RaidSpawnList8 raids, RaidSpawnList8 raidsArmor)
         {
             // current release has these numbers bugged
-            const int RaidCountLegal_O0 = 100; // tbd: raids.CountUsed
-            const int RaidCountLegal_R1 = 90; // tbd: raidsArmor.CountUsed
 
-            var dl = new RaidParameters[RaidCountLegal_O0 + RaidCountLegal_R1];
+            var dl = new RaidParameters[raids.CountUsed + raidsArmor.CountUsed];
             var allRaids = raids.GetAllRaids();
-            for (int i = 0; i < RaidCountLegal_O0; i++)
+            for (int i = 0; i < raids.CountUsed; i++)
             {
                 int idx = i;
                 var currentRaid = allRaids[i];
@@ -46,9 +44,9 @@ namespace PKHeX_Raid_Plugin
             }
             
             var allArmorRaids = raidsArmor.GetAllRaids();
-            for (int i = 0; i < RaidCountLegal_R1; i++)
+            for (int i = 0; i < raidsArmor.CountUsed; i++)
             {
-                int idx = RaidCountLegal_O0 + i;
+                int idx = raids.CountUsed + i;
                 var currentRaid = allArmorRaids[i];
                 var detail = NestLocations.Nests[idx];
                 dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY);
