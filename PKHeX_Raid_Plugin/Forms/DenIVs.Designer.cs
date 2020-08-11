@@ -50,7 +50,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.genderBox = new System.Windows.Forms.ComboBox();
             this.abilityBox = new System.Windows.Forms.ComboBox();
-            this.natureBox = new System.Windows.Forms.ComboBox();
+            this.natureBox = new CheckedComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -390,40 +390,17 @@
             // 
             // natureBox
             // 
-            this.natureBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.natureBox.CheckOnClick = true;
+            this.natureBox.DefaultValue = null;
+            this.natureBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.natureBox.DropDownHeight = 1;
             this.natureBox.FormattingEnabled = true;
-            this.natureBox.Items.AddRange(new object[] {
-            "Any",
-            "Hardy",
-            "Lonely",
-            "Brave",
-            "Adamant",
-            "Naughty",
-            "Bold",
-            "Docile",
-            "Relaxed",
-            "Impish",
-            "Lax",
-            "Timid",
-            "Hasty",
-            "Serious",
-            "Jolly",
-            "Naive",
-            "Modest",
-            "Mild",
-            "Quiet",
-            "Bashful",
-            "Rash",
-            "Calm",
-            "Gentle",
-            "Sassy",
-            "Careful",
-            "Quirky"});
+            this.natureBox.IntegralHeight = false;
             this.natureBox.Location = new System.Drawing.Point(436, 41);
-            this.natureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.natureBox.Name = "natureBox";
             this.natureBox.Size = new System.Drawing.Size(115, 21);
             this.natureBox.TabIndex = 28;
+            this.natureBox.ValueSeparator = ", ";
             // 
             // label22
             // 
@@ -1190,7 +1167,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox genderBox;
         private System.Windows.Forms.ComboBox abilityBox;
-        private System.Windows.Forms.ComboBox natureBox;
+        private CheckedComboBox natureBox;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox shinyBox;
         private System.Windows.Forms.Button resetFilter;
