@@ -103,20 +103,21 @@ namespace PKHeX_Raid_Plugin
             }
 
             int ability = 0;
+            int abilityIdx = 0;
             int[] abilities = PersonalTable.SWSH.GetAbilities(Species, AltForm);
             if (Ability < 3)
             {
-                ability = abilities[Ability];
+                abilityIdx = ability;
             }
             if (Ability == 3)
             {
-                ability = abilities[(uint)rng.NextInt(2)];
+                abilityIdx = (int)rng.NextInt(2);
             }
             else if (Ability == 4)
             {
-                ability = abilities[(uint)rng.NextInt(3)];
+                abilityIdx = (int)rng.NextInt(3);
             }
-
+            ability = abilities[abilityIdx];
             // gender 
             int gt = PersonalTable.SWSH[Species].Gender;
             var gender = gt switch
@@ -143,7 +144,7 @@ namespace PKHeX_Raid_Plugin
                 nature = Nature;
             }
 
-            return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, gender, nature, deviation, shinytype, IsGigantamax, ShinyType);
+            return new RaidPKM(Species, AltForm, EC, PID, ivs, ability, abilityIdx, gender, nature, deviation, shinytype, IsGigantamax, ShinyType);
         }
 
         public static uint GetFinalPID(uint tid, uint sid, uint new_pid, uint tidsid, uint tsv, sbyte fixedShiny)
