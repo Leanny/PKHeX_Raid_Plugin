@@ -50,7 +50,7 @@ namespace PKHeX_Raid_Plugin
             new NestHashDetail(0x17458b56dc634d65, 0xba83d8671012dc82, 04, 248, 852), //31 61
             new NestHashDetail(0x17428b56dc61178e, 0xba8a4e67101810b2, 16, 129, 818), //09 75
             new NestHashDetail(0x17428b56dc61178e, 0xba8a4e67101810b2, 16, 131, 735), //09 75
-            new NestHashDetail(0x17501a56dc6c94e7, 0xba805d67100fd5aa, 16, 105, 907), //44 42
+            new NestHashDetail(0x17501a56dc6c94e7, 0xba805d67100fd5aa, 16, 105, 907), //42 44
             new NestHashDetail(0x17428556dc610d5c, 0xba805d67100fd5aa, 16, 050, 909), //07 44
             new NestHashDetail(0x17428b56dc61178e, 0x450420d99cf8810e, 16, 098, 750), //09 91
             new NestHashDetail(0x17458756dc634699, 0xba8748671015d0a9, 16, 107, 652), //35 63
