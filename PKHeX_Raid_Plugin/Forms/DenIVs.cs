@@ -12,6 +12,7 @@ namespace PKHeX_Raid_Plugin
     public partial class DenIVs : Form
     {
         private readonly RaidManager Raids;
+        private readonly GameStrings GameStrings;
         private static readonly int[] min_stars = { 0, 0, 0, 0, 1, 1, 2, 2, 2, 0 };
         private static readonly int[] max_stars = { 0, 1, 1, 2, 2, 2, 3, 3, 4, 4 };
 
@@ -22,20 +23,33 @@ namespace PKHeX_Raid_Plugin
 
         private static readonly string[] genders = { "Male", "Female", "Genderless" };
         private static readonly string[] shinytype = { "No", "Star", "Square" };
+        private static readonly Dictionary<string, int> natureIdx = new Dictionary<string, int>();
 
         private CancellationTokenSource cts;
 
         public DenIVs(int idx, RaidManager raids)
         {
             InitializeComponent();
+            GameStrings = GameInfo.Strings;
             Raids = raids;
             var param = raids[idx];
             seedBox.Text = $"{param.Seed:X16}";
             denBox.SelectedIndex = idx;
             natureBox.Items.Clear();
             natureBox.Items.Add("Any");
-            natureBox.Items.AddRange(GameInfo.Strings.natures);
-            natureBox.SelectedIndex = shinyBox.SelectedIndex = 0;
+            natureBox.Items.AddRange(GameStrings.natures);
+            for (int i = 0; i < GameStrings.natures.Length; i++)
+            {
+                natureIdx[GameStrings.natures[i]] = i + 1;
+            }
+            natureBox.MaxDropDownItems = GameStrings.natures.Length;
+            natureBox.DefaultValue = "Any";
+            natureBox.DisplayMember = "Value";
+            natureBox.SetItemChecked(0, true);
+            natureBox.DropDownClosed += new EventHandler((object sender, EventArgs e) => {
+                Focus();
+            });
+            shinyBox.SelectedIndex = 0;
             CenterToParent();
         }
 
@@ -131,7 +145,7 @@ namespace PKHeX_Raid_Plugin
                 return false;
             if (res.IVs[5] < MinSpe.Value || res.IVs[5] > maxSpe.Value)
                 return false;
-            if (natureBox.SelectedIndex != 0 && natureBox.SelectedIndex - 1 != res.Nature)
+            if (!natureBox.GetItemChecked(0) && !natureBox.GetItemChecked(res.Nature + 1))
                 return false;
             if (abilityBox.SelectedIndex != 0 && (int)((ComboboxItem)abilityBox.SelectedItem).Value != res.Ability)
                 return false;
@@ -167,7 +181,7 @@ namespace PKHeX_Raid_Plugin
             if (spe < MinSpe.Value || spe > maxSpe.Value)
                 return false;
 
-            if (natureBox.SelectedIndex != 0 && natureBox.Text != (string)row.Cells[7].Value)
+            if (!natureBox.GetItemChecked(0) && !natureBox.GetItemChecked(natureIdx[(string)row.Cells[7].Value]))
                 return false;
 
             if(abilityBox.SelectedIndex != 0 && !abilityBox.Text.StartsWith((string)row.Cells[8].Value))
