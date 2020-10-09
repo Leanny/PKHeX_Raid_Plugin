@@ -207,12 +207,12 @@ namespace PKHeX_Raid_Plugin
 
         private static readonly string[] AbilitySuffix = { " (1)", " (2)", " (H)" };
 
-        private void PopulateAbilityList(int[] abilities, int a)
+        private void PopulateAbilityList(IReadOnlyList<int> abilities, int a)
         {
             abilityBox.Items.Clear();
             abilityBox.Items.Add("Any");
             var s = GameInfo.Strings;
-            for (var i = 0; i < abilities.Length; i++)
+f           for (var i = 0; i < abilities.Count; i++)
             {
                 int ability = abilities[i];
                 if (a == 3 && abilityBox.Items.Count == 3)
