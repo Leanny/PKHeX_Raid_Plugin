@@ -104,7 +104,7 @@ namespace PKHeX_Raid_Plugin
 
             int ability = 0;
             int abilityIdx = 0;
-            int[] abilities = PersonalTable.SWSH.GetAbilities(Species, AltForm);
+            int[] abilities = (int[])PersonalTable.SWSH[Species].Abilities;
             if (Ability < 3)
             {
                 abilityIdx = Ability;
