@@ -1,5 +1,6 @@
 ﻿using PKHeX.Core;
 using System;
+using System.Collections.Generic;
 
 namespace PKHeX_Raid_Plugin
 {
@@ -104,7 +105,7 @@ namespace PKHeX_Raid_Plugin
 
             int ability = 0;
             int abilityIdx = 0;
-            int[] abilities = PersonalTable.SWSH.GetAbilities(Species, AltForm);
+            IReadOnlyList<int> abilities = PersonalTable.SWSH.GetFormeEntry(Species, AltForm).Abilities;
             if (Ability < 3)
             {
                 abilityIdx = Ability;
