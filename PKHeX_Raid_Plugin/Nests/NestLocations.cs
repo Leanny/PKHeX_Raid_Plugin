@@ -24,7 +24,7 @@ namespace PKHeX_Raid_Plugin
     {
         public const ulong EventHash = 1721953670860364124;
         public const ulong EventHash_Rigel1 = 968916678281972007;
-        public const ulong EventHash_Rigel2 = 968916678281972007;
+        public const ulong EventHash_Rigel2 = 968917777793600218;
 
         public static readonly NestHashDetail[] Nests =
         {
