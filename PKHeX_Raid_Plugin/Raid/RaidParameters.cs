@@ -40,6 +40,18 @@ namespace PKHeX_Raid_Plugin
             "Insular Sea",
             "Honeycalm Sea",
             "Honeycalm Island",
+            "Slippery Slope",
+            "Frostpoint Field",
+            "Giant’s Bed",
+            "Old Cemetery",
+            "Snowslide Slope",
+            "Path to the Peak",
+            "Crown Shrine",
+            "Giant’s Foot",
+            "Frigid Sea",
+            "Three-Point Pass",
+            "Ballimere Lake",
+            "Dyna Tree Hill"
         };
 
         public readonly int Flags;
