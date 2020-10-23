@@ -21,7 +21,7 @@ Open PKHeX, load a savegame, and go to Tool -> Display Raids. You will see the c
 Talk to the Den, click on "Invite Others", then advance the time of your Switch by at least 1 day and then go back into the game. Cancel the raid search and talk to the den again. This advances the den by 1 frame. It is not possible to advance frames by more than 1, so you have to repeat this process.
 
 # Full Guide
-Available here: https://github.com/zaksabeast/PokemonRNGGuides/blob/add/swsh/raid/guides/swsh/en/Raid%20RNG.md
+Available here: https://github.com/zaksabeast/PokemonRNGGuides/blob/master/guides/Sword%20and%20Shield/Raid%20RNG.md
 
 # Compiling
 To compile this project, ``PKHeX.Core.dll``, ``PKHeX.Drawing.dll``, and ``Microsoft.Z3.dll`` are required as references.
