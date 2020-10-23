@@ -24,6 +24,7 @@ namespace PKHeX_Raid_Plugin
     {
         public const ulong EventHash = 1721953670860364124;
         public const ulong EventHash_Rigel1 = 968916678281972007;
+        public const ulong EventHash_Rigel2 = 968916678281972007;
 
         public static readonly NestHashDetail[] Nests =
         {
@@ -217,10 +218,98 @@ namespace PKHeX_Raid_Plugin
             new NestHashDetail(0xea4c3915ea6f95a0, 0x3ea9df3b7b2b5990, 31, 413, 237), //143 144
             new NestHashDetail(0xea4c3915ea6f95a0, 0x3ea9df3b7b2b5990, 31, 386, 195), //143 144
             new NestHashDetail(0xea4c3915ea6f95a0, 0x3ea9df3b7b2b5990, 31, 414, 148), //143 144
+
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 32, 0, 0), //166 167
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 32, 0, 0), //180 181
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 32, 0, 0), //168 169
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 32, 0, 0), //158 159
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 32, 0, 0), //182 183
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 32, 0, 0), //168 169
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 33, 0, 0), //190 191
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 33, 0, 0), //176 177
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 33, 0, 0), //186 187
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 33, 0, 0), //172 173
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 33, 0, 0), //164 165
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 34, 0, 0), //188 189
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 34, 0, 0), //160 161
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 34, 0, 0), //174 175
+            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 34, 0, 0), //192 193
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 34, 0, 0), //158 159
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 34, 0, 0), //162 163
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 34, 0, 0), //184 185
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 34, 0, 0), //172 173
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 34, 0, 0), //166 167
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 34, 0, 0), //180 181
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 34, 0, 0), //174 175
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 34, 0, 0), //186 187
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 34, 0, 0), //190 191
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 34, 0, 0), //180 181
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 34, 0, 0), //170 171
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 34, 0, 0), //162 163
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 34, 0, 0), //170 171
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 34, 0, 0), //178 179
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 34, 0, 0), //164 165
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 34, 0, 0), //160 161
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 34, 0, 0), //176 177
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 35, 0, 0), //182 183
+            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 35, 0, 0), //192 193
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 36, 0, 0), //180 181
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 36, 0, 0), //172 173
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 36, 0, 0), //188 189
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 36, 0, 0), //178 179
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 36, 0, 0), //186 187
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 36, 0, 0), //168 169
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 36, 0, 0), //190 191
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 36, 0, 0), //160 161
+            new NestHashDetail(0x58c3011eda59ea53, 0xb4dbd8428706d1c2, 36, 0, 0), //196 197
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 37, 0, 0), //188 189
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 37, 0, 0), //184 185
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 37, 0, 0), //178 179
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 38, 0, 0), //166 167
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 39, 0, 0), //158 159
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 39, 0, 0), //162 163
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 39, 0, 0), //186 187
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 39, 0, 0), //166 167
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 39, 0, 0), //182 183
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 0, 0), //170 171
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 40, 0, 0), //184 185
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 40, 0, 0), //162 163
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 40, 0, 0), //172 173
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 40, 0, 0), //188 189
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 0, 0), //170 171
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 40, 0, 0), //174 175
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 40, 0, 0), //182 183
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 40, 0, 0), //186 187
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 40, 0, 0), //190 191
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 40, 0, 0), //168 169
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 40, 0, 0), //164 165
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 40, 0, 0), //176 177
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 0, 0), //170 171
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 41, 0, 0), //184 185
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 41, 0, 0), //164 165
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 42, 0, 0), //158 159
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 42, 0, 0), //176 177
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 42, 0, 0), //174 175
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 42, 0, 0), //180 181
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 42, 0, 0), //160 161
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 42, 0, 0), //160 161
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 42, 0, 0), //166 167
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 42, 0, 0), //174 175
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 42, 0, 0), //164 165
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 42, 0, 0), //172 173
+            new NestHashDetail(0xe78d0a25d0c67a32, 0xbdf065bb6332909f, 42, 0, 0), //194 195
+            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 42, 0, 0), //192 193
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 42, 0, 0), //190 191
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 42, 0, 0), //162 163
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 42, 0, 0), //178 179
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 42, 0, 0), //182 183
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 42, 0, 0), //184 185
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 43, 0, 0), //176 177
         };
 
         internal static ulong getEventHash(RaidParameters raidParameters)
         {
+            if (raidParameters.Index >= 183) return EventHash_Rigel2;
             if (raidParameters.Index >= 100) return EventHash_Rigel1;
             return EventHash;
         }
