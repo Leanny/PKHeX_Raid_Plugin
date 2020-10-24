@@ -98,9 +98,9 @@
             this.GB_Left.Controls.Add(this.L_DenSeed);
             this.GB_Left.Controls.Add(this.CB_Den);
             this.GB_Left.Location = new System.Drawing.Point(9, 10);
-            this.GB_Left.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GB_Left.Margin = new System.Windows.Forms.Padding(2);
             this.GB_Left.Name = "GB_Left";
-            this.GB_Left.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GB_Left.Padding = new System.Windows.Forms.Padding(2);
             this.GB_Left.Size = new System.Drawing.Size(227, 419);
             this.GB_Left.TabIndex = 0;
             this.GB_Left.TabStop = false;
@@ -112,7 +112,7 @@
             this.CHK_Watts.AutoSize = true;
             this.CHK_Watts.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Watts.Location = new System.Drawing.Point(12, 211);
-            this.CHK_Watts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CHK_Watts.Margin = new System.Windows.Forms.Padding(2);
             this.CHK_Watts.Name = "CHK_Watts";
             this.CHK_Watts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CHK_Watts.Size = new System.Drawing.Size(106, 17);
@@ -126,7 +126,7 @@
             this.CHK_Wishing.AutoSize = true;
             this.CHK_Wishing.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Wishing.Location = new System.Drawing.Point(12, 191);
-            this.CHK_Wishing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CHK_Wishing.Margin = new System.Windows.Forms.Padding(2);
             this.CHK_Wishing.Name = "CHK_Wishing";
             this.CHK_Wishing.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CHK_Wishing.Size = new System.Drawing.Size(94, 17);
@@ -288,7 +288,7 @@
             this.CHK_Event.AutoSize = true;
             this.CHK_Event.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Event.Location = new System.Drawing.Point(12, 171);
-            this.CHK_Event.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CHK_Event.Margin = new System.Windows.Forms.Padding(2);
             this.CHK_Event.Name = "CHK_Event";
             this.CHK_Event.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CHK_Event.Size = new System.Drawing.Size(78, 17);
@@ -299,7 +299,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(11, 387);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(184, 27);
             this.button1.TabIndex = 8;
@@ -332,7 +332,7 @@
             this.CHK_Rare.AutoSize = true;
             this.CHK_Rare.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Rare.Location = new System.Drawing.Point(12, 150);
-            this.CHK_Rare.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CHK_Rare.Margin = new System.Windows.Forms.Padding(2);
             this.CHK_Rare.Name = "CHK_Rare";
             this.CHK_Rare.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CHK_Rare.Size = new System.Drawing.Size(73, 17);
@@ -354,7 +354,7 @@
             this.CHK_Active.AutoSize = true;
             this.CHK_Active.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CHK_Active.Location = new System.Drawing.Point(12, 130);
-            this.CHK_Active.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CHK_Active.Margin = new System.Windows.Forms.Padding(2);
             this.CHK_Active.Name = "CHK_Active";
             this.CHK_Active.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CHK_Active.Size = new System.Drawing.Size(79, 17);
@@ -574,9 +574,95 @@
             "87 [IoA]: Honeycalm Island 3",
             "88 [IoA]: Honeycalm Island 4",
             "89 [IoA]: Honeycalm Island 5",
-            "90 [IoA]: Honeycalm Island 6"});
+            "90 [IoA]: Honeycalm Island 6",
+            "1 [CT]: Slippery Slope 1",
+            "2 [CT]: Slippery Slope 2",
+            "3 [CT]: Slippery Slope 3",
+            "4 [CT]: Slippery Slope 4",
+            "5 [CT]: Slippery Slope 5",
+            "6 [CT]: Slippery Slope 6",
+            "7 [CT]: Frostpoint Field 1",
+            "8 [CT]: Frostpoint Field 2",
+            "9 [CT]: Frostpoint Field 3",
+            "10 [CT]: Frostpoint Field 4",
+            "11 [CT]: Frostpoint Field 5",
+            "12 [CT]: Giant’s Bed 1",
+            "13 [CT]: Giant’s Bed 10",
+            "14 [CT]: Giant’s Bed 11",
+            "15 [CT]: Giant’s Bed 12",
+            "16 [CT]: Giant’s Bed 13",
+            "17 [CT]: Giant’s Bed 14",
+            "18 [CT]: Giant’s Bed 15",
+            "19 [CT]: Giant’s Bed 16",
+            "20 [CT]: Giant’s Bed 17",
+            "21 [CT]: Giant’s Bed 18",
+            "22 [CT]: Giant’s Bed 19",
+            "23 [CT]: Giant’s Bed 2",
+            "24 [CT]: Giant’s Bed 20",
+            "25 [CT]: Giant’s Bed 21",
+            "26 [CT]: Giant’s Bed 3",
+            "27 [CT]: Giant’s Bed 4",
+            "28 [CT]: Giant’s Bed 5",
+            "29 [CT]: Giant’s Bed 6",
+            "30 [CT]: Giant’s Bed 7",
+            "31 [CT]: Giant’s Bed 8",
+            "32 [CT]: Giant’s Bed 9",
+            "33 [CT]: Old Cemetery 1",
+            "34 [CT]: Old Cemetery 2",
+            "35 [CT]: Snowslide Slope 1",
+            "36 [CT]: Snowslide Slope 2",
+            "37 [CT]: Snowslide Slope 3",
+            "38 [CT]: Snowslide Slope 4",
+            "39 [CT]: Snowslide Slope 5",
+            "40 [CT]: Snowslide Slope 6",
+            "41 [CT]: Snowslide Slope 7",
+            "42 [CT]: Snowslide Slope 8",
+            "43 [CT]: Snowslide Slope 9",
+            "44 [CT]: Path to the Peak 1",
+            "45 [CT]: Path to the Peak 2",
+            "46 [CT]: Path to the Peak 3",
+            "47 [CT]: Crown Shrine 1",
+            "48 [CT]: Giant’s Foot 1",
+            "49 [CT]: Giant’s Foot 2",
+            "50 [CT]: Giant’s Foot 3",
+            "51 [CT]: Giant’s Foot 4",
+            "52 [CT]: Giant’s Foot 5",
+            "53 [CT]: Frigid Sea 1",
+            "54 [CT]: Frigid Sea 10",
+            "55 [CT]: Frigid Sea 11",
+            "56 [CT]: Frigid Sea 12",
+            "57 [CT]: Frigid Sea 13",
+            "58 [CT]: Frigid Sea 14",
+            "59 [CT]: Frigid Sea 2",
+            "60 [CT]: Frigid Sea 3",
+            "61 [CT]: Frigid Sea 4",
+            "62 [CT]: Frigid Sea 5",
+            "63 [CT]: Frigid Sea 6",
+            "64 [CT]: Frigid Sea 7",
+            "65 [CT]: Frigid Sea 8",
+            "66 [CT]: Frigid Sea 9",
+            "67 [CT]: Three-Point Pass 1",
+            "68 [CT]: Three-Point Pass 2",
+            "69 [CT]: Ballimere Lake 1",
+            "70 [CT]: Ballimere Lake 10",
+            "71 [CT]: Ballimere Lake 11",
+            "72 [CT]: Ballimere Lake 12",
+            "73 [CT]: Ballimere Lake 13",
+            "74 [CT]: Ballimere Lake 14",
+            "75 [CT]: Ballimere Lake 15",
+            "76 [CT]: Ballimere Lake 16",
+            "77 [CT]: Ballimere Lake 17",
+            "78 [CT]: Ballimere Lake 2",
+            "79 [CT]: Ballimere Lake 3",
+            "80 [CT]: Ballimere Lake 4",
+            "81 [CT]: Ballimere Lake 5",
+            "82 [CT]: Ballimere Lake 6",
+            "83 [CT]: Ballimere Lake 7",
+            "84 [CT]: Ballimere Lake 8",
+            "85 [CT]: Ballimere Lake 9",
+            "86 [CT]: Dyna Tree Hill 1"});
             this.CB_Den.Location = new System.Drawing.Point(56, 28);
-            this.CB_Den.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CB_Den.Margin = new System.Windows.Forms.Padding(2);
             this.CB_Den.Name = "CB_Den";
             this.CB_Den.Size = new System.Drawing.Size(138, 21);
             this.CB_Den.TabIndex = 0;
@@ -588,9 +674,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GB_Right.Controls.Add(this.DenMap);
             this.GB_Right.Location = new System.Drawing.Point(213, 10);
-            this.GB_Right.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GB_Right.Margin = new System.Windows.Forms.Padding(2);
             this.GB_Right.Name = "GB_Right";
-            this.GB_Right.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GB_Right.Padding = new System.Windows.Forms.Padding(2);
             this.GB_Right.Size = new System.Drawing.Size(176, 419);
             this.GB_Right.TabIndex = 1;
             this.GB_Right.TabStop = false;
@@ -602,7 +688,7 @@
             this.DenMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.DenMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DenMap.Location = new System.Drawing.Point(2, 15);
-            this.DenMap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DenMap.Margin = new System.Windows.Forms.Padding(2);
             this.DenMap.Name = "DenMap";
             this.DenMap.Size = new System.Drawing.Size(172, 402);
             this.DenMap.TabIndex = 0;
@@ -616,7 +702,7 @@
             this.Controls.Add(this.GB_Right);
             this.Controls.Add(this.GB_Left);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RaidList";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

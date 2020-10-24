@@ -19,7 +19,7 @@ namespace PKHeX_Raid_Plugin
         public RaidManager(SaveBlockAccessor8SWSH blocks, GameVersion game, int badges, uint tid, uint sid)
         {
             EventTableConverter.GetCurrentEventTable(blocks, _raidTables);
-            DenList = InitializeDenList(blocks.Raid, blocks.RaidArmor);
+            DenList = InitializeDenList(blocks.Raid, blocks.RaidArmor, blocks.RaidCrown);
 
             Game = game;
             BadgeCount = Util.NumberOfSetBits(badges);
@@ -29,13 +29,16 @@ namespace PKHeX_Raid_Plugin
             SID = sid;
         }
 
-        private static RaidParameters[] InitializeDenList(RaidSpawnList8 raids, RaidSpawnList8 raidsArmor)
+        private static RaidParameters[] InitializeDenList(RaidSpawnList8 raids, RaidSpawnList8 raidsArmor, RaidSpawnList8 raidsCrown)
         {
             // current release has these numbers bugged
+            int NormalUsed = raids.CountUsed;
+            int ArmorUsed = raidsArmor.CountUsed;
+            int CrownUsed = 86;
 
-            var dl = new RaidParameters[raids.CountUsed + raidsArmor.CountUsed];
+            var dl = new RaidParameters[NormalUsed + ArmorUsed + CrownUsed];
             var allRaids = raids.GetAllRaids();
-            for (int i = 0; i < raids.CountUsed; i++)
+            for (int i = 0; i < NormalUsed; i++)
             {
                 int idx = i;
                 var currentRaid = allRaids[i];
@@ -44,10 +47,19 @@ namespace PKHeX_Raid_Plugin
             }
             
             var allArmorRaids = raidsArmor.GetAllRaids();
-            for (int i = 0; i < raidsArmor.CountUsed; i++)
+            for (int i = 0; i < ArmorUsed; i++)
             {
-                int idx = raids.CountUsed + i;
+                int idx = NormalUsed + i;
                 var currentRaid = allArmorRaids[i];
+                var detail = NestLocations.Nests[idx];
+                dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY);
+            }
+
+            var allCrownRaids = raidsCrown.GetAllRaids();
+            for (int i = 0; i < CrownUsed; i++)
+            {
+                int idx = NormalUsed + ArmorUsed + i;
+                var currentRaid = allCrownRaids[i];
                 var detail = NestLocations.Nests[idx];
                 dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY);
             }

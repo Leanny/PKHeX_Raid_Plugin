@@ -83,6 +83,16 @@ namespace PKHeX_Raid_Plugin.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap map_ct {
+            get {
+                object obj = ResourceManager.GetObject("map_ct", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap map_ioa {
             get {
                 object obj = ResourceManager.GetObject("map_ioa", resourceCulture);
