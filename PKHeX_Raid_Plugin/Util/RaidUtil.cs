@@ -45,7 +45,13 @@ namespace PKHeX_Raid_Plugin
             var map = Resources.map;
             if (raidParameters.Index >= 100)
             {
-                map = Resources.map_ioa;
+                if (raidParameters.Index >= 190)
+                {
+                    map = Resources.map_ct;
+                } else
+                {
+                    map = Resources.map_ioa;
+                }
                 using (var graphics = Graphics.FromImage(map))
                     graphics.DrawArc(redPen, raidParameters.X - 1, raidParameters.Y - 1, 2, 2, 0, 360);
                 int start_point_x = raidParameters.X - 172 / 2;
@@ -65,7 +71,9 @@ namespace PKHeX_Raid_Plugin
                                      GraphicsUnit.Pixel);
                 }
                 map = target;
-            } else {
+            }
+            else
+            {
                 using (var graphics = Graphics.FromImage(map))
                     graphics.DrawArc(redPen, raidParameters.X - 5, raidParameters.Y - 5, 15, 15, 0, 360);
             }
