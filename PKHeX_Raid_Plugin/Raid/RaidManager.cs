@@ -34,7 +34,7 @@ namespace PKHeX_Raid_Plugin
             // current release has these numbers bugged
             int NormalUsed = raids.CountUsed;
             int ArmorUsed = raidsArmor.CountUsed;
-            int CrownUsed = 86;
+            int CrownUsed = raidsCrown.CountUsed;
 
             var dl = new RaidParameters[NormalUsed + ArmorUsed + CrownUsed];
             var allRaids = raids.GetAllRaids();
