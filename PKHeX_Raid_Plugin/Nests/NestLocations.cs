@@ -219,92 +219,101 @@ namespace PKHeX_Raid_Plugin
             new NestHashDetail(0xea4c3915ea6f95a0, 0x3ea9df3b7b2b5990, 31, 386, 195), //143 144
             new NestHashDetail(0xea4c3915ea6f95a0, 0x3ea9df3b7b2b5990, 31, 414, 148), //143 144
 
-            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 32, 0, 0), //166 167
-            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 32, 0, 0), //180 181
-            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 32, 0, 0), //168 169
-            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 32, 0, 0), //158 159
-            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 32, 0, 0), //182 183
-            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 32, 0, 0), //168 169
-            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 33, 0, 0), //190 191
-            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 33, 0, 0), //176 177
-            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 33, 0, 0), //186 187
-            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 33, 0, 0), //172 173
-            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 33, 0, 0), //164 165
-            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 34, 0, 0), //188 189
-            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 34, 0, 0), //160 161
-            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 34, 0, 0), //174 175
-            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 34, 0, 0), //192 193
-            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 34, 0, 0), //158 159
-            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 34, 0, 0), //162 163
-            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 34, 0, 0), //184 185
-            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 34, 0, 0), //172 173
-            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 34, 0, 0), //166 167
-            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 34, 0, 0), //180 181
-            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 34, 0, 0), //174 175
-            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 34, 0, 0), //186 187
-            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 34, 0, 0), //190 191
-            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 34, 0, 0), //180 181
-            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 34, 0, 0), //170 171
-            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 34, 0, 0), //162 163
-            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 34, 0, 0), //170 171
-            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 34, 0, 0), //178 179
-            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 34, 0, 0), //164 165
-            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 34, 0, 0), //160 161
-            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 34, 0, 0), //176 177
-            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 35, 0, 0), //182 183
-            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 35, 0, 0), //192 193
-            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 36, 0, 0), //180 181
-            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 36, 0, 0), //172 173
-            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 36, 0, 0), //188 189
-            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 36, 0, 0), //178 179
-            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 36, 0, 0), //186 187
-            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 36, 0, 0), //168 169
-            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 36, 0, 0), //190 191
-            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 36, 0, 0), //160 161
-            new NestHashDetail(0x58c3011eda59ea53, 0xb4dbd8428706d1c2, 36, 0, 0), //196 197
-            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 37, 0, 0), //188 189
-            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 37, 0, 0), //184 185
-            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 37, 0, 0), //178 179
-            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 38, 0, 0), //166 167
-            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 39, 0, 0), //158 159
-            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 39, 0, 0), //162 163
-            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 39, 0, 0), //186 187
-            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 39, 0, 0), //166 167
-            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 39, 0, 0), //182 183
-            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 0, 0), //170 171
-            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 40, 0, 0), //184 185
-            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 40, 0, 0), //162 163
-            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 40, 0, 0), //172 173
-            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 40, 0, 0), //188 189
-            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 0, 0), //170 171
-            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 40, 0, 0), //174 175
-            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 40, 0, 0), //182 183
-            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 40, 0, 0), //186 187
-            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 40, 0, 0), //190 191
-            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 40, 0, 0), //168 169
-            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 40, 0, 0), //164 165
-            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 40, 0, 0), //176 177
-            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 0, 0), //170 171
-            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 41, 0, 0), //184 185
-            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 41, 0, 0), //164 165
-            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 42, 0, 0), //158 159
-            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 42, 0, 0), //176 177
-            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 42, 0, 0), //174 175
-            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 42, 0, 0), //180 181
-            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 42, 0, 0), //160 161
-            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 42, 0, 0), //160 161
-            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 42, 0, 0), //166 167
-            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 42, 0, 0), //174 175
-            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 42, 0, 0), //164 165
-            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 42, 0, 0), //172 173
-            new NestHashDetail(0xe78d0a25d0c67a32, 0xbdf065bb6332909f, 42, 0, 0), //194 195
-            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 42, 0, 0), //192 193
-            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 42, 0, 0), //190 191
-            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 42, 0, 0), //162 163
-            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 42, 0, 0), //178 179
-            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 42, 0, 0), //182 183
-            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 42, 0, 0), //184 185
-            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 43, 0, 0), //176 177
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 32, 455, 710), //166 167
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 32, 571, 697), //180 181
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 32, 550, 705), //168 169
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 32, 654, 775), //158 159
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 32, 699, 765), //182 183
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 32, 624, 737), //168 169
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 33, 431, 903), //190 191
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 33, 458, 887), //176 177
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 33, 514, 925), //186 187
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 33, 461, 925), //172 173
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 33, 598, 936), //164 165
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 34, 443, 1088), //188 189
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 34, 550, 1088), //160 161
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 34, 811, 1048), //174 175
+            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 34, 817, 974), //192 193
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 34, 921, 996), //158 159
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 34, 889, 1048), //162 163
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 34, 993, 971), //184 185
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 34, 1082, 974), //172 173
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 34, 1566, 1015), //166 167
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 34, 642, 1067), //180 181
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 34, 675, 1197), //174 175 tbc
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 34, 761, 1086), //186 187
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 34, 1450, 1175), //190 191
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 34, 1628, 1162), //180 181
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 34, 969, 988), //170 171 tbc
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 34, 975, 1284), //162 163
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 34, 788, 1284), //170 171 tbc
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 34, 1480, 1121), //178 179
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 34, 1399, 1205), //164 165
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 34, 1423, 1102), //160 161
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 34, 1542, 1254), //176 177
+
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 35, 856, 1135), //182 183
+            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 35, 969, 1129), //192 193
+
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 36, 1581, 914), //180 181
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 36, 1462,  827), //172 173
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 36, 1426, 637), //188 189
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 36, 1310, 558), //178 179
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 36, 1263, 773), //186 187
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 36, 1328, 669), //168 169
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 36, 1221, 683), //190 191
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 36, 1379, 558), //160 161
+            new NestHashDetail(0x58c3011eda59ea53, 0xb4dbd8428706d1c2, 36, 1539, 585), //196 197
+
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 37, 1444, 299), //188 189
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 37, 1474, 329), //184 185
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 37, 1402, 299), //178 179
+
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 38, 1325, 237), //166 167
+
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 39, 1604, 1058), //158 159
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 39, 1634, 1056), //162 163
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 39, 1720, 1075), //186 187
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 39, 1655, 999), //166 167
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 39, 1711, 1042), //182 183
+
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 2207, 862), //170 171 tbc
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 40, 2201, 716), //184 185
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 40, 2525,  637), //162 163
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 40, 2579,  849), //172 173
+            new NestHashDetail(0x7ea57d4a1ef4c796, 0xe0236c3b91edbebb, 40, 2579, 762), //188 189
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 2599, 669), //170 171 tbc
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 40, 2460, 865), //174 175
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 40, 2632, 634), //182 183
+            new NestHashDetail(0x9ab5727f28c3d593, 0x1928030ad989ad02, 40, 2466, 767), //186 187
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 40, 2489, 686), //190 191
+            new NestHashDetail(0x685db02aaedbcf61, 0x2cd8cf9a88739f98, 40, 2665, 718), //168 169
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 40, 2614, 599), //164 165
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 40, 2442, 620), //176 177
+            new NestHashDetail(0x685dad2aaedbca48, 0x12ad4e9a799417a5, 40, 2602, 914), //170 171
+
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 41, 2293, 933), //184 185
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 41, 2320, 963), //164 165
+
+            new NestHashDetail(0x2640fa844b19c3cf, 0x422f95fb66a95706, 42, 871, 1317), //158 159
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 42, 1254, 1418), //176 177
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 42, 1361, 1412), //174 175 tbc
+            new NestHashDetail(0x55e4467f01ec60bb, 0xa5696e4aa8d625a, 42, 1468, 1412), //180 181
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 42, 1515, 1404), //160 161 tbc
+            new NestHashDetail(0x3a41c5c485d3edee, 0x6c364ecc3616af63, 42, 1598, 1646), //160 161 tbc
+            new NestHashDetail(0x779e9eb99c1292c, 0x93a637943a964e41, 42, 1679, 1526), //166 167
+            new NestHashDetail(0x52a7dfe87897d15d, 0xc88b8a5990a8ea5c, 42, 1432, 1641), //174 175 tbc
+            new NestHashDetail(0xe234e939402a736b, 0x3b3c0865d15b0aca, 42, 1379, 1662), //164 165
+            new NestHashDetail(0x75319113c8c3b924, 0x314acb827c75109, 42, 811, 1665), //172 173
+            new NestHashDetail(0xe78d0a25d0c67a32, 0xbdf065bb6332909f, 42, 681, 1641), //194 195
+            new NestHashDetail(0xf01dfb231a467c06, 0x8b5a3178ae3f236b, 42, 761, 1627), //192 193
+            new NestHashDetail(0xc862667fc72ee059, 0x72f9d87337338120, 42, 773, 1575), //190 191
+            new NestHashDetail(0xf6389ad0bc9aaeb, 0x277effbe0b116e4a, 42, 1462, 1578), //162 163
+            new NestHashDetail(0x17d327792698d15f, 0xb20a5ed251cd0456, 42, 1319, 1608), //178 179
+            new NestHashDetail(0x47a5d8b98dd573ab, 0xa23ec426e4e9430a, 42, 1290, 1456), //182 183
+            new NestHashDetail(0x3d2f6b02fc6dd797, 0xf9d3242b837d627e, 42, 1462, 1472), //184 185
+
+            new NestHashDetail(0x42b21efc37c7b974, 0x9d415f6a7a841dd9, 43, 993, 1565), //176 177
         };
 
         internal static ulong getEventHash(RaidParameters raidParameters)
