@@ -197,7 +197,7 @@ namespace PKHeX_Raid_Plugin
         private void SpeciesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             var pkm = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
-            var abilities = PersonalTable.SWSH.GetFormeEntry(pkm.Species, pkm.AltForm).Abilities;
+            var abilities = PersonalTable.SWSH.GetFormEntry(pkm.Species, pkm.AltForm).Abilities;
             PopulateAbilityList(abilities, pkm.Ability);
             PopulateGenderList(PersonalTable.SWSH[pkm.Species].Gender);
 
