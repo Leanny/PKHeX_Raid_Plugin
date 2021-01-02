@@ -105,7 +105,7 @@ namespace PKHeX_Raid_Plugin
 
             int ability = 0;
             int abilityIdx = 0;
-            IReadOnlyList<int> abilities = PersonalTable.SWSH.GetFormeEntry(Species, AltForm).Abilities;
+            IReadOnlyList<int> abilities = PersonalTable.SWSH.GetFormEntry(Species, AltForm).Abilities;
             if (Ability < 3)
             {
                 abilityIdx = Ability;
