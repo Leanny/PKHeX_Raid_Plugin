@@ -318,8 +318,8 @@ namespace PKHeX_Raid_Plugin
 
         internal static ulong getEventHash(RaidParameters raidParameters)
         {
-            if (raidParameters.Index >= 183) return EventHash_Rigel2;
-            if (raidParameters.Index >= 100) return EventHash_Rigel1;
+            if (raidParameters.Index >= PKHeX.Core.RaidSpawnList8.RaidCountLegal_O0 + PKHeX.Core.RaidSpawnList8.RaidCountLegal_R1) return EventHash_Rigel2;
+            if (raidParameters.Index >= PKHeX.Core.RaidSpawnList8.RaidCountLegal_O0) return EventHash_Rigel1;
             return EventHash;
         }
     }

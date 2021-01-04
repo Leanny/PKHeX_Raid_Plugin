@@ -5525,7 +5525,7 @@ new RaidTemplate(881, new[]{0u, 0u, 0u, 7u, 10u}, 5, 0, 2, 0, false, 0),
 
         public readonly RaidTemplateTable[] SwordNestsEvent =
         {
-            new RaidTemplateTable(1721953670860364124, 1, new[]{
+            new RaidTemplateTable(NestLocations.EventHash, 1, new[]{
                 new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
@@ -5538,7 +5538,20 @@ new RaidTemplate(881, new[]{0u, 0u, 0u, 7u, 10u}, 5, 0, 2, 0, false, 0),
                 new RaidTemplate(841, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
                 new RaidTemplate(839, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
             }),
-            new RaidTemplateTable(968916678281972007, 1, new[]{
+            new RaidTemplateTable(NestLocations.EventHash_Rigel1, 1, new[]{
+                new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 40, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 0, 40}, 5, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
+            }),
+            new RaidTemplateTable(NestLocations.EventHash_Rigel2, 1, new[]{
                 new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
@@ -5555,7 +5568,7 @@ new RaidTemplate(881, new[]{0u, 0u, 0u, 7u, 10u}, 5, 0, 2, 0, false, 0),
 
         public readonly RaidTemplateTable[] ShieldNestsEvent =
         {
-            new RaidTemplateTable(1721953670860364124, 2, new[]{
+            new RaidTemplateTable(NestLocations.EventHash, 2, new[]{
                 new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
@@ -5568,7 +5581,20 @@ new RaidTemplate(881, new[]{0u, 0u, 0u, 7u, 10u}, 5, 0, 2, 0, false, 0),
                 new RaidTemplate(842, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
                 new RaidTemplate(131, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
             }),
-            new RaidTemplateTable(968916678281972007, 1, new[]{
+            new RaidTemplateTable(NestLocations.EventHash_Rigel1, 2, new[]{
+                new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 30, 0, 0}, 3, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 40, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 30, 0}, 4, 0, 4, 0, true),
+                new RaidTemplate(868, new uint[]{0, 0, 0, 0, 40}, 5, 0, 4, 0, true),
+                new RaidTemplate(841, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true),
+                new RaidTemplate(839, new uint[]{0, 0, 0, 0, 30}, 5, 0, 4, 0, true)
+            }),
+            new RaidTemplateTable(NestLocations.EventHash_Rigel2, 2, new[]{
                 new RaidTemplate(868, new uint[]{100, 0, 0, 0, 0}, 1, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 100, 0, 0, 0}, 2, 0, 4, 0, true),
                 new RaidTemplate(868, new uint[]{0, 0, 40, 0, 0}, 3, 0, 4, 0, true),
