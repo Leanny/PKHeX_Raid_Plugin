@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using PKHeX.Drawing.PokeSprite;
 using PKHeX.Drawing;
 using PKHeX_Raid_Plugin.Properties;
 
