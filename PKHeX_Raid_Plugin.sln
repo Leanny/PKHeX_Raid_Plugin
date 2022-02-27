@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKHeX_Raid_Plugin", "PKHeX_Raid_Plugin\PKHeX_Raid_Plugin.csproj", "{EC6E434D-101D-4F0C-B5D6-E133B4093A53}"
 EndProject
@@ -13,13 +13,19 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Debug|x64.Build.0 = Debug|Any CPU
 		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Release|x64.ActiveCfg = Release|x64
+		{EC6E434D-101D-4F0C-B5D6-E133B4093A53}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

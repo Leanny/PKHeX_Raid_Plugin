@@ -7,6 +7,8 @@
     <StartupObject></StartupObject>
     <LangVersion>8</LangVersion>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,16 +21,18 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Z3.x64" Version="4.8.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="PKHeX.Core" Version="22.1.1" />
+    <PackageReference Include="PKHeX.Core" Version="22.2.22" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="PKHeX.Drawing">
-      <HintPath>D:\datamining\hactool-1.2.2-win\pkmn\PKHeX\PKHeX.Drawing\bin\Debug\net46\PKHeX.Drawing.dll</HintPath>
-      <Private>false</Private>
+      <HintPath>..\..\..\PKHeX\dev\PKHeX.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="PKHeX.Drawing.Misc">
+      <HintPath>..\..\..\PKHeX\dev\PKHeX.Drawing.Misc.dll</HintPath>
     </Reference>
     <Reference Include="PKHeX.Drawing.PokeSprite">
-      <HintPath>deps\PKHeX.Drawing.PokeSprite.dll</HintPath>
+      <HintPath>..\..\..\PKHeX\dev\PKHeX.Drawing.PokeSprite.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
