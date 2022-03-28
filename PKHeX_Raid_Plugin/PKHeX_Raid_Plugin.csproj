@@ -19,12 +19,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Z3.x64" Version="4.8.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="PKHeX.Core" Version="22.1.1" />
+    <PackageReference Include="PKHeX.Core" Version="22.3.18" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="PKHeX.Drawing">
-      <HintPath>D:\datamining\hactool-1.2.2-win\pkmn\PKHeX\PKHeX.Drawing\bin\Debug\net46\PKHeX.Drawing.dll</HintPath>
+      <HintPath>deps\PKHeX.Drawing.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="PKHeX.Drawing.PokeSprite">
