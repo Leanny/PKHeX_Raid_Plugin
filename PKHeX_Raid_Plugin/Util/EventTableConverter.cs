@@ -120,7 +120,7 @@ namespace PKHeX_Raid_Plugin
 
         public static void LoadFromJson(string filecontent, RaidTables rt)
         {
-            var dist_encounts = JsonConvert.DeserializeObject<Old_NestHoleDistributionEncounter8Archive>(filecontent);
+            var dist_encounts = JsonConvert.DeserializeObject<Old_NestHoleDistributionEncounter8Archive>(filecontent)!;
             var sword_table = dist_encounts.Tables.Where(z => z.GameVersion == 1).ToList();
             var shield_table = dist_encounts.Tables.Where(z => z.GameVersion == 2).ToList();
             var swordTable = new RaidTemplateTable(NestLocations.EventHash, 1, new RaidTemplate[sword_table[0].Entries.Length]);

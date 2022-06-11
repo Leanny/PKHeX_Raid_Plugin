@@ -17,6 +17,7 @@
 using System;
 using System.Text;
 using System.Runtime.InteropServices;
+#nullable disable
 
 namespace FlatBuffers
 {

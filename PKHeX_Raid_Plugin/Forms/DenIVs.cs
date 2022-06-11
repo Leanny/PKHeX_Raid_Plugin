@@ -12,7 +12,6 @@ namespace PKHeX_Raid_Plugin
     public partial class DenIVs : Form
     {
         private readonly RaidManager Raids;
-        private readonly GameStrings GameStrings;
         private static readonly int[] min_stars = { 0, 0, 0, 0, 1, 1, 2, 2, 2, 0 };
         private static readonly int[] max_stars = { 0, 1, 1, 2, 2, 2, 3, 3, 4, 4 };
 
@@ -25,37 +24,35 @@ namespace PKHeX_Raid_Plugin
         private static readonly string[] shinytype = { "No", "Star", "Square" };
         private static readonly Dictionary<string, int> natureIdx = new Dictionary<string, int>();
 
-        private CancellationTokenSource cts;
+        private CancellationTokenSource cts = new CancellationTokenSource();
 
         public DenIVs(int idx, RaidManager raids)
         {
             InitializeComponent();
-            GameStrings = GameInfo.Strings;
+            var gameStrings = GameInfo.Strings;
             Raids = raids;
             var param = raids[idx];
             seedBox.Text = $"{param.Seed:X16}";
             denBox.SelectedIndex = idx;
             natureBox.Items.Clear();
             natureBox.Items.Add("Any");
-            natureBox.Items.AddRange(GameStrings.natures);
-            for (int i = 0; i < GameStrings.natures.Length; i++)
+            natureBox.Items.AddRange(gameStrings.natures);
+            for (int i = 0; i < gameStrings.natures.Length; i++)
             {
-                natureIdx[GameStrings.natures[i]] = i + 1;
+                natureIdx[gameStrings.natures[i]] = i + 1;
             }
-            natureBox.MaxDropDownItems = GameStrings.natures.Length;
+            natureBox.MaxDropDownItems = gameStrings.natures.Length;
             natureBox.DefaultValue = "Any";
             natureBox.DisplayMember = "Value";
             natureBox.SetItemChecked(0, true);
-            natureBox.DropDownClosed += new EventHandler((object sender, EventArgs e) => {
-                Focus();
-            });
+            natureBox.DropDownClosed += (sender, e) => Focus();
             shinyBox.SelectedIndex = 0;
             CenterToParent();
         }
 
         private static ulong Advance(ulong start, uint frames)
         {
-            return start + (frames * XOROSHIRO.XOROSHIRO_CONST);
+            return start + (frames * Xoroshiro128Plus.XOROSHIRO_CONST);
         }
 
         private void DenBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,7 +104,7 @@ namespace PKHeX_Raid_Plugin
             raidContent.Rows.Clear();
             var rows = new List<DataGridViewRow>();
             ((ISupportInitialize)raidContent).BeginInit();
-            for (uint current_frame = start_frame; current_frame <= start_frame + end_frame; current_frame++, current_seed += XOROSHIRO.XOROSHIRO_CONST)
+            for (uint current_frame = start_frame; current_frame <= start_frame + end_frame; current_frame++, current_seed += Xoroshiro128Plus.XOROSHIRO_CONST)
             {
                 RaidPKM res = pkmn.ConvertToPKM(current_seed, Raids.TID, Raids.SID);
                 var row = CreateRaidRow(current_frame, res, s, current_seed);
@@ -292,26 +289,7 @@ namespace PKHeX_Raid_Plugin
             catch (OperationCanceledException)
             {
                 WinFormsUtil.Alert("Stop Search!");
-                return;
             }
-            /*
-            ulong current_seed = Advance(start_seed, start_frame);
-            var template = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
-            var s = GameInfo.Strings;
-
-            ((ISupportInitialize)raidContent).BeginInit();
-            raidContent.Rows.Clear();
-            for (uint current_frame = start_frame; ; current_frame++, current_seed += XOROSHIRO.XOROSHIRO_CONST)
-            {
-                var pkm = template.ConvertToPKM(current_seed, Raids.TID, Raids.SID);
-                if (!IsRowVisible(pkm))
-                    continue;
-                var row = CreateRaidRow(current_frame, pkm, s, current_seed);
-                raidContent.Rows.Add(row);
-                break;
-            }
-            ((ISupportInitialize)raidContent).EndInit();
-            */
         }
 
         private async Task<DataGridViewRow> SearchTask(ulong start_seed, uint start_frame, CancellationToken cancelToken)
@@ -320,7 +298,7 @@ namespace PKHeX_Raid_Plugin
             var template = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
             var s = GameInfo.Strings;
             return await Task.Run(() => {
-                for (uint current_frame = start_frame; ; current_frame++, current_seed += XOROSHIRO.XOROSHIRO_CONST)
+                for (uint current_frame = start_frame; ; current_frame++, current_seed += Xoroshiro128Plus.XOROSHIRO_CONST)
                 {
                     cancelToken.ThrowIfCancellationRequested();
                     var pkm = template.ConvertToPKM(current_seed, Raids.TID, Raids.SID);

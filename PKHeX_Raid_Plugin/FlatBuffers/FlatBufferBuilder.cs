@@ -18,6 +18,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+#nullable disable
 
 /// @file
 /// @addtogroup flatbuffers_csharp_api

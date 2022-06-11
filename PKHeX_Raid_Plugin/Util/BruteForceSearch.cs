@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
+using PKHeX.Core;
 
 namespace PKHeX_Raid_Plugin
 {
     public static class BruteForceSearch
     {
-        private static readonly XOROSHIRO rng = new XOROSHIRO(0);
-
         public static bool IsMatch(ulong seed, int[] ivs, int fixed_ivs)
         {
-            rng.Reset(seed);
-            rng.NextInt(0xFFFFFFFF); // EC
-            rng.NextInt(0xFFFFFFFF); // TID
-            rng.NextInt(0xFFFFFFFF); // PID
+            var rng = new Xoroshiro128Plus(seed);
+            rng.NextInt(); // EC
+            rng.NextInt(); // TID
+            rng.NextInt(); // PID
             int[] check_ivs = { -1, -1, -1, -1, -1, -1 };
             for (int i = 0; i < fixed_ivs; i++)
             {
@@ -45,10 +44,10 @@ namespace PKHeX_Raid_Plugin
             ulong seed = fixed_val;
             do
             {
-                rng.Reset(seed);
-                rng.NextInt(0xFFFFFFFF); // EC
-                uint tidsid = (uint)rng.NextInt(0xFFFFFFFF);
-                uint new_pid = (uint)rng.NextInt(0xFFFFFFFF);
+                var rng = new Xoroshiro128Plus(seed);
+                rng.NextInt(); // EC
+                uint tidsid = (uint)rng.NextInt();
+                uint new_pid = (uint)rng.NextInt();
                 new_pid = RaidTemplate.GetFinalPID(tid, sid, new_pid, tidsid, tsv, fixedShiny);
                 if (new_pid == pid)
                     yield return seed;
@@ -58,7 +57,7 @@ namespace PKHeX_Raid_Plugin
 
         private static uint GetSeedStart(uint ec)
         {
-            const uint tmp = unchecked((uint) XOROSHIRO.XOROSHIRO_CONST) & 0xFFFFFFFF;
+            const uint tmp = unchecked((uint) Xoroshiro128Plus.XOROSHIRO_CONST) & 0xFFFFFFFF;
             return tmp < ec ? ec - tmp : 0xFFFFFFFF - (tmp - ec) + 1;
         }
     }

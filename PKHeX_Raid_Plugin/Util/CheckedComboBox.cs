@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+#nullable disable
 
 // https://www.codeproject.com/Articles/31105/A-ComboBox-with-a-CheckedListBox-as-a-Dropdown
 namespace PKHeX_Raid_Plugin
@@ -283,7 +284,6 @@ namespace PKHeX_Raid_Plugin
                     ccbParent.ItemCheck(sender, e);
                 }
             }
-
         } // end internal class Dropdown
 
         // ******************************** Data ********************************

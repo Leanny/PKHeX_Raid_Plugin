@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Microsoft.Z3;
+using PKHeX.Core;
 
 namespace PKHeX_Raid_Plugin
 {
@@ -36,7 +37,7 @@ namespace PKHeX_Raid_Plugin
         private static BoolExpr CreateModel(Context ctx, uint ec, uint pid, bool shiny, out BitVecExpr s0)
         {
             s0            = ctx.MkBVConst("s0", 64);
-            BitVecExpr s1 = ctx.MkBV(XOROSHIRO.XOROSHIRO_CONST, 64);
+            BitVecExpr s1 = ctx.MkBV(Xoroshiro128Plus.XOROSHIRO_CONST, 64);
 
             var and_val   = ctx.MkBV(0xFFFFFFFF, 64);
             var and_val16 = ctx.MkBV(0xFFFF, 64);
