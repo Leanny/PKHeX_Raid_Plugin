@@ -18,17 +18,13 @@
     <PackageReference Include="Costura.Fody" Version="5.7.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Z3.x64" Version="4.8.10" />
+    <PackageReference Include="Microsoft.Z3" Version="4.8.17" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PKHeX.Core" Version="22.6.1" />
   </ItemGroup>
 
   <Choose>
-    <When Condition=" '$(Platform)' == 'x64' OR $(RuntimeIdentifier.EndsWith('x64')) ">
-      <ItemGroup><!-- x64 specific references -->
-  	    <PackageReference Include="Microsoft.Z3.x64" Version="4.8.10" />
-      </ItemGroup>
-    </When>
+    <When Condition=" '$(Platform)' == 'x64' OR $(RuntimeIdentifier.EndsWith('x64')) " />
     <Otherwise>
       <ItemGroup><!-- x86 specific references -->
         <PackageReference Include="Microsoft.Z3.x86" Version="4.8.7" />
