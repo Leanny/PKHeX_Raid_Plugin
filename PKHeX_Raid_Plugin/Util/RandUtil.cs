@@ -1,4 +1,6 @@
-﻿namespace PKHeX_Raid_Plugin
+﻿using PKHeX.Core;
+
+namespace PKHeX_Raid_Plugin
 {
     public static class RandUtil
     {
@@ -19,7 +21,7 @@
 
         public static int GetNextShinyFrame(ulong seed)
         {
-            XOROSHIRO rng = new XOROSHIRO(seed);
+            var rng = new Xoroshiro128Plus(seed);
             for (int i = 0; ; i++)
             {
                 uint _ = (uint)rng.NextInt(0xFFFFFFFF); // EC
@@ -30,9 +32,9 @@
                     return i;
 
                 // Get the next seed, and reset for the next iteration
-                rng.Reset(seed);
+                rng = new Xoroshiro128Plus(seed);
                 seed = rng.Next();
-                rng.Reset(seed);
+                rng = new Xoroshiro128Plus(seed);
             }
         }
     }

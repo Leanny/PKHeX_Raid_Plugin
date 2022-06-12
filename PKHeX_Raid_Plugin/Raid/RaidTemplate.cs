@@ -22,10 +22,9 @@ namespace PKHeX_Raid_Plugin
         public static readonly int[] ToxtricityAmplifiedNatures = { 0x03, 0x04, 0x02, 0x08, 0x09, 0x13, 0x16, 0x0B, 0x0D, 0x0E, 0x00, 0x06, 0x18 };
         public static readonly int[] ToxtricityLowKeyNatures = { 0x01, 0x05, 0x07, 0x0A, 0x0C, 0x0F, 0x10, 0x11, 0x12, 0x14, 0x15, 0x17 };
 
-        public RaidTemplate(uint species, uint[] probabilities, int flawlessIVs, uint altForm, int ability, int gender, bool giga, sbyte shinytype = 0) : 
+        public RaidTemplate(uint species, uint[] probabilities, int flawlessIVs, uint altForm, int ability, int gender, bool giga, sbyte shinytype = 0) :
             this(species, probabilities, flawlessIVs, altForm, ability, gender, 25, giga, shinytype)
         {
-            
         }
 
         public RaidTemplate(uint species, uint[] probabilities, int flawlessIVs, uint altForm, int ability, int gender, int nature, bool giga, sbyte shinytype = 0)
@@ -33,8 +32,8 @@ namespace PKHeX_Raid_Plugin
             Species = (int) species;
             Probabilities = probabilities;
             FlawlessIVs = flawlessIVs;
-            MinRank = Array.FindIndex(Probabilities, z => z != 0);;
-            MaxRank = Array.FindLastIndex(Probabilities, z => z != 0);;
+            MinRank = Array.FindIndex(Probabilities, z => z != 0);
+            MaxRank = Array.FindLastIndex(Probabilities, z => z != 0);
             AltForm = (int) altForm;
             IsGigantamax = giga;
             Ability = ability;
@@ -61,10 +60,10 @@ namespace PKHeX_Raid_Plugin
 
         public RaidPKM ConvertToPKM(ulong seed, uint tid, uint sid)
         {
-            XOROSHIRO rng = new XOROSHIRO(seed);
-            uint EC = (uint)rng.NextInt(0xFFFFFFFF);
-            uint SIDTID = (uint)rng.NextInt(0xFFFFFFFF);
-            uint PID = (uint)rng.NextInt(0xFFFFFFFF);
+            var rng = new Xoroshiro128Plus(seed);
+            uint EC = (uint)rng.NextInt();
+            uint SIDTID = (uint)rng.NextInt();
+            uint PID = (uint)rng.NextInt();
 
             var shinytype = RandUtil.GetShinyType(PID, SIDTID);
             if (ShinyType == 2 && shinytype == 0)
@@ -103,7 +102,6 @@ namespace PKHeX_Raid_Plugin
                     ivs[i] = (int)rng.NextInt(32);
             }
 
-            int ability = 0;
             int abilityIdx = 0;
             IReadOnlyList<int> abilities = PersonalTable.SWSH.GetFormEntry(Species, AltForm).Abilities;
             if (Ability < 3)
@@ -118,7 +116,7 @@ namespace PKHeX_Raid_Plugin
             {
                 abilityIdx = (int)rng.NextInt(3);
             }
-            ability = abilities[abilityIdx];
+            var ability = abilities[abilityIdx];
             // gender 
             int gt = PersonalTable.SWSH[Species].Gender;
             var gender = gt switch
@@ -130,7 +128,8 @@ namespace PKHeX_Raid_Plugin
             };
 
             int nature;
-            if (Nature == 25) { 
+            if (Nature == 25)
+            {
                 if (Species == (int)PKHeX.Core.Species.Toxtricity)
                 {
                     var table = AltForm == 0 ? ToxtricityAmplifiedNatures : ToxtricityLowKeyNatures;
@@ -140,7 +139,8 @@ namespace PKHeX_Raid_Plugin
                 {
                     nature = (int)rng.NextInt(25);
                 }
-            } else
+            }
+            else
             {
                 nature = Nature;
             }

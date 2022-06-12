@@ -7,6 +7,7 @@
     <StartupObject></StartupObject>
     <LangVersion>8</LangVersion>
     <Nullable>enable</Nullable>
+    <Platforms>x64;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,8 +20,21 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Z3.x64" Version="4.8.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="PKHeX.Core" Version="22.3.18" />
+    <PackageReference Include="PKHeX.Core" Version="22.6.1" />
   </ItemGroup>
+
+  <Choose>
+    <When Condition=" '$(Platform)' == 'x64' OR $(RuntimeIdentifier.EndsWith('x64')) ">
+      <ItemGroup><!-- x64 specific references -->
+  	    <PackageReference Include="Microsoft.Z3.x64" Version="4.8.10" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup><!-- x86 specific references -->
+        <PackageReference Include="Microsoft.Z3.x86" Version="4.8.7" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
 
   <ItemGroup>
     <Reference Include="PKHeX.Drawing">
