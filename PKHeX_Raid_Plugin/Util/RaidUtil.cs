@@ -2,11 +2,13 @@
 using PKHeX.Drawing.PokeSprite;
 using PKHeX.Drawing;
 using PKHeX_Raid_Plugin.Properties;
+using PKHeX.Core;
 
 namespace PKHeX_Raid_Plugin
 {
     public static class RaidUtil
     {
+        private static Shiny[] shinies = { Shiny.Random, Shiny.AlwaysStar, Shiny.AlwaysSquare, Shiny.Never };
         public static string GetStarString(RaidParameters raidParameters)
         {
             const string star = "\u2605";
@@ -18,7 +20,7 @@ namespace PKHeX_Raid_Plugin
 
         public static Image GetRaidResultSprite(RaidPKM raidPkm, bool active)
         {
-            var sprite = SpriteUtil.GetSprite(raidPkm.Species, raidPkm.AltForm, raidPkm.Gender, 0, 0, false, raidPkm.ShinyType > 0 && raidPkm.ShinyType != 3, 8,false, raidPkm.ShinyType == 2);
+            var sprite = SpriteUtil.GetSprite(raidPkm.Species, raidPkm.AltForm, raidPkm.Gender, 0, 0, false, shinies[raidPkm.ShinyType], 8);
 
             if (raidPkm.IsGigantamax)
             {

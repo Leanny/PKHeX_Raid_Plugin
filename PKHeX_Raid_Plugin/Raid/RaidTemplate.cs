@@ -6,12 +6,12 @@ namespace PKHeX_Raid_Plugin
 {
     public class RaidTemplate
     {
-        public readonly int Species;
+        public readonly ushort Species;
         public readonly uint[] Probabilities;
         public readonly int FlawlessIVs;
         public readonly int MinRank;
         public readonly int MaxRank;
-        public readonly int AltForm;
+        public readonly byte AltForm;
         public readonly bool IsGigantamax;
         public readonly int Ability;
         public readonly int Nature;
@@ -29,12 +29,12 @@ namespace PKHeX_Raid_Plugin
 
         public RaidTemplate(uint species, uint[] probabilities, int flawlessIVs, uint altForm, int ability, int gender, int nature, bool giga, sbyte shinytype = 0)
         {
-            Species = (int) species;
+            Species = (ushort) species;
             Probabilities = probabilities;
             FlawlessIVs = flawlessIVs;
             MinRank = Array.FindIndex(Probabilities, z => z != 0);
             MaxRank = Array.FindLastIndex(Probabilities, z => z != 0);
-            AltForm = (int) altForm;
+            AltForm = (byte) altForm;
             IsGigantamax = giga;
             Ability = ability;
             Gender = gender;
@@ -45,7 +45,7 @@ namespace PKHeX_Raid_Plugin
 
         public RaidTemplate(uint species, int[] ivs, int rank, bool giga)
         {
-            Species = (int) species;
+            Species = (ushort) species;
             MinRank = rank;
             MaxRank = rank;
             FixedIV = ivs;
