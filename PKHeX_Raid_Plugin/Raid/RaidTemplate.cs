@@ -103,7 +103,7 @@ namespace PKHeX_Raid_Plugin
             }
 
             int abilityIdx = 0;
-            IReadOnlyList<int> abilities = PersonalTable.SWSH.GetFormEntry(Species, AltForm).Abilities;
+            IPersonalAbility12H abilities = PersonalTable.SWSH.GetFormEntry(Species, AltForm);
             if (Ability < 3)
             {
                 abilityIdx = Ability;
@@ -116,7 +116,7 @@ namespace PKHeX_Raid_Plugin
             {
                 abilityIdx = (int)rng.NextInt(3);
             }
-            var ability = abilities[abilityIdx];
+            var ability = abilities.GetAbilityAtIndex(abilityIdx);
             // gender 
             int gt = PersonalTable.SWSH[Species].Gender;
             var gender = gt switch
