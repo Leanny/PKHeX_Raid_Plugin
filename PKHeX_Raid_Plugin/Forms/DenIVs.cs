@@ -194,7 +194,7 @@ namespace PKHeX_Raid_Plugin
         private void SpeciesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             var pkm = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
-            var abilities = PersonalTable.SWSH.GetFormEntry(pkm.Species, pkm.AltForm).Abilities;
+            var abilities = PersonalTable.SWSH.GetFormEntry(pkm.Species, pkm.AltForm);
             PopulateAbilityList(abilities, pkm.Ability);
             PopulateGenderList(PersonalTable.SWSH[pkm.Species].Gender);
 
@@ -204,14 +204,14 @@ namespace PKHeX_Raid_Plugin
 
         private static readonly string[] AbilitySuffix = { " (1)", " (2)", " (H)" };
 
-        private void PopulateAbilityList(IReadOnlyList<int> abilities, int a)
+        private void PopulateAbilityList(IPersonalAbility12H abilities, int a)
         {
             abilityBox.Items.Clear();
             abilityBox.Items.Add("Any");
             var s = GameInfo.Strings;
-            for (var i = 0; i < abilities.Count; i++)
+            for (var i = 0; i < abilities.AbilityCount; i++)
             {
-                int ability = abilities[i];
+                int ability = abilities.GetAbilityAtIndex(i);
                 if (a == 3 && abilityBox.Items.Count == 3)
                     break;
 
