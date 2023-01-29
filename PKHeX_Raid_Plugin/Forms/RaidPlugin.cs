@@ -54,14 +54,14 @@ namespace PKHeX_Raid_Plugin
             if (game != GameVersion.SW && game != GameVersion.SH)
                 return;
             var savegame = (SAV8SWSH)sav;
-            var f = new RaidList(savegame.Blocks, game, savegame.Badges, savegame.TID, savegame.SID);
+            var f = new RaidList(savegame.Blocks, game, savegame.Badges, savegame.TID16, savegame.SID16);
             f.Show();
         }
 
         private void LoadSeedFinder()
         {
             var sav = SaveFileEditor.SAV;
-            var sf = new SeedFinder((uint)sav.TID, (uint)sav.SID);
+            var sf = new SeedFinder((uint)sav.TID16, (uint)sav.SID16);
             var pkm = PKMEditor.PreparePKM();
             if (pkm is PK8 pk8 && pk8.DynamaxLevel != 0)
                 sf.LoadPKM(pk8);
