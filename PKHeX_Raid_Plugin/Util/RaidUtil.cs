@@ -20,7 +20,7 @@ namespace PKHeX_Raid_Plugin
 
         public static Image GetRaidResultSprite(RaidPKM raidPkm, bool active)
         {
-            var sprite = SpriteUtil.GetSprite(raidPkm.Species, raidPkm.AltForm, raidPkm.Gender, 0, 0, false, shinies[raidPkm.ShinyType], 8);
+            var sprite = SpriteUtil.GetSprite(raidPkm.Species, raidPkm.AltForm, raidPkm.Gender, 0, 0, false, shinies[raidPkm.ShinyType], EntityContext.Gen8);
 
             if (raidPkm.IsGigantamax)
             {
