@@ -135,7 +135,7 @@
             this.raidContent.ReadOnly = true;
             this.raidContent.RowHeadersWidth = 51;
             this.raidContent.RowTemplate.Height = 24;
-            this.raidContent.Size = new System.Drawing.Size(946, 478);
+            this.raidContent.Size = new System.Drawing.Size(946, 400);
             this.raidContent.TabIndex = 0;
             // 
             // FrameCell
