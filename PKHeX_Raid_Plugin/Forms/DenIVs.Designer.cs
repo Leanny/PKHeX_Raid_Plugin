@@ -259,6 +259,9 @@
             this.DetailsBox.TabIndex = 1;
             this.DetailsBox.TabStop = false;
             this.DetailsBox.Text = "Details";
+            this.DetailsBox.AutoSize = true;
+            this.DetailsBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DetailsBox.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // groupBox2
             // 
