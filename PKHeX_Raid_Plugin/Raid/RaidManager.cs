@@ -19,7 +19,7 @@ namespace PKHeX_Raid_Plugin
         public RaidManager(SaveBlockAccessor8SWSH blocks, GameVersion game, int badges, uint tid, uint sid)
         {
             EventTableConverter.GetCurrentEventTable(blocks, _raidTables);
-            DenList = InitializeDenList(blocks.Raid, blocks.RaidArmor, blocks.RaidCrown);
+            DenList = InitializeDenList(blocks.RaidGalar, blocks.RaidArmor, blocks.RaidCrown);
 
             Game = game;
             BadgeCount = Util.NumberOfSetBits(badges);

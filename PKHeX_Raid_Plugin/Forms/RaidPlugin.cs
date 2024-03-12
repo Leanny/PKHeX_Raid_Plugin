@@ -50,7 +50,7 @@ namespace PKHeX_Raid_Plugin
         private void Open()
         {
             var sav = SaveFileEditor.SAV;
-            var game = (GameVersion)sav.Game;
+            var game = sav.Version;
             if (game != GameVersion.SW && game != GameVersion.SH)
                 return;
             var savegame = (SAV8SWSH)sav;
