@@ -2,9 +2,9 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "Santas-SWSH-Raid-Plugin" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "Santas-SWSH-Raid-Plugin" ]
+    branches: [ "master" ]
 
 jobs:
 
