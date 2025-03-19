@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.ComponentModel;
 #nullable disable
 
 // https://www.codeproject.com/Articles/31105/A-ComboBox-with-a-CheckedListBox-as-a-Dropdown
@@ -132,6 +133,7 @@ namespace PKHeX_Raid_Plugin
             private bool dropdownClosed = true;
 
             private CustomCheckedListBox cclb;
+            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
             public CustomCheckedListBox List
             {
                 get { return cclb; }
@@ -297,23 +299,27 @@ namespace PKHeX_Raid_Plugin
         // The valueSeparator character(s) between the ticked elements as they appear in the 
         // text portion of the CheckedComboBox.
         private string valueSeparator;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ValueSeparator
         {
             get { return valueSeparator; }
             set { valueSeparator = value; }
         }
         private string defaultValue;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string DefaultValue
         {
             get { return defaultValue; }
             set { defaultValue = value; }
         }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CheckOnClick
         {
             get { return dropdown.List.CheckOnClick; }
             set { dropdown.List.CheckOnClick = value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string DisplayMember
         {
             get { return dropdown.List.DisplayMember; }
