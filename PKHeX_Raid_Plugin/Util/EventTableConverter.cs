@@ -18,7 +18,7 @@ namespace PKHeX_Raid_Plugin
             var archive = blocks.GetBlock(NORMAL_ENCOUNTER).Data;
             if (archive.Length < 0x20 || archive.Length != 4 + BitConverter.ToInt32(archive[0x10..]) || BitConverter.ToInt32(archive[0x8..]) != 0x20)
                 return; // no event loaded
-            var encount_data = new byte[archive.Length - 0x24];
+            var encount_data = new byte[archive.Length - 0x20];
             archive[0x20..].CopyTo(encount_data);
             var fbb = new FlatBuffers.FlatBufferBuilder(new FlatBuffers.ByteBuffer(encount_data));
             var dist_encounts = PKHeX_Raid_Plugin.NestHoleDistributionEncounter8Archive.GetRootAsNestHoleDistributionEncounter8Archive(fbb.DataBuffer);
@@ -50,8 +50,8 @@ namespace PKHeX_Raid_Plugin
             archive = blocks.GetBlock(NORMAL_ENCOUNTER_RIGEL1).Data;
             if (archive.Length < 0x20 || archive.Length != 4 + BitConverter.ToInt32(archive[0x10..]) || BitConverter.ToInt32(archive[0x8..]) != 0x20)
                 return; // no event loaded
-            encount_data = new byte[archive.Length - 0x24];
-            archive.Slice(0x20).CopyTo(encount_data);
+            encount_data = new byte[archive.Length - 0x20];
+            archive[0x20..].CopyTo(encount_data);
 
             fbb = new FlatBuffers.FlatBufferBuilder(new FlatBuffers.ByteBuffer(encount_data));
             dist_encounts = PKHeX_Raid_Plugin.NestHoleDistributionEncounter8Archive.GetRootAsNestHoleDistributionEncounter8Archive(fbb.DataBuffer);
@@ -84,7 +84,7 @@ namespace PKHeX_Raid_Plugin
             archive = blocks.GetBlock(NORMAL_ENCOUNTER_RIGEL2).Data;
             if (archive.Length < 0x20 || archive.Length != 4 + BitConverter.ToInt32(archive[0x10..]) || BitConverter.ToInt32(archive[0x8..]) != 0x20)
                 return; // no event loaded
-            encount_data = new byte[archive.Length - 0x24];
+            encount_data = new byte[archive.Length - 0x20];
             archive[0x20..].CopyTo(encount_data);
 
             fbb = new FlatBuffers.FlatBufferBuilder(new FlatBuffers.ByteBuffer(encount_data));
