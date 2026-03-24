@@ -29,7 +29,7 @@ namespace PKHeX_Raid_Plugin.Connections
 
     public class DeviceExecutor(DeviceState cfg) : SwitchRoutineExecutor<DeviceState>(cfg)
     { 
-        public const decimal BotbaseVersion = 2.41m;
+        public const decimal BotbaseVersion = 2.4m;
         private const string VersionNumber = "1.3.2";
         private const string SwordID = "0100ABF008968000";
         private const string ShieldID = "01008DB008C2C000";

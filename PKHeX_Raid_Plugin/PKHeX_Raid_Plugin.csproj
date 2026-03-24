@@ -28,7 +28,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Z3" Version="4.12.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="PKHeX.Core" Version="25.6.9" />
+    <PackageReference Include="PKHeX.Core" Version="26.3.20" />
     <!-- Removed: System.Net.Http package - use framework-provided API in .NET 10 -->
     <!-- Removed: System.Text.RegularExpressions package - use framework-provided API in .NET 10 -->
   </ItemGroup>
@@ -44,10 +44,10 @@
 
   <ItemGroup>
     <Reference Include="NLog">
-      <HintPath>..\..\Kurt Sysbot\SysBot.Base\bin\Release\net9.0\publish\NLog.dll</HintPath>
+      <HintPath>deps\NLog.dll</HintPath>
     </Reference>
     <Reference Include="PKHeX.Core">
-      <HintPath>..\..\PkHex\PKHeX.Core\bin\Release\net9.0\PKHeX.Core.dll</HintPath>
+      <HintPath>deps\PKHeX.Core.dll</HintPath>
     </Reference>
     <Reference Include="PKHeX.Drawing">
       <HintPath>deps\PKHeX.Drawing.dll</HintPath>
@@ -65,6 +65,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Plugin_Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Plugin_Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Plugin_Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -85,6 +90,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Plugin_Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Plugin_Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="Properties\Plugin_Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Plugin_Settings.Designer.cs</LastGenOutput>

@@ -37,7 +37,7 @@ namespace PKHeX_Raid_Plugin
             }
 
             if (!active) { 
-                sprite = ImageUtil.ToGrayscale(sprite);
+                ImageUtil.ToGrayscale(sprite, 1f);
             }
 
             return sprite;
