@@ -23,19 +23,29 @@ namespace PKHeX_Raid_Plugin
         private const string VersionNumber = "1.3.2";
         private const string SwordID = "0100ABF008968000";
         private const string ShieldID = "01008DB008C2C000";
-        private string Label => _connectionType switch
-        {
-            ConnectionType.WiFi => "Wi-Fi",
-            ConnectionType.USB => "USB",
-            _ => "Unknown"
-        };
+        private string Label = "";
 
         public RemoteSwitchConnection(ConnectionType connectionType)
         {
             _connection = SwitchConnectionFactory.CreateConnection(connectionType);
             _connectionType = connectionType;
+            Label = connectionType switch
+            {
+                ConnectionType.WiFi => "Wi-Fi",
+                ConnectionType.USB => "USB",
+                _ => "Unknown"
+            };
         }
-        public async Task<bool> GetConnectionAsync(string host, int port, int timeoutMs = 3000) => await _connection.GetConnectionAsync(host, port, timeoutMs);
+        public async Task<bool> GetConnectionAsync(string host, int port, int timeoutMs = 3000)
+        {
+            Label = _connectionType switch
+            {
+                ConnectionType.WiFi => $"Wi-Fi-{host}",
+                ConnectionType.USB => $"USB-{port}",
+                _ => "Unknown"
+            };
+            return await _connection.GetConnectionAsync(host, port, timeoutMs);
+        }
 
         public void Disconnect() => _connection.Disconnect();
 
