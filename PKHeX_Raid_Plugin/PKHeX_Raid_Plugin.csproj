@@ -56,9 +56,6 @@
     <Reference Include="PKHeX.Drawing.PokeSprite">
       <HintPath>deps\PKHeX.Drawing.PokeSprite.dll</HintPath>
     </Reference>
-    <Reference Include="SysBot.Base">
-      <HintPath>deps\SysBot.Base.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms.VisualStudio.15.0">
       <HintPath>..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\System.Windows.Forms.VisualStudio.15.0.dll</HintPath>
     </Reference>

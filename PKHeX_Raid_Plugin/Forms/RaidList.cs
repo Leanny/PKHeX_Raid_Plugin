@@ -1,9 +1,5 @@
-﻿using Microsoft.Z3;
-using Newtonsoft.Json.Linq;
-using PKHeX.Core;
-using PKHeX_Raid_Plugin.Connections;
+﻿using PKHeX.Core;
 using PKHeX_Raid_Plugin.Properties;
-using SysBot.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,8 +27,9 @@ namespace PKHeX_Raid_Plugin
         private string Ip = "";
         private int Port = 6000;
         private readonly SAV8SWSH _SAV = null!;
-        private SwitchProtocol _selectedProtocol = SwitchProtocol.WiFi;
-        public DeviceExecutor Executor = null!;
+        private ConnectionType _selectedProtocol = ConnectionType.WiFi;
+      //  public DeviceExecutor Executor = null!;
+        public RemoteSwitchConnection RemoteConnection = null!;
         public bool IsConnected() => Connected;
         public event PropertyChangedEventHandler? PropertyChanged;
         private bool _connected = false;
@@ -179,7 +176,7 @@ namespace PKHeX_Raid_Plugin
                     den.Seed = seed;
                     var block = _SAV.Accessor.GetBlock(def.Key);
                     byte[] bytes = block.Data.ToArray();
-                    await Executor.WriteBlock(bytes, def, token);
+                    await RemoteConnection.WriteBlock(bytes, def, token);
                     await RefreshRaids(token);
                 }
             }
@@ -494,7 +491,7 @@ namespace PKHeX_Raid_Plugin
 
         private async void Connect_Clicked(object sender, EventArgs e)
         {
-            if (!Connected || !Executor.Connection.Connected)
+            if (!Connected || !RemoteConnection.Connected)
                 await AttemptConnection();
             else
                 Disconnect();
@@ -531,12 +528,13 @@ namespace PKHeX_Raid_Plugin
         {
             (var protocol, Port) = e.State switch
             {
-                SwitchControl.SwitchState.Left => (SwitchProtocol.WiFi, 5000),
-                SwitchControl.SwitchState.Right => (SwitchProtocol.USB, 8000),
+                SwitchControl.SwitchState.Left => (ConnectionType.WiFi, 5000),
+                SwitchControl.SwitchState.Right => (ConnectionType.USB, 8000),
                 _ => throw new InvalidOperationException($"Unexpected state: {e.State}")
             };
             _selectedProtocol = protocol;
             tb_port.Enabled = !e.IsLeft;
+            tb_ip.Enabled = !e.IsRight;
         }
 
         private DateTime _buttonTime = DateTime.MinValue;
@@ -560,20 +558,12 @@ namespace PKHeX_Raid_Plugin
 
             try
             {
-                var config = BuildConnectionConfig();
-                var state = new DeviceState
-                {
-                    Connection = config,
-                    InitialRoutine = RoutineType.ReadWrite,
-                };
+                if (_selectedProtocol is ConnectionType.USB) return;
 
-                Executor = new DeviceExecutor(state);
-                await Task.Run(() => Executor.RunAsync(token));
+                RemoteConnection = new RemoteSwitchConnection(_selectedProtocol);
 
                 SaveConnectionSettings();
-
-                await Executor.Connect(token);
-                Connected = Executor.Connection.Connected;
+                Connected = await RemoteConnection.GetConnectionAsync(Ip, Port);
                 IsConnecting = false;
 
                 if (!Connected)
@@ -590,24 +580,18 @@ namespace PKHeX_Raid_Plugin
             }
         }
 
-        private SwitchConnectionConfig BuildConnectionConfig() => _selectedProtocol switch
-        {
-            SwitchProtocol.USB => new SwitchConnectionConfig { Port = Port, Protocol = SwitchProtocol.USB },
-            SwitchProtocol.WiFi => new SwitchConnectionConfig { IP = Ip, Port = Port, Protocol = SwitchProtocol.WiFi },
-            _ => throw new ArgumentOutOfRangeException(nameof(_selectedProtocol), "Unsupported protocol"),
-        };
-
         private void SaveConnectionSettings()
         {
             Plugin_Settings.Default.address = Ip;
             Plugin_Settings.Default.port = Port;
-            Plugin_Settings.Default.protocol = _selectedProtocol == SwitchProtocol.USB;
+            Plugin_Settings.Default.protocol = _selectedProtocol == ConnectionType.USB;
             Plugin_Settings.Default.Save();
         }
 
         private async Task FinalizeConnectionAsync(CancellationToken token)
         {
-            var version = await Executor.ReadGame(token);
+            await RemoteConnection.InitialCheck(token);
+            var version = await RemoteConnection.ReadGame(token);
             if (_SAV == null) return;
 
             _SAV.Version = version;
@@ -619,7 +603,7 @@ namespace PKHeX_Raid_Plugin
 
         public void Disconnect()
         {
-            try { Executor.Disconnect(); } catch { }
+            try { RemoteConnection.Disconnect(); } catch { }
 
             Connected = false;
             ProgressValue = 0;
@@ -629,7 +613,7 @@ namespace PKHeX_Raid_Plugin
 
         private async Task RefreshRaids(CancellationToken token)
         {
-            if (!Connected || !Executor.Connection.Connected || _SAV == null)
+            if (!Connected || !RemoteConnection.Connected || _SAV == null)
                 return;
 
             _announcer.Enqueue("Reading dens..", 2000);
@@ -653,7 +637,7 @@ namespace PKHeX_Raid_Plugin
 
         private async Task UpdateBlockAsync(BlockDefinition def, IProgress<int> progress, int step, int totalSteps, CancellationToken token)
         {
-            var data = await Executor.GetBytes(def, token);
+            var data = await RemoteConnection.GetBytes(def, token);
             var block = _SAV.Accessor.GetBlock(def.Key);
             block.ChangeData(data);
 
@@ -681,7 +665,7 @@ namespace PKHeX_Raid_Plugin
         private void Log(string message)
         {
             if (Connected)
-                Executor.Log(message);
+                RemoteConnection.Log(message);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
