@@ -10,6 +10,10 @@ namespace PKHeX_Raid_Plugin;
 /// </summary>
 public static class SwitchCommand
 {
+    public const decimal BotbaseVersion = 2.4m;
+    public const string VersionNumber = "1.3.2";
+    public const string SwordID = "0100ABF008968000";
+    public const string ShieldID = "01008DB008C2C000";
 
     private static readonly Encoding Encoder = Encoding.ASCII;
 

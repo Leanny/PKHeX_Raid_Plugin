@@ -28,8 +28,8 @@ namespace PKHeX_Raid_Plugin
         private int Port = 6000;
         private readonly SAV8SWSH _SAV = null!;
         private ConnectionType _selectedProtocol = ConnectionType.WiFi;
-      //  public DeviceExecutor Executor = null!;
-        public RemoteSwitchConnection RemoteConnection = null!;
+        public SwitchConnectionService RemoteConnection = null!;
+      //  public RemoteSwitchConnection  = null!;
         public bool IsConnected() => Connected;
         public event PropertyChangedEventHandler? PropertyChanged;
         private bool _connected = false;
@@ -491,7 +491,7 @@ namespace PKHeX_Raid_Plugin
 
         private async void Connect_Clicked(object sender, EventArgs e)
         {
-            if (!Connected || !RemoteConnection.Connected)
+            if (!Connected || !RemoteConnection.IsConnected)
                 await AttemptConnection();
             else
                 Disconnect();
@@ -554,13 +554,15 @@ namespace PKHeX_Raid_Plugin
             var token = cts.Token;
 
             IsConnecting = true;
-            Connected = false;
-
             try
             {
                 if (_selectedProtocol is ConnectionType.USB) return;
+                if (RemoteConnection != null)
+                   RemoteConnection.ConnectionStatusChanged -= OnConnectionStatusChanged;
+                                
+                RemoteConnection = new SwitchConnectionService(_selectedProtocol);
 
-                RemoteConnection = new RemoteSwitchConnection(_selectedProtocol);
+                RemoteConnection.ConnectionStatusChanged += OnConnectionStatusChanged;
 
                 SaveConnectionSettings();
                 Connected = await RemoteConnection.GetConnectionAsync(Ip, Port);
@@ -590,7 +592,6 @@ namespace PKHeX_Raid_Plugin
 
         private async Task FinalizeConnectionAsync(CancellationToken token)
         {
-            await RemoteConnection.InitialCheck(token);
             var version = await RemoteConnection.ReadGame(token);
             if (_SAV == null) return;
 
@@ -613,7 +614,7 @@ namespace PKHeX_Raid_Plugin
 
         private async Task RefreshRaids(CancellationToken token)
         {
-            if (!Connected || !RemoteConnection.Connected || _SAV == null)
+            if (!Connected || !RemoteConnection.IsConnected || _SAV == null)
                 return;
 
             _announcer.Enqueue("Reading dens..", 2000);
@@ -666,6 +667,11 @@ namespace PKHeX_Raid_Plugin
         {
             if (Connected)
                 RemoteConnection.Log(message);
+        }
+
+        private void OnConnectionStatusChanged(bool connected)
+        {
+            Connected = connected;
         }
 
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)

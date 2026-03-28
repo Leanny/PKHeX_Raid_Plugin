@@ -26,6 +26,7 @@
     <PackageReference Include="Costura.Fody" Version="5.7.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="LibUsbDotNet" Version="2.2.75" />
     <PackageReference Include="Microsoft.Z3" Version="4.12.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="PKHeX.Core" Version="26.3.20" />
