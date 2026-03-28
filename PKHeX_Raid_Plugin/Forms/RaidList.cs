@@ -237,11 +237,11 @@ namespace PKHeX_Raid_Plugin
             var itemText = item.ToString();
             var itemFont = e.Font ?? SystemFonts.DefaultFont;
 
-            Color foreColor = SystemColors.InactiveCaptionText;
+            Color foreColor = SystemColors.GrayText;
 
             var pkm = _raids.GenerateFromIndex(raid);
 
-            if (raid.IsWishingPiece || pkm.ShinyType != 0)
+            if (raid.IsWishingPiece || pkm.ShinyType != 0 || raid.IsActive)
                 itemFont = new(itemFont, FontStyle.Bold);
             if(raid.IsActive)
                 foreColor = SystemColors.ActiveCaptionText;
