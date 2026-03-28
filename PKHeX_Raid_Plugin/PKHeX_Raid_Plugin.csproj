@@ -12,6 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Connections\UsbMonitor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\display.png" />
     <None Remove="Resources\display_pin.png" />
     <None Remove="Resources\display_raids.png" />

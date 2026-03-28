@@ -613,6 +613,7 @@
             DenMap.TabStop = false;
             DenMap.BackgroundImageChanged += DenMap_BackgroundImageChanged;
             DenMap.Paint += DenMap_Paint;
+            DenMap.MouseClick += DenMap_MouseClick;
             // 
             // RaidList
             // 

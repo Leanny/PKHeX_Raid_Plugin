@@ -13,7 +13,7 @@ public class SwitchConnectionService(ConnectionType type)
     private readonly ISwitchConnection _connection = type switch
     {  
         ConnectionType.WiFi => new SwitchWifiConnection(),
-        //  ConnectionType.USB => new USBConnection(),
+        ConnectionType.USB => new SwitchUsbConnection(),
         _ => throw new ArgumentException("Invalid connection type", nameof(type))
     };
 

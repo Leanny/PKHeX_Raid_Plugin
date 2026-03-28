@@ -23,13 +23,13 @@ namespace PKHeX_Raid_Plugin
         private List<RaidParameters> _ctRaids = [];
         private List<RaidParameters> _aotRaids = [];
         private List<MapRegion.Region> _currentRegions = [];
+        private readonly Dictionary<RaidParameters, Rectangle> _overlayHitboxes = [];
         private MessageAnnouncer _announcer;
         private string Ip = "";
         private int Port = 6000;
         private readonly SAV8SWSH _SAV = null!;
         private ConnectionType _selectedProtocol = ConnectionType.WiFi;
         public SwitchConnectionService RemoteConnection = null!;
-      //  public RemoteSwitchConnection  = null!;
         public bool IsConnected() => Connected;
         public event PropertyChangedEventHandler? PropertyChanged;
         private bool _connected = false;
@@ -237,13 +237,14 @@ namespace PKHeX_Raid_Plugin
             var itemText = item.ToString();
             var itemFont = e.Font ?? SystemFonts.DefaultFont;
 
-            Color foreColor = Color.Black;
+            Color foreColor = SystemColors.InactiveCaptionText;
 
             var pkm = _raids.GenerateFromIndex(raid);
 
             if (raid.IsWishingPiece || pkm.ShinyType != 0)
                 itemFont = new(itemFont, FontStyle.Bold);
-
+            if(raid.IsActive)
+                foreColor = SystemColors.ActiveCaptionText;
             if (raid.IsWishingPiece)
                 foreColor = Color.Purple;
             else if (pkm.ShinyType != 0)
@@ -299,6 +300,7 @@ namespace PKHeX_Raid_Plugin
         private Bitmap AllMapMarks(List<RaidParameters> raids, Bitmap map)
         {
             using var graphics = Graphics.FromImage(map);
+            _overlayHitboxes.Clear();
 
             foreach (var raid in raids)
             {
@@ -318,7 +320,7 @@ namespace PKHeX_Raid_Plugin
             return map;
         }
 
-        private static void DrawOverlay(Graphics graphics, Bitmap img, RaidParameters raidParameters, int width, int height, int offsetX, int offsetY)
+        private void DrawOverlay(Graphics graphics, Bitmap img, RaidParameters raidParameters, int width, int height, int offsetX, int offsetY)
         {
             if (img == null)
                 return;
@@ -326,12 +328,15 @@ namespace PKHeX_Raid_Plugin
             int overlayCenterX = raidParameters.X + offsetX;
             int overlayCenterY = raidParameters.Y + offsetY;
 
-            graphics.DrawImage(
-                img,
-                overlayCenterX - width / 2,
-                overlayCenterY - height / 2,
-                width,
-                height);
+            Rectangle rect = new(
+            overlayCenterX - width / 2,
+            overlayCenterY - height / 2,
+            width,
+            height);
+
+            graphics.DrawImage(img, rect);
+
+            _overlayHitboxes[raidParameters] = rect;
         }
 
         public void DisplayImage(Image img)
@@ -409,6 +414,33 @@ namespace PKHeX_Raid_Plugin
                 {
                     _hoverPoint = value;
                     OnPropertyChanged();
+                }
+            }
+        }
+
+        private void DenMap_MouseClick(object? sender, MouseEventArgs e)
+        {
+            if (DenMap.BackgroundImage == null)
+                return;
+
+            // Convert PB coordinates → image coordinates
+            var img = DenMap.BackgroundImage;
+            var pbSize = DenMap.ClientSize;
+
+            float scaleX = (float)img.Width / pbSize.Width;
+            float scaleY = (float)img.Height / pbSize.Height;
+
+            int imgX = (int)(e.X * scaleX);
+            int imgY = (int)(e.Y * scaleY);
+            Point clickPoint = new(imgX, imgY);
+
+            // Check hitboxes
+            foreach (var kvp in _overlayHitboxes)
+            {
+                if (kvp.Value.Contains(clickPoint))
+                {
+                    CB_Den.SelectedItem = kvp.Key;
+                    return;
                 }
             }
         }
@@ -528,7 +560,7 @@ namespace PKHeX_Raid_Plugin
         {
             (var protocol, Port) = e.State switch
             {
-                SwitchControl.SwitchState.Left => (ConnectionType.WiFi, 5000),
+                SwitchControl.SwitchState.Left => (ConnectionType.WiFi, Port),
                 SwitchControl.SwitchState.Right => (ConnectionType.USB, 8000),
                 _ => throw new InvalidOperationException($"Unexpected state: {e.State}")
             };
@@ -556,7 +588,6 @@ namespace PKHeX_Raid_Plugin
             IsConnecting = true;
             try
             {
-                if (_selectedProtocol is ConnectionType.USB) return;
                 if (RemoteConnection != null)
                    RemoteConnection.ConnectionStatusChanged -= OnConnectionStatusChanged;
                                 
