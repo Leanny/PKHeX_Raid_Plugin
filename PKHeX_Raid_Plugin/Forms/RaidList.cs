@@ -34,6 +34,7 @@ namespace PKHeX_Raid_Plugin
         public event PropertyChangedEventHandler? PropertyChanged;
         private bool _connected = false;
         private bool _isConnecting = false;
+        private ConnectionState _currentState = ConnectionState.Disconnected;
 
         [DefaultValue(false)]
         public bool Connected
@@ -44,7 +45,6 @@ namespace PKHeX_Raid_Plugin
                 if (_connected != value)
                 {
                     _connected = value;
-                    OnPropertyChanged();
                 }
             }
         }
@@ -59,8 +59,19 @@ namespace PKHeX_Raid_Plugin
                 {
                     _isConnecting = value;
                     OnPropertyChanged();
-                    UpdateControlStates();
                 }
+            }
+        }
+
+        [DefaultValue(ConnectionState.Disconnected)]
+        public ConnectionState CurrentState
+        {
+            get => _currentState;
+            set
+            {
+                if (_currentState == value) return;
+                _currentState = value;
+                UpdateUiState();
             }
         }
 
@@ -482,17 +493,27 @@ namespace PKHeX_Raid_Plugin
             e.Graphics.DrawString(name, font, Brushes.Black, new PointF(locationX, locationY));
         }
 
-        private void UpdateControlStates()
+        private void UpdateUiState()
         {
-            bool enabled = !IsConnecting;
-            SetEnabledRecursive(this, enabled);
+            bool isBusy = CurrentState == ConnectionState.Connecting || CurrentState == ConnectionState.Disconnecting;
+            bool isConnected = CurrentState == ConnectionState.Connected;
+            SetEnabledRecursive(this, !isBusy);
+            Cnct_btn.Enabled = !isBusy;
+            Cnct_btn.Text = isConnected ? "Disconnect" : "Connect";
+            cnctConfigPanel.Enabled = !isBusy && !isConnected;
+            if (cnctConfigPanel.Enabled)
+            {
+                bool isWifi = _selectedProtocol == ConnectionType.WiFi;
+                tb_ip.Enabled = isWifi;
+                tb_port.Enabled = !isWifi;
+            }
         }
 
         private void SetEnabledRecursive(Control parent, bool enabled)
         {
             foreach (Control c in parent.Controls)
             {
-                if (c is Button or ComboBox or TextBox or CheckBox or IPTextBox or SwitchControl)
+                if (c is Button or ComboBox or TextBox or CheckBox or IPTextBox or SwitchControl or PictureBox)
                     c.Enabled = enabled;
 
                 if (c.HasChildren)
@@ -521,14 +542,8 @@ namespace PKHeX_Raid_Plugin
             }
         }
 
-        private async void Connect_Clicked(object sender, EventArgs e)
-        {
-            if (!Connected || !RemoteConnection.IsConnected)
-                await AttemptConnection();
-            else
-                Disconnect();
-        }
-
+        private async void Connect_Clicked(object sender, EventArgs e) =>  await AttemptConnection();
+ 
         private void Tb_port_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(tb_port.Text.Trim(), out int result))
@@ -561,12 +576,11 @@ namespace PKHeX_Raid_Plugin
             (var protocol, Port) = e.State switch
             {
                 SwitchControl.SwitchState.Left => (ConnectionType.WiFi, Port),
-                SwitchControl.SwitchState.Right => (ConnectionType.USB, 8000),
+                SwitchControl.SwitchState.Right => (ConnectionType.USB, Port),
                 _ => throw new InvalidOperationException($"Unexpected state: {e.State}")
             };
             _selectedProtocol = protocol;
-            tb_port.Enabled = !e.IsLeft;
-            tb_ip.Enabled = !e.IsRight;
+            UpdateUiState();
         }
 
         private DateTime _buttonTime = DateTime.MinValue;
@@ -581,11 +595,22 @@ namespace PKHeX_Raid_Plugin
         }
 
         private async Task AttemptConnection()
-        {
+        { 
+            if (CurrentState == ConnectionState.Connected)
+            {
+                CurrentState = ConnectionState.Disconnecting;
+                Disconnect();
+                CurrentState = ConnectionState.Disconnected;
+                return;
+            }
+
+            CurrentState = ConnectionState.Connecting;
+
             using var cts = new CancellationTokenSource();
             var token = cts.Token;
 
             IsConnecting = true;
+
             try
             {
                 if (RemoteConnection != null)
@@ -597,6 +622,7 @@ namespace PKHeX_Raid_Plugin
 
                 SaveConnectionSettings();
                 Connected = await RemoteConnection.GetConnectionAsync(Ip, Port);
+                CurrentState = Connected ? ConnectionState.Connected : ConnectionState.Disconnected;
                 IsConnecting = false;
 
                 if (!Connected)
@@ -606,8 +632,9 @@ namespace PKHeX_Raid_Plugin
             }
             catch (Exception ex)
             {
-                Disconnect();
                 MessageBox.Show($"Connection Failed\n{ex.Message}");
+                Disconnect();
+                CurrentState = ConnectionState.Disconnected;
                 IsConnecting = false;
                 _announcer.Enqueue("", 0);
             }
@@ -681,10 +708,6 @@ namespace PKHeX_Raid_Plugin
         {
             switch (e.PropertyName)
             {
-                case nameof(Connected):
-                    Cnct_btn.Text = Connected ? "Disconnect" : "Connect";
-                    break;
-
                 case nameof(IsConnecting):
                     if (IsConnecting)
                         _announcer.EnqueueLoop(["Connecting.", "Connecting..", "Connecting..."], 1000, () => IsConnecting);
@@ -737,5 +760,13 @@ namespace PKHeX_Raid_Plugin
 
             isExpanded = !isExpanded;
         }
+    }
+
+    public enum ConnectionState
+    {
+        Disconnected,
+        Connecting,
+        Connected,
+        Disconnecting
     }
 }

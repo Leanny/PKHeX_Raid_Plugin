@@ -24,8 +24,12 @@ public class SwitchConnectionService(ConnectionType type)
     }
 
     public bool IsConnected => _connection.IsConnected;
+    private readonly ConnectionType _Type = type;
     public async Task<bool> GetConnectionAsync(string host, int port, int timeoutMs = 3000)
     {
+        if (_Type is ConnectionType.WiFi)
+            port = 6000;
+
        var connection = await _connection.GetConnectionAsync(host, port, timeoutMs);
         if (connection)
         {

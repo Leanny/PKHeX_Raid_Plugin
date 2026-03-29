@@ -24,8 +24,7 @@ public class SwitchWifiConnection : ISwitchConnection
     public async Task<bool> GetConnectionAsync(string host, int port, int timeoutMs = 5000)
     {
         using var cts = new CancellationTokenSource(timeoutMs);
-        _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
-        { NoDelay = true, };
+        _socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
         await Task.Delay(1000);
         try
         {
