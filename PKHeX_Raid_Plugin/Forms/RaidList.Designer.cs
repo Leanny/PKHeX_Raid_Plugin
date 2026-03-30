@@ -138,6 +138,7 @@
             btn_refresh.TabIndex = 39;
             btn_refresh.Text = "Refresh List";
             btn_refresh.UseVisualStyleBackColor = true;
+            btn_refresh.Visible = false;
             btn_refresh.Click += Refresh_Clicked;
             // 
             // progressBar

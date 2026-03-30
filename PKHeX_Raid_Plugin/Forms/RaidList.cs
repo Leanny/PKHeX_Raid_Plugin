@@ -131,7 +131,6 @@ namespace PKHeX_Raid_Plugin
         private void InitializeBindings()
         {
             lbl_memo.DataBindings.Add("Text", _announcer, "Message");
-            btn_refresh.DataBindings.Add("Visible", this, "Connected");
             progressBar.DataBindings.Add("Value", this, "ProgressValue", true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
@@ -233,6 +232,7 @@ namespace PKHeX_Raid_Plugin
             _aotRaids = [.. currentRaids.Where(r => r.Region == RaidRegion.IsleOfArmor)];
         }
 
+        #region Drawing and Map Handling
         private void CB_Den_DrawItem(object? sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
@@ -317,6 +317,9 @@ namespace PKHeX_Raid_Plugin
             {
                 bool isLarge = raid.Region == RaidRegion.CrownTundra;
 
+                if (raid.IsActive)
+                    DrawActiveRaids(graphics, raid, isLarge);
+
                 if (raid.IsWishingPiece)
                     DrawOverlay(graphics, Resources.wishingpiece, raid,
                         isLarge ? 60 : 40, isLarge ? 60 : 40,
@@ -348,6 +351,32 @@ namespace PKHeX_Raid_Plugin
             graphics.DrawImage(img, rect);
 
             _overlayHitboxes[raidParameters] = rect;
+        }
+
+        private void DrawActiveRaids(Graphics g, RaidParameters raid, bool isLarge)
+        {
+            int offset = isLarge ? 10 : 5;
+            int dimension = isLarge ? 25 : 15;
+            int thickness = isLarge ? 20 : 10;
+
+
+            using Pen pen = new(Color.FromArgb(0xCC, 0x18, 0x18, 0x18), thickness);
+
+            Rectangle hitbox = new(
+                raid.X - offset,
+                raid.Y - offset,
+                dimension,
+                dimension
+            );
+
+            g.DrawArc(
+                pen,
+                hitbox,
+                0,
+                360
+            );
+
+            _overlayHitboxes[raid] = hitbox;
         }
 
         public void DisplayImage(Image img)
@@ -492,35 +521,8 @@ namespace PKHeX_Raid_Plugin
 
             e.Graphics.DrawString(name, font, Brushes.Black, new PointF(locationX, locationY));
         }
-
-        private void UpdateUiState()
-        {
-            bool isBusy = CurrentState == ConnectionState.Connecting || CurrentState == ConnectionState.Disconnecting;
-            bool isConnected = CurrentState == ConnectionState.Connected;
-            SetEnabledRecursive(this, !isBusy);
-            Cnct_btn.Enabled = !isBusy;
-            Cnct_btn.Text = isConnected ? "Disconnect" : "Connect";
-            cnctConfigPanel.Enabled = !isBusy && !isConnected;
-            if (cnctConfigPanel.Enabled)
-            {
-                bool isWifi = _selectedProtocol == ConnectionType.WiFi;
-                tb_ip.Enabled = isWifi;
-                tb_port.Enabled = !isWifi;
-            }
-        }
-
-        private void SetEnabledRecursive(Control parent, bool enabled)
-        {
-            foreach (Control c in parent.Controls)
-            {
-                if (c is Button or ComboBox or TextBox or CheckBox or IPTextBox or SwitchControl or PictureBox)
-                    c.Enabled = enabled;
-
-                if (c.HasChildren)
-                    SetEnabledRecursive(c, enabled);
-            }
-        }
-
+        #endregion
+        #region Cfw and Connection Handling
         private void RaidList_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal && !_isResizing && _isLoaded)
@@ -539,6 +541,34 @@ namespace PKHeX_Raid_Plugin
                     this.ResumeLayout();
                     _isResizing = false;
                 }));
+            }
+        } 
+        private void UpdateUiState()
+        {
+            bool isBusy = CurrentState == ConnectionState.Connecting || CurrentState == ConnectionState.Disconnecting;
+            bool isConnected = CurrentState == ConnectionState.Connected;
+            SetEnabledRecursive(this, !isBusy);
+            Cnct_btn.Enabled = !isBusy;
+            Cnct_btn.Text = isConnected ? "Disconnect" : "Connect";
+            cnctConfigPanel.Enabled = !isBusy && !isConnected;
+            btn_refresh.Visible = isConnected;
+            if (cnctConfigPanel.Enabled)
+            {
+                bool isWifi = _selectedProtocol == ConnectionType.WiFi;
+                tb_ip.Enabled = isWifi;
+                tb_port.Enabled = !isWifi;
+            }
+        }
+
+        private void SetEnabledRecursive(Control parent, bool enabled)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if (c is Button or ComboBox or TextBox or CheckBox or IPTextBox or SwitchControl or PictureBox)
+                    c.Enabled = enabled;
+
+                if (c.HasChildren)
+                    SetEnabledRecursive(c, enabled);
             }
         }
 
@@ -769,4 +799,5 @@ namespace PKHeX_Raid_Plugin
         Connected,
         Disconnecting
     }
+        #endregion
 }
