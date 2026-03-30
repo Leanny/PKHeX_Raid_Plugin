@@ -5,25 +5,27 @@ namespace PKHeX_Raid_Plugin
     public class RaidParameters
     {
         private static readonly string[] LocationNames =
-        {
-            "Axew's Eye",
-            "Bridge Field",
-            "Dappled Grove",
-            "Dusty Bowl",
-            "East Lake Axewell",
-            "Giant's Cap",
-            "Giant's Mirror",
-            "Giant's Seat",
-            "Hammerlocke Hills",
-            "Lake of Outrage",
-            "Motostoke Riverbank",
-            "North Lake Miloch",
-            "Rolling Fields",
-            "South Lake Miloch",
-            "Stony Wilderness",
-            "Watchtower Ruins",
-            "West Lake Axewell",
-            //
+        [
+            //Base Galar:
+            "Axew's Eye",             
+            "Bridge Field",            
+            "Dappled Grove",           
+            "Dusty Bowl",               
+            "East Lake Axewell",        
+            "Giant's Cap",             
+            "Giant's Mirror",          
+            "Giant's Seat",             
+            "Hammerlocke Hills",        
+            "Lake of Outrage",          
+            "Motostoke Riverbank",      
+            "North Lake Miloch",        
+            "Rolling Fields",         
+            "South Lake Miloch",       
+            "Stony Wilderness",         
+            "Watchtower Ruins",         
+            "West Lake Axewell",        
+
+            //Isle of Armor:
             "Fields of Honor",
             "Soothing Wetlands",
             "Forest of Focus",
@@ -33,13 +35,14 @@ namespace PKHeX_Raid_Plugin
             "Courageous Cavern",
             "Loop Lagoon",
             "Training Lowlands",
-            //"Warm-Up Tunnel",
             "Potbottom Desert",
             "Workout Sea",
             "Stepping-Stone Sea",
             "Insular Sea",
             "Honeycalm Sea",
             "Honeycalm Island",
+
+            //Crown Tundra:
             "Slippery Slope",
             "Frostpoint Field",
             "Giant’s Bed",
@@ -52,7 +55,7 @@ namespace PKHeX_Raid_Plugin
             "Three-Point Pass",
             "Ballimere Lake",
             "Dyna Tree Hill"
-        };
+        ];
 
         public readonly int Flags;
         public readonly RaidType Type;
@@ -69,11 +72,31 @@ namespace PKHeX_Raid_Plugin
         public readonly int X;
         public readonly int Y;
         public readonly string Location;
+        public readonly RaidRegion Region;
 
-        public RaidParameters(int index, RaidSpawnDetail detail, int location, int x, int y)
-            : this(index, detail.Seed, detail.Stars, detail.RandRoll, detail.Flags, detail.DenType, location, x, y) { }
+        public override string ToString()
+        {
+            int raidNumber = Region switch
+            {
+                RaidRegion.CrownTundra => (Index + 1) - 190,
+                RaidRegion.IsleOfArmor => (Index + 1) - 100,
+                _ => Index + 1
+            };
 
-        public RaidParameters(int index, ulong seed, int stars, int randRoll, int flags, RaidType type, int location, int x, int y)
+            string regionName = Region switch
+            {
+                RaidRegion.CrownTundra => "Crown",
+                RaidRegion.IsleOfArmor => "Isle",
+                _ => "Base"
+            };
+
+            return $"{raidNumber}: ({regionName}) {Location}";
+        }
+
+        public RaidParameters(int index, RaidSpawnDetail detail, int location, int x, int y, RaidRegion region)
+            : this(index, detail.Seed, detail.Stars, detail.RandRoll, detail.Flags, detail.DenType, location, x, y, region) { }
+
+        public RaidParameters(int index, ulong seed, int stars, int randRoll, int flags, RaidType type, int location, int x, int y, RaidRegion region)
         {
             Seed = seed;
             Flags = flags;
@@ -90,6 +113,7 @@ namespace PKHeX_Raid_Plugin
             Location = LocationNames[location];
             X = x;
             Y = y;
+            Region = region;
         }
     }
 }

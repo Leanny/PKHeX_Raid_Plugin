@@ -39,7 +39,8 @@ namespace PKHeX_Raid_Plugin
 
         public static RaidPKM ConvertToPKM(this RaidTemplateTable[] denDetails, RaidParameters raidParameters, ulong hash, uint TID, uint SID)
         {
-            var nest = Array.Find(denDetails, n => n.TableID == hash);
+            var nest = Array.Find(denDetails, n => n.TableID == hash)
+                   ?? throw new InvalidOperationException($"No RaidTemplateTable found for hash {hash:X}");
             return nest.ConvertToPKM(raidParameters, TID, SID);
         }
 

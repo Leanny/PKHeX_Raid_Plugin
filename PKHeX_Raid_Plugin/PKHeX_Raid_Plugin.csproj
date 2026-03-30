@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net9.0-windows</TargetFrameworks>
+    <TargetFrameworks>net10.0-windows</TargetFrameworks>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject></StartupObject>
@@ -12,6 +12,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Connections\UsbMonitor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\display.png" />
+    <None Remove="Resources\display_pin.png" />
+    <None Remove="Resources\display_raids.png" />
+    <None Remove="Resources\display_route.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
@@ -19,11 +30,12 @@
     <PackageReference Include="Costura.Fody" Version="5.7.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="LibUsbDotNet" Version="2.2.75" />
     <PackageReference Include="Microsoft.Z3" Version="4.12.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="PKHeX.Core" Version="25.2.23" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="PKHeX.Core" Version="26.3.20" />
+    <!-- Removed: System.Net.Http package - use framework-provided API in .NET 10 -->
+    <!-- Removed: System.Text.RegularExpressions package - use framework-provided API in .NET 10 -->
   </ItemGroup>
 
   <Choose>
@@ -36,6 +48,12 @@
   </Choose>
 
   <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>deps\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PKHeX.Core">
+      <HintPath>deps\PKHeX.Core.dll</HintPath>
+    </Reference>
     <Reference Include="PKHeX.Drawing">
       <HintPath>deps\PKHeX.Drawing.dll</HintPath>
       <Private>false</Private>
@@ -43,9 +61,22 @@
     <Reference Include="PKHeX.Drawing.PokeSprite">
       <HintPath>deps\PKHeX.Drawing.PokeSprite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.VisualStudio.15.0">
+      <HintPath>..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\System.Windows.Forms.VisualStudio.15.0.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Plugin_Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Plugin_Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Plugin_Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Plugin_Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -58,6 +89,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Plugin_Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Plugin_Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Plugin_Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Plugin_Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

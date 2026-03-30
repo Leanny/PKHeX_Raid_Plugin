@@ -13,13 +13,16 @@ namespace PKHeX_Raid_Plugin
         public readonly uint SID;
         private readonly GameVersion Game;
 
-        private readonly RaidTables _raidTables = new RaidTables();
-        private readonly RaidParameters[] DenList;
+        private readonly RaidTables _raidTables = new();
+       // private readonly RaidParameters[] DenList;
+        public IReadOnlyList<RaidParameters> DenList => _denList;
+        private readonly RaidParameters[] _denList;
+
 
         public RaidManager(SaveBlockAccessor8SWSH blocks, GameVersion game, int badges, uint tid, uint sid)
         {
             EventTableConverter.GetCurrentEventTable(blocks, _raidTables);
-            DenList = InitializeDenList(blocks.RaidGalar, blocks.RaidArmor, blocks.RaidCrown);
+            _denList = InitializeDenList(blocks.RaidGalar, blocks.RaidArmor, blocks.RaidCrown);
 
             Game = game;
             BadgeCount = Util.NumberOfSetBits(badges);
@@ -37,13 +40,13 @@ namespace PKHeX_Raid_Plugin
             int CrownUsed = raidsCrown.CountUsed;
 
             var dl = new RaidParameters[NormalUsed + ArmorUsed + CrownUsed];
-            var allRaids = raids.GetAllRaids();
+            var allRaids = raids.GetAllRaids();           
             for (int i = 0; i < NormalUsed; i++)
             {
                 int idx = i;
                 var currentRaid = allRaids[i];
                 var detail = NestLocations.Nests[i];
-                dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY);
+                dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY, RaidRegion.Base);
             }
             
             var allArmorRaids = raidsArmor.GetAllRaids();
@@ -52,7 +55,7 @@ namespace PKHeX_Raid_Plugin
                 int idx = NormalUsed + i;
                 var currentRaid = allArmorRaids[i];
                 var detail = NestLocations.Nests[idx];
-                dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY);
+                dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY, RaidRegion.IsleOfArmor);
             }
 
             var allCrownRaids = raidsCrown.GetAllRaids();
@@ -61,7 +64,7 @@ namespace PKHeX_Raid_Plugin
                 int idx = NormalUsed + ArmorUsed + i;
                 var currentRaid = allCrownRaids[i];
                 var detail = NestLocations.Nests[idx];
-                dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY);
+                dl[idx] = new RaidParameters(idx, currentRaid, detail.Location, detail.MapX, detail.MapY, RaidRegion.CrownTundra);
             }
 
             return dl;
@@ -94,13 +97,16 @@ namespace PKHeX_Raid_Plugin
             if (raidParameters.IsCrystal)
             {
                 var tables = _raidTables.CrytalNestsEvent;
-                var nest = Array.Find(tables, table => table.TableID == 0);
+                var nest = Array.Find(tables, table => table.TableID == 0)
+                     ?? throw new InvalidOperationException("Nest not found.");
+
                 return nest.Entries.AsEnumerable();
             }
             if (raidParameters.IsEvent)
             {
                 var tables = Game == GameVersion.SW ? _raidTables.SwordNestsEvent : _raidTables.ShieldNestsEvent;
-                var nest = Array.Find(tables, table => table.TableID == NestLocations.EventHash);
+                var nest = Array.Find(tables, table => table.TableID == NestLocations.EventHash)
+                    ?? throw new InvalidOperationException("Event nest not found.");
                 return nest.Entries.Where(table => table.CanObtainWith(stars));
             }
             else
@@ -109,7 +115,10 @@ namespace PKHeX_Raid_Plugin
                 var tables = Game == GameVersion.SW ? _raidTables.SwordNests : _raidTables.ShieldNests;
                 var common = Array.Find(tables, table => table.TableID == detail.CommonHash);
                 var rare = Array.Find(tables, table => table.TableID == detail.RareHash);
-                return common.Entries.Where(table => table.CanObtainWith(stars)).Union(rare.Entries.Where(table => table.CanObtainWith(stars)));
+                var commonEntries = common?.Entries?.Where(table => table.CanObtainWith(stars)) ?? [];
+                var rareEntries = rare?.Entries?.Where(table => table.CanObtainWith(stars)) ?? [];
+
+                return commonEntries.Union(rareEntries);
             }
         }
     }

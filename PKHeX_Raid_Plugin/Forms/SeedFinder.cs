@@ -89,7 +89,6 @@ namespace PKHeX_Raid_Plugin
         private void ECBox_Enter(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-
             textBox.SelectAll();
         }
 
