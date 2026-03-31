@@ -17,6 +17,8 @@ namespace PKHeX_Raid_Plugin
 {
     public partial class RaidList : Form, INotifyPropertyChanged
     {
+        #region Properties and fields
+
         private RaidManager _raids;
         private readonly TextBox[] IVs;
         private List<RaidParameters> _baseRaids = [];
@@ -91,12 +93,16 @@ namespace PKHeX_Raid_Plugin
             }
         }
 
+        #endregion
         public RaidList(SAV8SWSH sav)
         {
             InitializeComponent();
             IVs = [TB_HP_IV1, TB_ATK_IV1, TB_DEF_IV1, TB_SPA_IV1, TB_SPD_IV1, TB_SPE_IV1];
             _SAV = sav;
             CenterToParent();
+            CB_MapSelect.Items.Add(nameof(RaidRegion.Base));
+            CB_MapSelect.Items.Add(nameof(RaidRegion.IsleOfArmor));
+            CB_MapSelect.Items.Add(nameof(RaidRegion.CrownTundra));
             UpdateRaids(sav);
         }
 
@@ -116,9 +122,11 @@ namespace PKHeX_Raid_Plugin
 
             CB_Den.DrawMode = DrawMode.OwnerDrawFixed;
             CB_Den.DrawItem -= CB_Den_DrawItem;
-            CB_Den.DrawItem += CB_Den_DrawItem;
+            CB_Den.DrawItem += CB_Den_DrawItem; 
+
             this.PropertyChanged += OnPropertyChange;
-            DenMap.MouseMove += DenMap_MouseMove;
+            DenMap.MouseMove += DenMap_MouseMove; 
+
             tb_ip.Text = Plugin_Settings.Default.address;
             tb_port.Text = Plugin_Settings.Default.port.ToString();
             protocolSwitch.State = Plugin_Settings.Default.protocol
@@ -137,17 +145,44 @@ namespace PKHeX_Raid_Plugin
         public void UpdateRaids(SAV8SWSH sav)
         {
             _raids = new RaidManager(sav.Blocks, sav.Version, sav.Badges, (uint)sav.TID16, (uint)sav.SID16);
+
             var list = _raids.DenList.OrderBy(r => r.Index).ToList();
-            CB_Den.DataSource = list;
-            CB_Den.SelectedIndex = 0;
+
             GetAllDens(list);
 
-            if (CB_Den.SelectedItem is RaidParameters raid)
-                LoadDen(raid);
+            CB_MapSelect.SelectedIndex = 0;
+            if (CB_MapSelect.SelectedItem is string region)
+                UpdateDenList(region);
         }
 
         private void ChangeDenIndex(object sender, EventArgs e)
         {
+            if (CB_Den.SelectedItem is RaidParameters raid)
+                LoadDen(raid);
+        }
+
+        private void ChangeMapIndex(object sender, EventArgs e)
+        {
+            if (CB_MapSelect.SelectedItem is string region)
+                UpdateDenList(region); 
+        }
+
+        private void UpdateDenList(string region)
+        {
+            List<RaidParameters> list = CB_MapSelect.SelectedItem switch
+            {
+                "Base" => _baseRaids,
+                "IsleOfArmor" => _aotRaids,
+                "CrownTundra" => _ctRaids,
+                _ => _baseRaids
+            };
+
+            // Rebind the combo box
+            CB_Den.DataSource = null;
+            CB_Den.DataSource = list;
+            CB_Den.SelectedIndex = 0;
+
+            // Load the first den automatically
             if (CB_Den.SelectedItem is RaidParameters raid)
                 LoadDen(raid);
         }
@@ -294,16 +329,24 @@ namespace PKHeX_Raid_Plugin
             }
 
             Bitmap mapWithMarks = AllMapMarks(raids, new Bitmap(baseMap));
-            Pen redPen = new(Color.Red, 10);
             using var graphics = Graphics.FromImage(mapWithMarks);
 
-            if (selectedRaid.Region == RaidRegion.CrownTundra)
-            {
-                redPen = new(Color.Red, 20);
-                graphics.DrawArc(redPen, selectedRaid.X - 10, selectedRaid.Y - 10, 25, 25, 0, 360);
-            }
-            else
-                graphics.DrawArc(redPen, selectedRaid.X - 5, selectedRaid.Y - 5, 15, 15, 0, 360);
+            bool isLarge = selectedRaid.Region == RaidRegion.CrownTundra;
+            int thickness = isLarge ? 20 : 10;
+            int offset = isLarge ? 10 : 5;
+            int dimension = isLarge ? 25 : 15;
+
+            Pen redPen = new(Color.Red, thickness);
+            graphics.DrawArc(
+                redPen,
+                selectedRaid.X - offset,
+                selectedRaid.Y - offset,
+                dimension,
+                dimension,
+                0,
+                360);
+
+            graphics.DrawArc(redPen, selectedRaid.X - 5, selectedRaid.Y - 5, 15, 15, 0, 360);
 
             DisplayImage(mapWithMarks);
         }
@@ -753,10 +796,7 @@ namespace PKHeX_Raid_Plugin
                 RemoteConnection.Log(message);
         }
 
-        private void OnConnectionStatusChanged(bool connected)
-        {
-            Connected = connected;
-        }
+        private void OnConnectionStatusChanged(bool connected) => Connected = connected;
 
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {

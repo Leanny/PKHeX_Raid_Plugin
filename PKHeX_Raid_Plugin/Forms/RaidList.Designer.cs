@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             GB_Left = new System.Windows.Forms.GroupBox();
+            CB_MapSelect = new System.Windows.Forms.ComboBox();
+            label4 = new System.Windows.Forms.Label();
             btn_refresh = new System.Windows.Forms.Button();
             progressBar = new System.Windows.Forms.ProgressBar();
             lbl_memo = new System.Windows.Forms.Label();
@@ -87,6 +89,8 @@
             // 
             // GB_Left
             // 
+            GB_Left.Controls.Add(CB_MapSelect);
+            GB_Left.Controls.Add(label4);
             GB_Left.Controls.Add(btn_refresh);
             GB_Left.Controls.Add(progressBar);
             GB_Left.Controls.Add(lbl_memo);
@@ -124,10 +128,29 @@
             GB_Left.Margin = new System.Windows.Forms.Padding(2);
             GB_Left.Name = "GB_Left";
             GB_Left.Padding = new System.Windows.Forms.Padding(2);
-            GB_Left.Size = new System.Drawing.Size(270, 572);
+            GB_Left.Size = new System.Drawing.Size(270, 582);
             GB_Left.TabIndex = 0;
             GB_Left.TabStop = false;
             GB_Left.Text = "Den List";
+            // 
+            // CB_MapSelect
+            // 
+            CB_MapSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            CB_MapSelect.FormattingEnabled = true;
+            CB_MapSelect.Location = new System.Drawing.Point(45, 22);
+            CB_MapSelect.Name = "CB_MapSelect";
+            CB_MapSelect.Size = new System.Drawing.Size(121, 23);
+            CB_MapSelect.TabIndex = 41;
+            CB_MapSelect.SelectedIndexChanged += ChangeMapIndex;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(6, 25);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(34, 15);
+            label4.TabIndex = 40;
+            label4.Text = "Map:";
             // 
             // btn_refresh
             // 
@@ -201,7 +224,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(10, 36);
+            label1.Location = new System.Drawing.Point(10, 53);
             label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(31, 15);
@@ -241,7 +264,7 @@
             // L_Location
             // 
             L_Location.AutoSize = true;
-            L_Location.Location = new System.Drawing.Point(45, 62);
+            L_Location.Location = new System.Drawing.Point(45, 80);
             L_Location.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             L_Location.Name = "L_Location";
             L_Location.Size = new System.Drawing.Size(59, 15);
@@ -328,7 +351,7 @@
             // L_ShinyInFrames
             // 
             L_ShinyInFrames.AutoSize = true;
-            L_ShinyInFrames.Location = new System.Drawing.Point(9, 119);
+            L_ShinyInFrames.Location = new System.Drawing.Point(10, 125);
             L_ShinyInFrames.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             L_ShinyInFrames.Name = "L_ShinyInFrames";
             L_ShinyInFrames.Size = new System.Drawing.Size(91, 15);
@@ -440,7 +463,7 @@
             // L_DenSeed
             // 
             L_DenSeed.AutoSize = true;
-            L_DenSeed.Location = new System.Drawing.Point(45, 82);
+            L_DenSeed.Location = new System.Drawing.Point(45, 104);
             L_DenSeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             L_DenSeed.Name = "L_DenSeed";
             L_DenSeed.Size = new System.Drawing.Size(38, 15);
@@ -451,7 +474,7 @@
             // 
             CB_Den.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             CB_Den.FormattingEnabled = true;
-            CB_Den.Location = new System.Drawing.Point(45, 32);
+            CB_Den.Location = new System.Drawing.Point(45, 50);
             CB_Den.Margin = new System.Windows.Forms.Padding(2);
             CB_Den.Name = "CB_Den";
             CB_Den.Size = new System.Drawing.Size(221, 23);
@@ -609,7 +632,7 @@
             // 
             splitContainer1.Panel2.Controls.Add(DenMap);
             splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(2);
-            splitContainer1.Size = new System.Drawing.Size(529, 576);
+            splitContainer1.Size = new System.Drawing.Size(529, 586);
             splitContainer1.SplitterDistance = 274;
             splitContainer1.TabIndex = 2;
             // 
@@ -621,7 +644,7 @@
             DenMap.Location = new System.Drawing.Point(2, 2);
             DenMap.Margin = new System.Windows.Forms.Padding(2);
             DenMap.Name = "DenMap";
-            DenMap.Size = new System.Drawing.Size(247, 572);
+            DenMap.Size = new System.Drawing.Size(247, 582);
             DenMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             DenMap.TabIndex = 0;
             DenMap.TabStop = false;
@@ -633,7 +656,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(533, 580);
+            ClientSize = new System.Drawing.Size(533, 590);
             Controls.Add(splitContainer1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Margin = new System.Windows.Forms.Padding(2);
@@ -711,5 +734,7 @@
         private System.Windows.Forms.Button btn_MinMax;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel cnctConfigPanel;
+        private System.Windows.Forms.ComboBox CB_MapSelect;
+        private System.Windows.Forms.Label label4;
     }
 }

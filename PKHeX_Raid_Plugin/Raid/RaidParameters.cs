@@ -90,7 +90,7 @@ namespace PKHeX_Raid_Plugin
                 _ => "Base"
             };
 
-            return $"{raidNumber}: ({regionName}) {Location}";
+            return $"{raidNumber}: {Location}";
         }
 
         public RaidParameters(int index, RaidSpawnDetail detail, int location, int x, int y, RaidRegion region)
