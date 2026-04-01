@@ -346,8 +346,6 @@ namespace PKHeX_Raid_Plugin
                 0,
                 360);
 
-            graphics.DrawArc(redPen, selectedRaid.X - 5, selectedRaid.Y - 5, 15, 15, 0, 360);
-
             DisplayImage(mapWithMarks);
         }
 
