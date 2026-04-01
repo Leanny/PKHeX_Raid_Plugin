@@ -30,7 +30,7 @@ jobs:
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
@@ -57,8 +57,8 @@ jobs:
       run: |
         $NuGetPackageFolder = Join-Path -Path $env:USERPROFILE -ChildPath ".nuget\packages\pkhex.core"
         $LatestVersion = (Get-ChildItem $NuGetPackageFolder | Sort-Object -Property LastWriteTime -Descending)[0].Name
-        $PkhexCoreDllSource = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath "PKHeX/PKHeX.Core/bin/Release/net9.0/PKHeX.Core.dll"
-        $PkhexCoreDllDest = Join-Path -Path $NuGetPackageFolder -ChildPath "$LatestVersion/lib/net9.0/PKHeX.Core.dll"
+        $PkhexCoreDllSource = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath "PKHeX/PKHeX.Core/bin/Release/net10.0/PKHeX.Core.dll"
+        $PkhexCoreDllDest = Join-Path -Path $NuGetPackageFolder -ChildPath "$LatestVersion/lib/net10.0/PKHeX.Core.dll"
         Copy-Item -Path $PkhexCoreDllSource -Destination $PkhexCoreDllDest
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
@@ -77,11 +77,11 @@ jobs:
       with:
         name: PKHeX_Raid_Plugin
         path:  |
-          PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows
-          !PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows/PKHeX.Core.dll
-          !PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows/PKHeX.Drawing.dll
-          !PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows/PKHeX.Drawing.PokeSprite.dll
-          !PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows/libz3.dll
-          !PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows/PKHeX_Raid_Plugin.deps
-          !PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows/PKHeX_Raid_Plugin.deps.json
-          !PKHeX_Raid_Plugin/bin/x64/Release/net9.0-windows/PKHeX_Raid_Plugin.pdb
+          PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows
+          !PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows/PKHeX.Core.dll
+          !PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows/PKHeX.Drawing.dll
+          !PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows/PKHeX.Drawing.PokeSprite.dll
+          !PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows/libz3.dll
+          !PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows/PKHeX_Raid_Plugin.deps
+          !PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows/PKHeX_Raid_Plugin.deps.json
+          !PKHeX_Raid_Plugin/bin/x64/Release/net10.0-windows/PKHeX_Raid_Plugin.pdb
